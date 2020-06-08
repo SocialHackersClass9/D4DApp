@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import Home from './views/Home.js';
 
 function App() {
   const [greeting, setGreeting] = useState('No greeting');
@@ -18,6 +19,7 @@ function App() {
       </header>
       <h1>Greeting: { greeting } </h1>
       <div>
+        <Home/>
       </div>
     </div>
   );

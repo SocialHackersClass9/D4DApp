@@ -8,7 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Run `npm install` to install neccessary packages.
 
 * bootstrap
-* react-bootstrap
 
 ### Configuration
 

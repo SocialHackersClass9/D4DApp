@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home.js';
+import About from './views/About.js';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   const [greeting, setGreeting] = useState('No greeting');
@@ -13,15 +21,29 @@ function App() {
     })
   });
   return (
-    <div className="App">
-      <header className="App-header">
-        Header
-      </header>
+    <Router>
+        <ul className="nav">
+            <li className="nav-item">
+                <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/about">About</Link>
+            </li>
+        </ul>
+
       <h1>Greeting: { greeting } </h1>
-      <div>
-        <Home/>
-      </div>
-    </div>
+
+      <main role="main" className="container">
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 }
 

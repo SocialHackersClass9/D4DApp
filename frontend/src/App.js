@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Home from './views/Home.js';
+import Home from './views/HomePage/Home';
 import About from './views/About.js';
 import {
   BrowserRouter as Router,
@@ -22,18 +22,9 @@ function App() {
   });
   return (
     <Router>
-        <ul className="nav">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
-            </li>
-        </ul>
+       
 
-      <h1>Greeting: { greeting } </h1>
-
-      <main role="main" className="container">
+      <main role="main">
         <Switch>
           <Route path="/about">
             <About />

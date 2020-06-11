@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, NavBar, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 import Logo from'../../../assets/accountlogo.png';
+import Button from '../ButtonLogin/Button';
 import { Link } from 'react-router-dom';
 
 
@@ -41,6 +42,7 @@ const NavigationBar = () =>(
                 <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
                  </Nav>
             </Navbar.Collapse>
+            <Button />
             <h4>GR/EN</h4>
         </Navbar>
     </Styles>

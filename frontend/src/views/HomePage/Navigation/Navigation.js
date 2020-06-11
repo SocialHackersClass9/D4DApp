@@ -1,20 +1,26 @@
 import React from 'react';
 import { Nav, NavBar, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
+import Logo from'../../../assets/accountlogo.png';
 import { Link } from 'react-router-dom';
 
-import Button from '../ButtonLogin/Button';
+
 
 const Styles = styled.div`
 .navbar {
-    background-color: lightgrey;
+    background-color:rgba(33, 33, 33,0.8);
 }
 
 navbar-brand, .navbar-nav .nav-link {
-    color: black;
+    color: white;
+    font-size:23px;
+    font-weight:600;
+    padding-left:50px;
+    text-align:center;
 
     &:hover {
-        color:red;
+        color:#0F4D99;
+        
     }
 }
 
@@ -23,17 +29,19 @@ navbar-brand, .navbar-nav .nav-link {
 
 const NavigationBar = () =>(
     <Styles>
-        <Navbar expand='lg'>
-            <Navbar.Brand href='/'>D4D</Navbar.Brand>
+        <Navbar expand='lg' fixed="top" bg="">
+            <Navbar.Brand href='/'><img width="60" height="40" src={Logo}></img></Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                 <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
-                </Nav>
+                <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item> 
+                <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
+                 </Nav>
             </Navbar.Collapse>
-            <Button/>
+            <h4>GR/EN</h4>
         </Navbar>
     </Styles>
 )

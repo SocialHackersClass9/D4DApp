@@ -1,47 +1,88 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Facebook, Twitter } from 'react-feather';
+import {Facebook , Twitter, Youtube} from 'react-feather';
 
-const Styles = styled.div`
- .footer {
-     background-color: black;
-     width:100%;
-     
-     position:absolute;
-     bottom: 0;
-     left: 0;
- }
+const FooterContainer = styled.footer`
+ .footer-middle {
+    background-color : #18181a;
+    padding-top: 3rem;
+    color: white;
 
-.list-inline{
-    width: 510px;
-}
+  }
+
+  .footer-bottom {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  ul li {
+    margin-top: 10px;
+  }
+
+  ul li a {
+    color: grey;
+  }
+  
+  ul li a:hover {
+    color: lightgrey;
+  }
 `
 
 
 const Foot = () => (
-    <Styles>
-    <footer className="footer">
-    <div className="container">
-      <div className="row align-items-center">
-        
-        <div className="col-md-4">
-          <ul className="list-inline social-buttons">
-            <li className="list-inline-item">
-              <a href="">
-                <Facebook />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="">
-                <Twitter />
-              </a>
-            </li>
-          </ul>
-        </div>
+   
+    <FooterContainer className="main-footer">
+      <div className="footer-middle">
+      <div className="container">
+       <div className="row">
+         <div className="col-md-3 col-sm-6">
+           <h4>Lorem ipsum</h4>
+           <ul className="list-unstyled">
+             <li>Lorem ipsum</li>
+             <li>Lorem ipsum</li>
+             <li>Lorem ipsum</li>
+             <li>Lorem ipsum</li>
+           </ul>
+         </div>
+
+         <div className="col-md-3 col-sm-6">
+           <h4>Lorem ipsum</h4>
+           <ul className="list-unstyled">
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+           </ul>
+         </div>
+
+         <div className="col-md-3 col-sm-6">
+           <h4>Lorem ipsum</h4>
+           <ul className="list-unstyled">
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+             <li><a href="/">Lorem ipsum</a></li>
+           </ul>
+         </div>
+
+         <div className="col-md-3 col-sm-6">
+           <h4>Social Media</h4>
+           <ul className="list-unstyled">
+             <li><a href="/"><Facebook></Facebook> Facebook</a></li>
+             <li><a href="/"><Twitter /> Twitter</a></li>
+             <li><a href="/"><Youtube /> Youtube</a></li>
+           </ul>
+         </div>
+
+       </div>
+       <div className="footer-bottom">
+         <p className="text-xs-center">
+           &copy;{new Date().getFullYear()} D4D App - All Rights Reserved.
+         </p>
+       </div>
       </div>
-    </div>
-  </footer>
-  </Styles>
+      </div>
+    </FooterContainer>
 
 
 )

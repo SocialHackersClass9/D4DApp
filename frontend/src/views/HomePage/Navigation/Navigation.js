@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, NavBar, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 import Logo from'../../../assets/accountlogo.png';
-import Button from '../ButtonLogin/Button';
+import UserStatus from '../ButtonLogin/UserStatus';
 import { Link } from 'react-router-dom';
 
 
@@ -35,14 +35,14 @@ const NavigationBar = () =>(
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
-                <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item> 
-                <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
-                 </Nav>
+                    <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item> 
+                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
+                </Nav>
             </Navbar.Collapse>
-            <Button />
+            <UserStatus />
             <h4>GR/EN</h4>
         </Navbar>
     </Styles>

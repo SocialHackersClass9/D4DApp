@@ -2,7 +2,6 @@ import React from 'react';
 import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import trainingImage from '../../../assets/960.jpg';
-import Button from '../ButtonLogin/Button';
 
 const Styles = styled.div`
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import trainingImage from '../../../assets/960.jpg';
-import Button from '../ButtonLogin/Button';
+
 
 const Styles = styled.div`
 
@@ -49,19 +48,16 @@ const Jumbotron = () => (
 
     <Styles>
         
-        <Jumbo fluid className="jumbo">
+        <div  className="jumbo container-fluid">
             <div className="overlay"></div>
-            <Container className="text">
+            <div className="text container-fluid">
                 <h1>Welcome to D4D</h1>
                 <p>Find your coach and start training today</p>
-            </Container>
-            <Container className="login">
-           
-                
-            </Container>
+            </div>
+            
             
            
-        </Jumbo>
+        </div>
       
         
     </Styles>

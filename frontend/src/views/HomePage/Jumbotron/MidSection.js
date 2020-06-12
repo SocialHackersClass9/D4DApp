@@ -1,5 +1,4 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import Paralympics from '../../../assets/paralympics.jpg';
 
@@ -37,9 +36,9 @@ const MidSection = () => (
 
     <Styles>
         
-        <Jumbo fluid className="jumbo">
+        <div className="jumbo container-fluid">
             <div className="overlay"></div>
-        </Jumbo>
+        </div>
         
     </Styles>
 )

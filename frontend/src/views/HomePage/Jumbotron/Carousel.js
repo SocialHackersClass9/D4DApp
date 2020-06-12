@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import trainingImage from '../../../assets/960.jpg';
 
-
 const Styles = styled.div`
 
 .jumbo {

@@ -6,7 +6,7 @@ Migration tool: [db-migrate](https://db-migrate.readthedocs.io/)
 Attention:
 You have to install db-migrate globally also to use `db-migrate` command
 ```
-npm install -g db-migrare
+npm install -g db-migrate
 ```
 
 

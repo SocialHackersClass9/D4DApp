@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home.js';
 import About from './views/About.js';
+import Registration from '/.views/Registration.js';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,23 +17,25 @@ function App() {
   const [greeting, setGreeting] = useState('No greeting');
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL)
-    .then(res => res.json())
-    .then(data => {
+      .then(res => res.json())
+      .then(data => {
         setGreeting(data.greeting);
-    })
+      })
   });
   return (
     <Router>
-        <ul className="nav">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
-            </li>
-        </ul>
+      <ul className="nav">
+        <li className="nav-item">
+          <Link className="nav-link" to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/about">About</Link>
+        </li>
+      </ul>
 
-      <h1>Greeting: { greeting } </h1>
+      <h1>Greeting: {greeting} </h1>
+
+      <div><Registration /></div>
 
       <main role="main" className="container">
         <Switch>

@@ -4,7 +4,7 @@ const env = require('node-env-file');
 
 module.exports = {
     get: () => {
-        const envFileLocation = appRootPath + '/.env.local';
+        const envFileLocation = appRootPath + '/.env.example';
         console.log(`envFileLocation={envFileLocation}`);
         if (fileExists.sync(envFileLocation)){
             env(envFileLocation);

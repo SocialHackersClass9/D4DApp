@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home.js';
 import About from './views/About.js';
+import Registration from './views/Registration.js';
+import Profil from './views/Profil.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,12 +31,24 @@ function App() {
             <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
             </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/Registration">Registration</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/Profil">Profil</Link>
+            </li>
         </ul>
 
       <h1>Greeting: { greeting } </h1>
 
       <main role="main" className="container">
         <Switch>
+          <Route path="/Registration">
+            <Registration />
+          </Route>
+          <Route path="/Profil">
+            <Profil />
+          </Route>
           <Route path="/about">
             <About />
           </Route>

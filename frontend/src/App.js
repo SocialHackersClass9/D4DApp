@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home.js';
 import About from './views/About.js';
-import Registration from '/.views/Registration.js';
+import Registration from './views/Registration.js';
 
 import {
   BrowserRouter as Router,

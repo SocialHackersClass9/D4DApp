@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home.js';
 import About from './views/About.js';
-import Registration from './views/Registration.js';
-
+import AccesibleRegistration from './views/AccesibleRegistration.js';
+import InstructorProfile from './views/InstructorProfileContact.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,14 +31,24 @@ function App() {
         <li className="nav-item">
           <Link className="nav-link" to="/about">About</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/AccesibleRegistration">Accesible Registration</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/InstructorProfileContact">Instructor Profile</Link>
+        </li>
       </ul>
 
       <h1>Greeting: {greeting} </h1>
 
-      <div><Registration /></div>
-
       <main role="main" className="container">
         <Switch>
+          <Route path="/AccesibleRegistration">
+            <AccesibleRegistration />
+          </Route>
+          <Route path="/InstructorProfileContact">
+            <InstructorProfile />
+          </Route>
           <Route path="/about">
             <About />
           </Route>

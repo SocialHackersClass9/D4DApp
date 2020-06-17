@@ -58,7 +58,7 @@ const Register = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" type="submit">
-                        Login
+                        Sign Up
                     </Button>
                 </Modal.Footer>
             </Modal>

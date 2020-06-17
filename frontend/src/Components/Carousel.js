@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import trainingImage from '../../../assets/960.jpg';
+import trainingImage from '../assets/960.jpg';
 
 const Styles = styled.div`
 
@@ -26,18 +26,15 @@ const Styles = styled.div`
 
 .text {
     text-align:center;
-    padding-top:50px;
+    padding-top:150px;
     
 }
 
-.login{
-    magin:0;
-    padding:0;
-    display:flex;
-    position:relative;
-    align-items: center;
-    
+.text p {
+    font-size:25px;
+    padding-top:20px;
 }
+
 
 `
 
@@ -50,8 +47,8 @@ const Jumbotron = () => (
         <div  className="jumbo container-fluid">
             <div className="overlay"></div>
             <div className="text container-fluid">
-                <h1>Welcome to D4D</h1>
-                <p>Find your coach and start training today</p>
+                <h1><strong>Welcome to D4D</strong></h1>
+                <p><strong>Find your coach and start training today</strong></p>
             </div>
             
             

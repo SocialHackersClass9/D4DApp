@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../../assets/accountlogo.png';
-import Coach from '../../../assets/coaches.png';
-import Sports from '../../../assets/sports.jpg';
+import Logo from '../assets/accountlogo.png';
+import Coach from '../assets/coaches.png';
+import Sports from '..//assets/sports.jpg';
 import Styled from 'styled-components';
 
 const Images = Styled.img`
@@ -12,7 +12,7 @@ margin: 20px;
 `
 
 
-const Content = () => (
+const ThreeColumnSection = () => (
     <div className="container-fluid">
         <hr style={{paddingTop:"50px"}}></hr>
         <div className="row text-center">
@@ -40,4 +40,4 @@ const Content = () => (
    
 )
 
-export default Content;
+export default ThreeColumnSection;

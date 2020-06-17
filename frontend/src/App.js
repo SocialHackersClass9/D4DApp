@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Home from './views/HomePage/Home';
+import Home from './views/Home';
 import About from './views/About.js';
 import {
   BrowserRouter as Router,

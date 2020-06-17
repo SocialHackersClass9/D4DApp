@@ -1,8 +1,8 @@
 import React from 'react';
 import { Nav, NavBar, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-import Logo from'../../../assets/accountlogo.png';
-import UserStatus from '../ButtonLogin/UserStatus';
+import Logo from'../assets/accountlogo.png';
+import UserStatus from './UserStatus';
 import { Link } from 'react-router-dom';
 
 

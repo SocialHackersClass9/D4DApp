@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Paralympics from '../../../assets/paralympics.jpg';
+import Paralympics from '../assets/paralympics.jpg';
 
 const Styles = styled.div`
 .jumbo {

@@ -1,0 +1,54 @@
+{
+    "instructors": [
+      {
+        "id": 1,
+        "name": "Hasan C.",
+        "gender": "male",
+        "location": "Athens",
+        "sports": ["football", "basketball", "swimming", "tennis"],
+        "age": 31
+      },
+      {
+        "id": 2,
+        "name": "Aabfjhva B.",
+        "gender": "female",
+        "location": "Crete",
+        "sports": ["football", "basketball", "swimming"],
+        "age": 21
+      },
+      {
+        "id": 3,
+        "name": "Fafadjfk E.",
+        "gender": "male",
+        "location": "Athens",
+        "sports": ["football", "basketball"],
+        "age": 27
+      },
+      {
+        "id": 4,
+        "name": "Vhjfhk C.",
+        "gender": "female",
+        "location": "Thessaloniki",
+        "sports": ["football"],
+        "age": 33
+      },
+      {
+        "id": 5,
+        "name": "Ynkjsdfjk C.",
+        "gender": "female",
+        "location": "Crete",
+        "sports": ["swimming", "tennis"],
+        "age": 25
+      },
+      {
+        "id": 6,
+        "name": "Chgsjd C.",
+        "gender": "male",
+        "location": "Makedonia",
+        "sports": ["tennis"],
+        "age": 22
+      }
+  
+      
+    ]
+  }

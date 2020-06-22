@@ -20,11 +20,10 @@ const ThreeColumnSection = () => (
                 <Images src={Coach} style={{borderRadius: "20px"}}></Images>
                 <h3>Coaches</h3>
                 <p>Find and choose your coach among the best from all over the country!</p>
-                <a href="/" >See which coaches are near you...</a>
+                <a href="/search">See which coaches are near you...</a>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4">
                 <Images src={Logo}></Images>
-                
                 <h3>About D4D</h3>
                 <p>Some general info about the organization...</p>
                 <a href="/">Learn more...</a>

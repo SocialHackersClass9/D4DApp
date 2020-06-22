@@ -4,9 +4,9 @@ Migration tool: [db-migrate](https://db-migrate.readthedocs.io/)
 
 
 Attention:
-You have to install db-migrate globally also to use `db-migrate` command
+You have to install db-migrate globally also to use `db-migrate-mysql` command
 ```
-npm install -g db-migrate
+npm install -g db-migrate-mysql
 ```
 
 

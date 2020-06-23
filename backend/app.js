@@ -54,6 +54,18 @@ app.get('/search/locations', (req, res) => {
     })
 });
 
+app.get('/search/location=:location-sport=:sport', (req, res) => {
+    let sql = `SELECT instructor.* , sports.sport FROM instructor INNER JOIN sports ON instructor.id=sports.id WHERE instructor.city="${req.params.location}" AND sports.sport="${req.params.sport}"`
+
+    con.connect(err => {
+        if (err) console.log(err);
+        con.query(sql, (err, result) => {
+            if (err) console.log(err);
+            res.json(result)
+        })
+    })
+})
+
 
 ////////////////////////
 

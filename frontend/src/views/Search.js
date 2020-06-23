@@ -1,59 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Sports from '../Components/Sports';
+import Instructors from '../Components/Instructors';
+import Locations from '../Components/Locations';
 
-export default function Search() {
-    return (
-        <div className="container">
-            
-           <h1>Find Your Instructor</h1>
-           
-      <hr/>
-      <div className="row">
-        <div className="col-md-8">
-                <label>Select Locations
-                    <select className="form-control">
-                    <option value="">ALL</option>
-                    <option value="Athens">Athens</option>
-                    <option value="Thessaloniki">Thessaloniki</option>
-                    <option value="Lamia">Lamia</option>
-                    <option value="Komotini">Komotini</option>
-                    <option value="Ioannina">Ioannina</option>
-                    <option value="Corfu">Corfu</option>
-                    <option value="Mytilene">Mytilene</option>
-                    <option value="Tripoli">Tripoli</option>
-                    <option value="Ermoupoli">Ermoupoli</option>
-                    <option value="Larissa">Larissa</option>
-                    <option value="Patras">Patras</option>
-                    <option value="Kozani">Kozani</option>
-                    </select>
-                </label>
-
-                <label>Select Sports
-                    <select className="form-control">
-                    <option value="">ALL</option>
-                    <option value="football">Football</option>
-                    <option value="basketball">Basketball</option>
-                    <option value="swimming">Swimming</option>
-                    <option value="tennis">Tennis</option>
-                    </select>
-                </label>
-          <hr/>
-          
-
-                
-            </div>
-        </div>
-
- <div className="col-md-4">
-     {/* Put profile picture here! */}
-                <h2>Name</h2>
-                
-                
-        <div className="col-md-4">
-                <h2>Information</h2>
-                
-            </div>
-        </div>
-      </div>
+export default class Search extends Component {
+    constructor(props) {
+      super(props);
+      this.state = { instructors:[], filteredInstructors:[],}
+      
+      this.handleChangeSport = this.handleChangeSport.bind(this);
+      this.handleChangeLocation = this.handleChangeLocation.bind(this);
+    }
+    componentWillMount() {
+      fetch("http://localhost:8000/instructors").then(res => res.json())
+      .then(data => this.setState({
+        instructors: data,
+        filteredInstructors: data
+      }));
+    }
     
-    )
-}
+    handleChangeSport(e) {
+        this.setState({sports: e.target.value});
+        this.listInstructors();
+      }
+
+    handleChangeLocation(e) {
+        this.setState({location: e.target.value});
+        this.listInstructors();
+      }
+
+      render() {
+        return (
+          <div className="container">
+            <h1>Find Your Instructor</h1>
+            <hr/>
+            <div className="row">
+              <div className="col-md-8">
+                <Sports sports={this.state.sports} handleChangeSport={this.handleChangeSport} 
+                count={this.state.filteredInstructors.length} />
+                
+                <Locations location={this.state.location} handleChangeLocation={this.handleChangeLocation} />
+
+                <hr/>
+                <Instructors instructors={this.state.filteredInstructors} selectTheInstructor={this.selectTheInstructor} />
+              </div>
+              <div className="col-md-4">
+      
+              </div>
+            </div>
+          </div>
+        );
+      }
+      }

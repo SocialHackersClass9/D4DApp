@@ -26,11 +26,11 @@ app.get('/', (req, res) => {
 })
 
 ////////////////////////
-app.use(cookieParser());
-app.post('/gdpr', (req, res) => {
-    res.cookie('gdpr', 'yes', { maxAge: 2592000 });
-    res.redirect(303, redirectTo)
-});
+
+
+
+
+
 ////////////////////////
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

@@ -19,6 +19,7 @@ let con = mysql.createConnection({
     database: 'D4D'
 })
 
+console.log(process.env.mysqlUser)
 
 
 app.get('/', (req, res) => {

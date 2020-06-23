@@ -14,9 +14,9 @@ app.use(cors())
 
 let con = mysql.createConnection({
     host: 'localhost',
-    user: process.env.mysqlUser,
-    password: process.env.mysqlPassword,
-    database: 'D4D'
+    user: 'sobhan',
+    password: 'Sobhan123!@#',
+    database: 'd4d'
 })
 
 console.log(process.env.mysqlUser)
@@ -29,7 +29,30 @@ app.get('/', (req, res) => {
 ////////////////////////
 
 
+app.get('/search/sports', (req, res) => {
+    let sql = `SELECT DISTINCT sport FROM sports`
 
+    con.connect((err) => {
+
+        if (err) console.log(err);
+        con.query(sql, (err, result) => {
+            if (err) console.log(err);
+            res.json(result)
+        })
+    })
+});
+
+app.get('/search/locations', (req, res) => {
+    let sql = `SELECT DISTINCT city FROM instructor`
+
+    con.connect((err) => {
+        if (err) console.log(err)
+        con.query(sql, (err, result) => {
+            if (err) console.log(err)
+            res.json(result)
+        })
+    })
+});
 
 
 ////////////////////////

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
-import Search from './views/Search.js';
+import Search from './views/Search';
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,16 +27,16 @@ function App() {
 
       <main role="main">
         <Switch>
+        <Route exact path="/search">
+            <Search />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/">
             <Home />
           </Route>
-          <Route exact path="/search">
-            
-            <Search />
-          </Route>
+          
         </Switch>
       </main>
 

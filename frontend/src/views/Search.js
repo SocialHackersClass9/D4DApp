@@ -1,36 +1,48 @@
 import React from 'react';
-
-export default class Search extends React.Component {
+import LocationsFilter from '../Components/LocationsFilter'
+class Search extends React.Component {
     constructor() {
         super();
         this.state = {
-            locations: {},
-            sports: {}
+            locations: [],
+            sports: {},
+            loading: true
         }
-        this.locationsData = this.locationsData.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
-    change() {
+    // change() {
 
-    }
+    // }
 
-    locationsData(){
-        fetch("localhost:3001/search/locations")
+    componentDidMount(){
+        fetch("http://localhost:3001/search/locations")
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    location: data
-                })
-            })
+                    locations: data,
+                    loading: false
+                });
+            });
+        
+        console.log("state",this.state)
+        this.state.locations.map(city => {
+            console.log(city)
+        });
+        
     }
+
+
 
     render() {
 
+    const text = this.state.loading ? "loading" : this.state.locations.map(city => <p>{city.city}</p>);
         
-
         return (
             <div>   
                 <p>
-                    {this.state.locations}
+                    {text}
+                    
+                    
                 </p>
                 
             </div>
@@ -39,3 +51,6 @@ export default class Search extends React.Component {
     }
 }
 
+
+
+export default Search;

@@ -25,6 +25,8 @@ console.log(process.env.mysqlUser)
 app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });
 })
+con.connect((err) => {
+    if (err) console.log(err) })
 
 ////////////////////////
 
@@ -40,18 +42,19 @@ app.get('/search/sports', (req, res) => {
             res.json(result)
         })
     })
+    con.end();
 });
 
 app.get('/search/locations', (req, res) => {
     let sql = `SELECT DISTINCT city FROM instructor`
 
-    con.connect((err) => {
-        if (err) console.log(err)
+    
         con.query(sql, (err, result) => {
             if (err) console.log(err)
             res.json(result)
         })
-    })
+    
+    
 });
 
 app.get('/search/location=:location-sport=:sport', (req, res) => {
@@ -64,6 +67,8 @@ app.get('/search/location=:location-sport=:sport', (req, res) => {
             res.json(result)
         })
     })
+
+    con.end();
 })
 
 

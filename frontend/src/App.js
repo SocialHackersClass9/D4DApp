@@ -34,6 +34,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/search">
+            
             <Search />
           </Route>
         </Switch>

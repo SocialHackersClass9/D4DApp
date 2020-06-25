@@ -4,8 +4,6 @@ import './ContactInstructorForm.css';
 
 export default function ContactInstructorForm() {
     return (
-
-
         <div className="contact1">
             <div className="container-contact1">
 

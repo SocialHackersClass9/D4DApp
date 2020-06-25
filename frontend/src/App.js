@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
-import AccesibleRegistration from './views/AccesibleRegistration.js';
-import InstructorProfile from './views/InstructorProfileContact.js';
+import InstructorProfileContact from './Components/InstructorProfileContact.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,11 +27,8 @@ function App() {
 
       <main role="main">
         <Switch>
-          <Route path="/AccesibleRegistration">
-            <AccesibleRegistration />
-          </Route>
           <Route path="/InstructorProfileContact">
-            <InstructorProfile />
+            <InstructorProfileContact />
           </Route>
           <Route path="/about">
             <About />

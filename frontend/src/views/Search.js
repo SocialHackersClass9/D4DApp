@@ -8,12 +8,12 @@ class Search extends React.Component {
             sports: [],
             loadingLocations: true,
             loadingSports: true,
-            favSport: "*",
-            favLocation: "*",
+            favSport: "None",
+            favLocation: "None",
             matches: [],
-            loadinLocationMatches: true,
-            loadingSportMatches : true
-            
+            // loadinLocationMatches: true,
+            // loadingSportMatches : true
+            loadingMatches: true
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleChange = this.handleChange.bind(this);
@@ -48,11 +48,18 @@ class Search extends React.Component {
         const {name,value} = e.target
         this.setState({[name]:value})
 
-        const response = fetch(`http://localhost:3001/location=${this.state.favLocation}-sport=${this.state.favSport}`)
-        const json = response.json()
-        const data = this.setState({user: data,loadinMatches : false})
-
-
+        
+        if(this.state.favLocation&&this.state.favSport !== "None"){
+            
+            const s = this.state.favSport;
+            const l = this.state.favLocation;
+            const url = `http://localhost:3001/location=${l}-sport=${s}`
+            console.log(url)
+            fetch(url)
+                .then(response => response.json())
+                .then(data => this.setState({matches: data,loadingMatches : false}))
+        }
+        console.log("state 2 : ",this.state.matches)
     }
 
 
@@ -70,10 +77,12 @@ class Search extends React.Component {
             <div>   
                 <p>
                     <select name="favLocation" onChange={this.handleChange} value={this.state.favLocation}>
+                        <option value="None">None</option>
                         {locations}
                     </select>
 
                     <select name="favSport" onChange={this.handleChange} value={this.state.favSport}>
+                    <option value="None">None</option>
                         {sports}
                     </select>
                     

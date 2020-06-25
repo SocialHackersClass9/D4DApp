@@ -5,8 +5,9 @@ class Search extends React.Component {
         super();
         this.state = {
             locations: [],
-            sports: {},
-            loading: true
+            sports: [],
+            loadingLocations: true,
+            
         }
         this.componentDidMount = this.componentDidMount.bind(this)
     }
@@ -20,14 +21,19 @@ class Search extends React.Component {
             .then(data => {
                 this.setState({
                     locations: data,
-                    loading: false
-                });
+                    loadingLocations: false
+                })
             });
         
-        console.log("state",this.state)
-        this.state.locations.map(city => {
-            console.log(city)
-        });
+        
+        fetch("http://localhost:3001/search/sports")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    sports: data,
+                    loadingSports: false
+                })
+            });
         
     }
 
@@ -35,12 +41,21 @@ class Search extends React.Component {
 
     render() {
 
-    const text = this.state.loading ? "loading" : this.state.locations.map(city => <p>{city.city}</p>);
-        
+        const locations = this.state.loadingLocations ? "loading" : this.state.locations.map(city => <option>{city.city}</option>)
+    
+        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(sport => <option value={sport.sport}>{sport.sport}</option>)
+
         return (
             <div>   
                 <p>
-                    {text}
+                    <select>
+                        {locations}
+                    </select>
+
+                    <select>
+                        {sports}
+                    </select>
+                    
                     
                     
                 </p>

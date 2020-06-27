@@ -8,7 +8,7 @@ import Inspirational from '../Components/Inspirational';
 import Footer from '../Components/Footer';
 
 const home = () => (
-    <div>
+    <div className="container-fluid">
         <Navigation />
         <Carousel />
         <ThreeColumnSection />

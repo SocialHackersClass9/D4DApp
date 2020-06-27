@@ -34,7 +34,7 @@ const Register = () => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="center">Register as</Modal.Title>
+                    <Modal.Title>Register as</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="register">
                     <Button href="#" variant="outline-success" size="lg" block>User</Button>

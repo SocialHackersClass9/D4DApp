@@ -48,18 +48,22 @@ class Search extends React.Component {
         const {name,value} = e.target
         this.setState({[name]:value})
 
-        
-        if(this.state.favLocation&&this.state.favSport !== "None"){
-            
-            const s = this.state.favSport;
-            const l = this.state.favLocation;
-            const url = `http://localhost:3001/location=${l}-sport=${s}`
-            console.log(url)
-            fetch(url)
-                .then(response => response.json())
-                .then(data => this.setState({matches: data,loadingMatches : false}))
+        let l = "",s = "",url = "";
+        let matches = []
+        if(e.target.name === "favLocation"){
+            l = e.target.value;
         }
-        console.log("state 2 : ",this.state.matches)
+        if(e.target.name === "favSport") {
+            s = e.target.value;
+        }
+        
+        // if(l.length & s.length > 0){
+            url = `http://localhost:3001/location=${l}-sport=${s}`
+            fetch(url)
+                .then(res => res.json())
+                .then(data => matches = data)
+        //}
+        console.log(url)
     }
 
 
@@ -70,9 +74,9 @@ class Search extends React.Component {
     
         const sports = this.state.loadingSports ? "loading" : this.state.sports.map(sport => <option value={sport.sport}>{sport.sport}</option>)
 
-    const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
-
-        console.log("state : ",this.state)
+        //const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
+        
+        
         return (
             <div>   
                 <p>
@@ -86,9 +90,9 @@ class Search extends React.Component {
                         {sports}
                     </select>
                     
-                    <div>
+                    {/* <div>
                         {matches}
-                    </div>
+                    </div> */}
                     
                 </p>
                 

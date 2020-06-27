@@ -6,7 +6,7 @@ module.exports = {
     get: () => {
         const envFileLocation = appRootPath + '/.env.local';
         console.log(`envFileLocation={envFileLocation}`);
-        if (fileExists.sync(envFileLocation)){
+        if (fileExists.sync(envFileLocation)) {
             env(envFileLocation);
         }
     }

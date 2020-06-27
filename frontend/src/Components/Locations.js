@@ -4,10 +4,9 @@ export default class Locations extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-md-4">
-                
                 <label>Select Locations
-                    <select className="form-control">
+                <select className="form-control" value={this.props.location}
+                onChange={this.props.handleChangeLocation}>
                     <option value="">ALL</option>
                     <option value="Athens">Athens</option>
                     <option value="Thessaloniki">Thessaloniki</option>
@@ -23,8 +22,6 @@ export default class Locations extends Component {
                     <option value="Kozani">Kozani</option>
                     </select>
                 </label>
-                </div> 
-                
             </div>
         )
     }

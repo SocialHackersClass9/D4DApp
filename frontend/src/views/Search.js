@@ -21,14 +21,35 @@ export default class Search extends Component {
     
     handleChangeSport(e) {
         this.setState({sports: e.target.value});
-        this.listInstructors();
+        this.listInstructorsBySports();
       }
+    listInstructorsBySports(){
+        this.setState(state => {
+          if(state.sports !==''){
+          return { filteredInstructors: state.instructors.filter(a=>
+            a.sports.indexOf(state.sports)>=0
+            )}
+        }        
+        return {filteredInstructors:state.instructors}
+    })
+  }
 
     handleChangeLocation(e) {
         this.setState({location: e.target.value});
-        this.listInstructors();
+        this.listInstructorsByLocation();
       }
 
+    listInstructorsByLocation(){
+      this.setState(state => {
+        if(state.location !==''){
+          return { filteredInstructors: state.instructors.filter(a=>
+            a.location.indexOf(state.location)>=0
+            )}
+        }
+        return {filteredInstructors:state.instructors}
+      })
+    }
+    
       render() {
         return (
           <div className="container">
@@ -36,11 +57,10 @@ export default class Search extends Component {
             <hr/>
             <div className="row">
               <div className="col-md-8">
-                <Sports sports={this.state.sports} handleChangeSport={this.handleChangeSport} 
-                count={this.state.filteredInstructors.length} />
                 
-                <Locations location={this.state.location} handleChangeLocation={this.handleChangeLocation} />
-
+                <Sports count={this.state.filteredInstructors.length} sports={this.state.sports} 
+                handleChangeSport={this.handleChangeSport} />
+                 <Locations location={this.state.location} handleChangeLocation={this.handleChangeLocation} />
                 <hr/>
                 <Instructors instructors={this.state.filteredInstructors} selectTheInstructor={this.selectTheInstructor} />
               </div>

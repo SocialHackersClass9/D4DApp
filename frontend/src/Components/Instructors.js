@@ -6,7 +6,7 @@ export default class Instructors extends Component {
             <div className = "col-md-4" key={instructors.id}>
             <div className = "thumbnail text-center">
                 <a href={`${instructors.id}`} onClick={(e)=>this.props.selectTheInstructor(e, instructors)}>
-                    <img src={`../assets/instructorspp/${instructors.id}.jpg`} alt={instructors.name} />
+                    <img src={`/instructorspp/${instructors.id}.jpg`} alt={instructors.name} />
                     <p>
                         {instructors.name}
                     </p>
@@ -19,7 +19,7 @@ export default class Instructors extends Component {
 
                 </div>
             </div>
-            </div>
+        </div>
         )
         )
         return (

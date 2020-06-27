@@ -6,7 +6,7 @@ import Styled from 'styled-components';
 
 const Images = Styled.img`
 height:250px;
-position:relative;
+
 margin: 20px;
 
 `

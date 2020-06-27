@@ -65,6 +65,17 @@ app.get('/search/location=:location-sport=:sport', (req, res) => {
    
 })
 
+app.post('/login',(req,res) => {
+
+    // console.log(req.body)
+    // email or username
+    sql = `SELECT username FROM login WHERE (email="${req.body.username}" AND password="${req.body.password}") OR (username="${req.body.username}" AND password="${req.body.password}")`
+
+    con.query(sql,(err,result) => {
+        if(err) console.log(err)
+        res.json(result)
+    })
+})
 
 ////////////////////////
 

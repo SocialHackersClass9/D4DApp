@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
-import InstructorProfileContact from './Components/InstructorProfileContact.js';
+import InstructorProfileContact from './views/InstructorProfileContact.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,7 +27,7 @@ function App() {
 
       <main role="main">
         <Switch>
-          <Route path="/InstructorProfileContact">
+          <Route path="/instructor">
             <InstructorProfileContact />
           </Route>
           <Route path="/about">

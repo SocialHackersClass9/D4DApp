@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nav, NavBar, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-import Logo from'../assets/accountlogo.png';
+import Logo from '../assets/accountlogo.png';
 import UserStatus from './UserStatus';
 import { Link } from 'react-router-dom';
 
@@ -27,18 +27,18 @@ navbar-brand, .navbar-nav .nav-link {
 
 `;
 
-const NavigationBar = () =>(
+const NavigationBar = () => (
     <Styles>
         <Navbar expand='lg' fixed="top" bg="">
             <Navbar.Brand href='/'><img width="60" height="40" src={Logo}></img></Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+            <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                     <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item> 
-                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
+                    <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>
                 </Nav>
             </Navbar.Collapse>
             <UserStatus />

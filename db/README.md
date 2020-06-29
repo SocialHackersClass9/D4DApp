@@ -56,3 +56,11 @@ db-migrate create NAME-OF-MIGRATION --sql-file
 
 
 See db-migrations documentation for other commands: [Documentation](https://db-migrate.readthedocs.io/en/latest/Getting%20Started/commands/)
+
+
+### Setup sample data
+
+
+```
+mysql d4d -u XXXXX -p < db/sample_data.sql
+```

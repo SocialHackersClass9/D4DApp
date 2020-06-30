@@ -60,7 +60,7 @@ const Login = () => {
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form action="http://localhost:3001/login" method="POST">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />

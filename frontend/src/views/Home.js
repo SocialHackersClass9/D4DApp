@@ -16,8 +16,8 @@ const home = () => (
         <Inspirational />
 
         <Footer />
-        
+
 
     </div>
-); 
+);
 export default home;

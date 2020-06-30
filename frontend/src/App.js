@@ -4,6 +4,7 @@ import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
 import Search from './views/Search';
+import InstructorProfileContact from './views/InstructorProfileContact.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,24 +17,30 @@ function App() {
   const [greeting, setGreeting] = useState('No greeting');
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL)
-    .then(res => res.json())
-    .then(data => {
+      .then(res => res.json())
+      .then(data => {
         setGreeting(data.greeting);
-    })
+      })
   });
   return (
     <Router>
-       
+
 
       <main role="main">
         <Switch>
+
         <Route exact path="/search">
             <Search />
+        </Route>
+
+          <Route exact path="/instructor">
+            <InstructorProfileContact />
+
           </Route>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
           

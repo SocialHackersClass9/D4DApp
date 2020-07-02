@@ -14,19 +14,18 @@ app.use(cors())
 
 let con = mysql.createConnection({
     host: 'localhost',
-    user: 'sobhan',
-    password: 'Sobhan123!@#',
+    user: `${process.env.MYSQL_USER}`,
+    password: `${process.env.MYSQL_PASSWORD}`,
     database: 'd4d'
 })
 
-console.log(process.env.mysqlUser)
+console.log(process.env.MYSQL_USER)
 
 
 app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });
 })
-con.connect((err) => {
-    if (err) console.log(err) })
+
 
 ////////////////////////
 
@@ -34,45 +33,45 @@ con.connect((err) => {
 app.get('/search/sports', (req, res) => {
     let sql = `SELECT DISTINCT sport FROM sports`
 
-    
-        con.query(sql, (err, result) => {
-            if (err) console.log(err);
-            res.json(result)
-        })
- 
+
+    con.query(sql, (err, result) => {
+        if (err) console.log(err);
+        res.json(result)
+    })
+
 });
 
 app.get('/search/locations', (req, res) => {
     let sql = `SELECT DISTINCT city FROM instructor`
 
-    
-        con.query(sql, (err, result) => {
-            if (err) console.log(err)
-            res.json(result)
-        })
-    
-    
+
+    con.query(sql, (err, result) => {
+        if (err) console.log(err)
+        res.json(result)
+    })
+
+
 });
 
 app.get('/search/location=:location-sport=:sport', (req, res) => {
     let sql = `SELECT instructor.* , sports.sport FROM instructor INNER JOIN sports ON instructor.id=sports.id WHERE instructor.city="${req.params.location}" AND sports.sport="${req.params.sport}"`
 
-   
-        con.query(sql, (err, result) => {
-            if (err) console.log(err);
-            res.json(result)
-        })
-   
+
+    con.query(sql, (err, result) => {
+        if (err) console.log(err);
+        res.json(result)
+    })
+
 })
 
-app.post('/login',(req,res) => {
+app.post('/login', (req, res) => {
 
     // console.log(req.body)
     // email or username
     sql = `SELECT username FROM login WHERE (email="${req.body.username}" AND password="${req.body.password}") OR (username="${req.body.username}" AND password="${req.body.password}")`
 
-    con.query(sql,(err,result) => {
-        if(err) console.log(err)
+    con.query(sql, (err, result) => {
+        if (err) console.log(err)
         res.json(result)
     })
 })

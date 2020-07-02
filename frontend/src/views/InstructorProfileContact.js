@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import ContactInstructorForm from '../Components/ContactInstructorForm.js';
 
 export default function InstructorProfileContact() {
-    const [instructor1, setInstructor1] = useState('No instructor');
+    const [instructor, setInstructor] = useState([]);
+    const url = process.env.REACT_APP_API_URL + '/instructor';
+
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL_instructor1)
-            .then(res => res.json())
-            .then(data => {
-                setInstructor1(data.instructor1);
-            })
-    });
+        console.log(url)
+        /*  fetch(url)
+             .then(res => res.json())
+             .then(data => {
+                 setInstructor(data.instructor);
+                 console.log("data")
+             })
+             .catch(error){ console.log(error) } */
+    }, []);
     return (
         <div className="contact1">
             <div className="container-contact1">
@@ -25,7 +30,7 @@ export default function InstructorProfileContact() {
                     <table className="table table-borderless d-flex justify-content-center">
                         <tbody >
                             <tr>
-                                <th scope="row ">{instructor1.firstName}</th>
+                                <th scope="row ">{setInstructor.first_name}</th>
                                 <th scope="row"></th>
                             </tr>
                             <tr>

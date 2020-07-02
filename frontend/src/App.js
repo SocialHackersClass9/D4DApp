@@ -27,7 +27,7 @@ function App() {
 
       <main role="main">
         <Switch>
-          <Route path="/instructor">
+          <Route path="/instructor1">
             <InstructorProfileContact />
           </Route>
           <Route path="/about">

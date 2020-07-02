@@ -3,7 +3,9 @@ const cors = require('cors')
 const env = require('./env')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const mysql = require('mysql');
+const { urlencoded } = require('body-parser');
 
 
 env.get();
@@ -11,7 +13,16 @@ const port = process.env.PORT
 
 const app = express()
 app.use(cors())
-
+//for stefanos
+app.use(express.urlencoded({ extended: true }))
+const mailtransport = nodemailer.createTransport({
+    service: 'SendGrid',
+    auth: {
+        user: process.env.SENDGRID_USER,
+        pass: process.env.SENDGRID_PASSWORD
+    }
+})
+//
 let con = mysql.createConnection({
     host: 'localhost',
     user: `${process.env.MYSQL_USER}`,
@@ -74,6 +85,28 @@ app.post('/login', (req, res) => {
         if (err) console.log(err)
         res.json(result)
     })
+})
+//for stefanos
+app.post('/contact', (req, res) => {
+
+    const msg = {
+        to: 'sobhanessifa@gmail.com',
+        from: req.body.email,
+        subject: req.body.subject,
+        text: req.body.message
+    }
+    async function send(msg) {
+        try {
+            const result = await mailtransport.sendMail(msg);
+            res.json({ "status": "success" })
+        }
+        catch (err) {
+            console.log(err.message);
+            res.json({ "status": "failed" })
+        }
+
+        send(msg);
+    }
 })
 
 ////////////////////////

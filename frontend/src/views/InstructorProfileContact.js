@@ -7,13 +7,10 @@ export default function InstructorProfileContact() {
 
     useEffect(() => {
         console.log(url)
-        /*  fetch(url)
-             .then(res => res.json())
-             .then(data => {
-                 setInstructor(data.instructor);
-                 console.log("data")
-             })
-             .catch(error){ console.log(error) } */
+        fetch(url)
+            .then(res => res.json())
+            .then(data => console.log(data))
+
     }, []);
     return (
         <div className="contact1">

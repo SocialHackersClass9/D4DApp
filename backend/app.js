@@ -104,9 +104,8 @@ app.post('/contact', (req, res) => {
             console.log(err.message);
             res.json({ "status": "failed" })
         }
-
-        send(msg);
     }
+    send(msg);
 })
 
 ////////////////////////

@@ -1,8 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const env = require('./env')
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+// const cookieParser = require('cookie-parser');
+// const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const mysql = require('mysql');
 

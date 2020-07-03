@@ -5,11 +5,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const mysql = require('mysql');
-const { urlencoded } = require('body-parser');
-
 
 env.get();
 const port = process.env.PORT
+
 
 const app = express()
 app.use(cors())
@@ -32,6 +31,19 @@ let con = mysql.createConnection({
 
 console.log(process.env.MYSQL_USER)
 
+
+const db_password = process.env.DB_PASSWORD
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'Evina',
+    password: db_password,
+    database: 'D4D',
+
+});
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
 
 app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });

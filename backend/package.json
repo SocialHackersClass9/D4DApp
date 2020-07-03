@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "file-exists": "^5.0.1",
     "mysql": "^2.18.1",
-    "node-env-file": "^0.1.8"
+    "node-env-file": "^0.1.8",
+    "nodemailer": "^6.4.10"
   }
 }

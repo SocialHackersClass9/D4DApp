@@ -1,0 +1,22 @@
+select id, first_name from instructors;
+let instructors = [
+    {id: 1, first_name: 'Vadim'},
+]
+
+select id, instructor_id, name from instructors_locations il INNER JOIN locations l ON il.location_id=l.id;
+let locations = [
+     {id: 1, instrcutor_id: 1, name: Athens},
+     {id: 2, instrcutor_id: 1, name: Patra},
+]
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+instructors.forEach(instructor => {
+    let locs_for_insts =  locations.filter(loc => loc.instrcutor_id == instructor.id);
+    instructor.locations = locs_for_insts;
+})
+
+// Our target
+let instructors = [
+   {id: 1, first_name: 'Vadim', locations: [{id:1, name: Athens}, {id: 2 name: Patra}]},
+]

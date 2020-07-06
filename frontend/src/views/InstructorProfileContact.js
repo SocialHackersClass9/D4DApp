@@ -6,12 +6,16 @@ export default function InstructorProfileContact() {
     const url = process.env.REACT_APP_API_URL + '/instructor';
 
     useEffect(() => {
-        console.log(url)
+
         fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                setInstructor(data);
+            });
+    }, [])
 
-    }, []);
+
     return (
         <div className="contact1">
             <div className="container-contact1">
@@ -26,9 +30,8 @@ export default function InstructorProfileContact() {
             </span>
                     <table className="table table-borderless d-flex justify-content-center">
                         <tbody >
-                            <tr>
-                                <th scope="row ">{setInstructor.first_name}</th>
-                                <th scope="row"></th>
+                            <tr scope="row ">{instructor.first_name} {instructor.last_name}
+
                             </tr>
                             <tr>
                                 <th scope="row"></th>

@@ -6,35 +6,16 @@ class AccessibleRegistrationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: "",
-      birtdate: "",
-      disabilityInfo: "",
-      streetNumber: "",
-      street: "",
-      zip: "",
-      municipality: "",
-      city: "",
-      country: "",
-      areaCode: "",
+      id: '',
+      first_name: '',
+      last_name: "",
+      year_of_birth: "",
+      gender: "",
       phone: "",
       email: '',
-      username: "",
+      user_name: "",
       password: "",
-      firstNameError: '',
-      lastNameError: "",
-      birtdateError: "",
-      streetNumberError: "",
-      streetError: "",
-      zipError: "",
-      municipalityError: "",
-      cityError: "",
-      countryError: "",
-      areaCodeError: "",
-      phoneError: "",
-      emailError: '',
-      usernameError: "",
-      passwordError: "",
+
     };
   }
 

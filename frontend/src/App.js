@@ -4,6 +4,7 @@ import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
 import Search from './views/Search';
+import AccessibleRegistrationForm from './views/AccessibleRegistrationForm'
 import InstructorProfileContact from './views/InstructorProfileContact.js';
 import {
   BrowserRouter as Router,
@@ -29,10 +30,12 @@ function App() {
       <main role="main">
         <Switch>
 
-        <Route exact path="/search">
+          <Route exact path="/search">
             <Search />
-        </Route>
-
+          </Route>
+          <Route exact path="/accessibleregistration">
+            <AccessibleRegistrationForm />
+          </Route>
           <Route exact path="/instructor">
             <InstructorProfileContact />
 
@@ -43,11 +46,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          
+
         </Switch>
       </main>
 
-      
+
     </Router>
   );
 }

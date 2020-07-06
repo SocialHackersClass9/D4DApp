@@ -99,35 +99,57 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
         })
     }
     else if (req.params.sport === "all") {
-        sql = `select id , first_name , last_name from instructors where region_id=${req.params.region_id}`
+        // sql = `select id , first_name , last_name from instructors where region_id=${req.params.region_id}`
+        // con.query(sql, (err, inst) => {
+        //     if (err) console.log(err);
+        //     instructors = inst;
+        //     sql2 = `select id , name from locations where region_id=${req.params.region_id}`
+        //     con.query(sql2, (err, locts) => {
+        //         if (err) console.log(err);
+        //         locations = locts;
+        //         sql3 = `select instructor_id , location_id from instructors_locations`
+        //         con.query(sql3, (err, inst_locs) => {
+        //             if (err) console.log(err);
+        //             inst_locts = inst_locs;
+        //             sql4 = `select instructor_id , sport_id, name from instructors_sports ins inner join sports on ins.sport_id=sports.id`
+        //             con.query(sql4, (err, sport) => {
+        //                 if (err) console.log(err);
+        //                 sports = sport;
+        //                 instructors.forEach(instructor => {
+        //                     let instructor_locts = inst_locts.filter(il => il.instructor_id === instructor.id);
+        //                     let s = sports.filter(sport => sport.instructor_id === instructor.id)
+        //                     instructor.sports = s;
+        //                     let locs = instructor_locts.forEach(ins_loc => {
+        //                         let locs = locations.filter(loc => loc.id === ins_loc.location_id)
+        //                         instructor.locations = locs;
+        //                         console.log(instructor)
+        //                     })
+
+
+
+        //                 })
+        //             })
+        //         })
+        //     })
+        // })
+        sql = `select id,first_name , last_name from instructors where region_id=${req.params.region_id}`
         con.query(sql, (err, inst) => {
             if (err) console.log(err);
             instructors = inst;
-            sql2 = `select id , name from locations where region_id=${req.params.region_id}`
-            con.query(sql2, (err, locts) => {
+            sql2 = `select instructor_id,location_id,name from instructors_locations insl inner join locations l on insl.location_id=l.id where l.region_id=${req.params.region_id}`
+            con.query(sql2, (err, il) => {
                 if (err) console.log(err);
-                locations = locts;
-                sql3 = `select instructor_id , location_id from instructors_locations`
-                con.query(sql3, (err, inst_locs) => {
+                locations = il;
+                sql3 = `select instructor_id,sport_id,name from instructors_sports ins inner join sports s on ins.sport_id=s.id`
+                con.query(sql3, (err, sprt) => {
                     if (err) console.log(err);
-                    inst_locts = inst_locs;
-                    sql4 = `select instructor_id , sport_id, name from instructors_sports ins inner join sports on ins.sport_id=sports.id`
-                    con.query(sql4, (err, sport) => {
-                        if (err) console.log(err);
-                        sports = sport;
-                        instructors.forEach(instructor => {
-                            let instructor_locts = inst_locts.filter(il => il.instructor_id === instructor.id);
-                            let s = sports.filter(sport => sport.instructor_id === instructor.id)
-                            instructor.sports = s;
-                            let locs = instructor_locts.forEach(ins_loc => {
-                                let locs = locations.filter(loc => loc.id === ins_loc.location_id)
-                                instructor.locations = locs;
-                                console.log(instructor)
-                            })
-
-
-
-                        })
+                    sports = sprt;
+                    instructors.forEach(instructor => {
+                        let locs = locations.filter(loc => loc.instructor_id === instructor.id)
+                        instructor.locations = locs;
+                        let ins_sprt = sports.filter(sport => sport.instructor_id === instructor.id)
+                        instructor.sports = ins_sprt;
+                        console.log(instructor)
                     })
                 })
             })

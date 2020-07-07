@@ -23,7 +23,7 @@ class Search extends React.Component {
     // }
 
     componentDidMount() {
-        fetch("http://localhost:3001/search/locations")
+        fetch("http://localhost:3001/search/regions")
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -70,9 +70,9 @@ class Search extends React.Component {
 
     render() {
 
-        const locations = this.state.loadingLocations ? "loading" : this.state.locations.map(city => <option value={city.city}>{city.city}</option>)
+        const locations = this.state.loadingLocations ? "loading" : this.state.locations.map(item => <option value={item.name}>{item.name}</option>)
 
-        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(sport => <option value={sport.sport}>{sport.sport}</option>)
+        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.name}>{item.name}</option>)
 
         //const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
 

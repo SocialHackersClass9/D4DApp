@@ -73,99 +73,99 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
 
     con.query(inst_sql, (err, instructors) => {
         if (err) console.log(err);
-        if (req.params.region_id === 'all' && req.params.sport === "all") {
-            con.query(loc_sql, (err, locations) => {
+        // if (req.params.region_id === 'all' && req.params.sport === "all") {
+        con.query(loc_sql, (err, locations) => {
+            if (err) console.log(err);
+            con.query(sprt_sql, (err, sports) => {
                 if (err) console.log(err);
-                con.query(sprt_sql, (err, sports) => {
-                    if (err) console.log(err);
-                    let result = [];
-                    instructors.forEach(instructor => {
-                        locs = locations.filter(loc => loc.instructor_id === instructor.id)
-                        instructor.locations = locs;
-                        sprts = sports.filter(sport => sport.instructor_id === instructor.id)
-                        instructor.sports = sprts;
-                        result.push(instructor);
-                    });
-                    Promise.all(result)
-                        .then(result => res.json(result))
-                        .catch(err => console.log(err))
-                })
+                let result = [];
+                instructors.forEach(instructor => {
+                    locs = locations.filter(loc => loc.instructor_id === instructor.id)
+                    instructor.locations = locs;
+                    sprts = sports.filter(sport => sport.instructor_id === instructor.id)
+                    instructor.sports = sprts;
+                    result.push(instructor);
+                });
+                Promise.all(result)
+                    .then(result => res.json(result))
+                    .catch(err => console.log(err))
             })
-        }
-        else if (req.params.region_id === "all") {
-            sql_where = " s.name=?"
-            params.push(req.params.sport);
-            let sql = sprt_sql + " WHERE" + sql_where;
-            con.query(sql, params, (err, sports) => {
-                if (err) console.log(err);
-                con.query(loc_sql, (err, locations) => {
-                    if (err) console.log(err);
-                    let result = [];
-                    instructors.forEach(instructor => {
-                        s = sports.filter(sport => sport.instructor_id === instructor.id)
-                        // if (s.length !== 0) {
-                        instructor.sports = s;
-                        l = locations.filter(loc => loc.instructor_id === instructor.id)
-                        instructor.locatinos = l;
-                        result.push(instructor);
-                        // }
+        })
+        // }
+        // else if (req.params.region_id === "all") {
+        //     sql_where = " s.name=?"
+        //     params.push(req.params.sport);
+        //     let sql = sprt_sql + " WHERE" + sql_where;
+        //     con.query(sql, params, (err, sports) => {
+        //         if (err) console.log(err);
+        //         con.query(loc_sql, (err, locations) => {
+        //             if (err) console.log(err);
+        //             let result = [];
+        //             instructors.forEach(instructor => {
+        //                 s = sports.filter(sport => sport.instructor_id === instructor.id)
+        //                 // if (s.length !== 0) {
+        //                 instructor.sports = s;
+        //                 l = locations.filter(loc => loc.instructor_id === instructor.id)
+        //                 instructor.locatinos = l;
+        //                 result.push(instructor);
+        //                 // }
 
-                    })
-                    Promise.all(result)
-                        .then(result => res.json(result))
-                        .catch(err => console.log(err))
-                })
-            })
-        }
-        else if (req.params.sport === "all") {
-            sql_where = " loc.region_id=?"
-            params.push(req.params.region_id);
-            sql = loc_sql + " WHERE" + sql_where;
-            con.query(sql, params, (err, locations) => {
-                if (err) console.log(err);
-                con.query(sprt_sql, (err, sports) => {
-                    let result = [];
-                    instructors.forEach(instructor => {
-                        l = locations.filter(loc => loc.instructor_id === instructor.id);
-                        // if (l.length !== 0) {
-                        instructor.locations = l;
-                        s = sports.filter(sport => sport.instructor_id === instructor.id)
-                        instructor.sports = s;
-                        result.push(instructor)
-                        // }
-                    })
-                    Promise.all(result)
-                        .then(result => res.json(result))
-                        .catch(err => console.log(err))
-                })
-            })
-        }
-        else {
-            sql_where = " loc.id=?"
+        //             })
+        //             Promise.all(result)
+        //                 .then(result => res.json(result))
+        //                 .catch(err => console.log(err))
+        //         })
+        //     })
+        // }
+        // else if (req.params.sport === "all") {
+        //     sql_where = " loc.region_id=?"
+        //     params.push(req.params.region_id);
+        //     sql = loc_sql + " WHERE" + sql_where;
+        //     con.query(sql, params, (err, locations) => {
+        //         if (err) console.log(err);
+        //         con.query(sprt_sql, (err, sports) => {
+        //             let result = [];
+        //             instructors.forEach(instructor => {
+        //                 l = locations.filter(loc => loc.instructor_id === instructor.id);
+        //                 // if (l.length !== 0) {
+        //                 instructor.locations = l;
+        //                 s = sports.filter(sport => sport.instructor_id === instructor.id)
+        //                 instructor.sports = s;
+        //                 result.push(instructor)
+        //                 // }
+        //             })
+        //             Promise.all(result)
+        //                 .then(result => res.json(result))
+        //                 .catch(err => console.log(err))
+        //         })
+        //     })
+        // }
+        // else {
+        //     sql_where = " loc.id=?"
 
-            sql = loc_sql + " WHERE" + sql_where;
-            con.query(sql, req.params.region_id, (err, locations) => {
-                sql_where = " s.name=?"
-                sql = sprt_sql + " WHERE" + sql_where;
-                con.query(sql, req.params.sport, (err, sports) => {
-                    let result = [];
-                    instructors.forEach(instructor => {
-                        s = sports.filter(sport => sport.instructor_id === instructor.id);
+        //     sql = loc_sql + " WHERE" + sql_where;
+        //     con.query(sql, req.params.region_id, (err, locations) => {
+        //         sql_where = " s.name=?"
+        //         sql = sprt_sql + " WHERE" + sql_where;
+        //         con.query(sql, req.params.sport, (err, sports) => {
+        //             let result = [];
+        //             instructors.forEach(instructor => {
+        //                 s = sports.filter(sport => sport.instructor_id === instructor.id);
 
-                        l = locations.filter(loc => loc.instructor_id === instructor.id);
-                        // if (s.length !== 0 && l.length !== 0) {
-                        instructor.sports = s;
-                        instructor.locations = l;
-                        result.push(instructor)
-                        // }
+        //                 l = locations.filter(loc => loc.instructor_id === instructor.id);
+        //                 // if (s.length !== 0 && l.length !== 0) {
+        //                 instructor.sports = s;
+        //                 instructor.locations = l;
+        //                 result.push(instructor)
+        //                 // }
 
-                    })
-                    Promise.all(result)
-                        .then(result => res.json(result))
-                        .catch(err => console.log(err))
-                })
-            })
-        }
+        //             })
+        //             Promise.all(result)
+        //                 .then(result => res.json(result))
+        //                 .catch(err => console.log(err))
+        //         })
+        //     })
+        // }
     })
 
 

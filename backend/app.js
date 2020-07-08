@@ -24,8 +24,8 @@ const mailtransport = nodemailer.createTransport({
 //
 let con = mysql.createConnection({
     host: 'localhost',
-    user: `${process.env.DB_USER}`,
-    password: `${process.env.DB_PASSWORD}`,
+    user: `sobhan`,
+    password: `Sobhan123!@#`,
     database: 'd4d'
 })
 
@@ -64,7 +64,7 @@ app.get('/search/regions', (req, res) => {
 app.get('/search/region=:region_id-sport=:sport', (req, res) => {
 
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
-    let loc_sql = "SELECT insl.instructor_id,insl.location_id ,loc.name FROM instructors_locations insl INNER JOIN locations loc ON insl.location_id=loc.id"
+    let loc_sql = "SELECT insl.instructor_id,insl.location_id ,loc.name,loc.region_id,r.name as rname FROM instructors_locations insl INNER JOIN locations loc ON insl.location_id=loc.id INNER JOIN regions r ON loc.region_id=r.id"
     let sprt_sql = "SELECT inss.instructor_id , inss.sport_id , s.name FROM instructors_sports inss INNER JOIN sports s ON inss.sport_id=s.id"
 
     let sql_tables = "";
@@ -73,7 +73,6 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
 
     con.query(inst_sql, (err, instructors) => {
         if (err) console.log(err);
-        // if (req.params.region_id === 'all' && req.params.sport === "all") {
         con.query(loc_sql, (err, locations) => {
             if (err) console.log(err);
             con.query(sprt_sql, (err, sports) => {
@@ -91,81 +90,7 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
                     .catch(err => console.log(err))
             })
         })
-        // }
-        // else if (req.params.region_id === "all") {
-        //     sql_where = " s.name=?"
-        //     params.push(req.params.sport);
-        //     let sql = sprt_sql + " WHERE" + sql_where;
-        //     con.query(sql, params, (err, sports) => {
-        //         if (err) console.log(err);
-        //         con.query(loc_sql, (err, locations) => {
-        //             if (err) console.log(err);
-        //             let result = [];
-        //             instructors.forEach(instructor => {
-        //                 s = sports.filter(sport => sport.instructor_id === instructor.id)
-        //                 // if (s.length !== 0) {
-        //                 instructor.sports = s;
-        //                 l = locations.filter(loc => loc.instructor_id === instructor.id)
-        //                 instructor.locatinos = l;
-        //                 result.push(instructor);
-        //                 // }
 
-        //             })
-        //             Promise.all(result)
-        //                 .then(result => res.json(result))
-        //                 .catch(err => console.log(err))
-        //         })
-        //     })
-        // }
-        // else if (req.params.sport === "all") {
-        //     sql_where = " loc.region_id=?"
-        //     params.push(req.params.region_id);
-        //     sql = loc_sql + " WHERE" + sql_where;
-        //     con.query(sql, params, (err, locations) => {
-        //         if (err) console.log(err);
-        //         con.query(sprt_sql, (err, sports) => {
-        //             let result = [];
-        //             instructors.forEach(instructor => {
-        //                 l = locations.filter(loc => loc.instructor_id === instructor.id);
-        //                 // if (l.length !== 0) {
-        //                 instructor.locations = l;
-        //                 s = sports.filter(sport => sport.instructor_id === instructor.id)
-        //                 instructor.sports = s;
-        //                 result.push(instructor)
-        //                 // }
-        //             })
-        //             Promise.all(result)
-        //                 .then(result => res.json(result))
-        //                 .catch(err => console.log(err))
-        //         })
-        //     })
-        // }
-        // else {
-        //     sql_where = " loc.id=?"
-
-        //     sql = loc_sql + " WHERE" + sql_where;
-        //     con.query(sql, req.params.region_id, (err, locations) => {
-        //         sql_where = " s.name=?"
-        //         sql = sprt_sql + " WHERE" + sql_where;
-        //         con.query(sql, req.params.sport, (err, sports) => {
-        //             let result = [];
-        //             instructors.forEach(instructor => {
-        //                 s = sports.filter(sport => sport.instructor_id === instructor.id);
-
-        //                 l = locations.filter(loc => loc.instructor_id === instructor.id);
-        //                 // if (s.length !== 0 && l.length !== 0) {
-        //                 instructor.sports = s;
-        //                 instructor.locations = l;
-        //                 result.push(instructor)
-        //                 // }
-
-        //             })
-        //             Promise.all(result)
-        //                 .then(result => res.json(result))
-        //                 .catch(err => console.log(err))
-        //         })
-        //     })
-        // }
     })
 
 

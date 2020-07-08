@@ -23,7 +23,8 @@ class Search extends React.Component {
     // }
 
     componentDidMount() {
-        fetch("http://localhost:3001/search/regions")
+        const baseUrl = process.env.REACT_APP_API_URL;
+        fetch(baseUrl + '/search/regions')
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -33,7 +34,7 @@ class Search extends React.Component {
             });
 
 
-        fetch("http://localhost:3001/search/sports")
+        fetch(baseUrl + "/search/sports")
             .then(response => response.json())
             .then(data => {
                 this.setState({

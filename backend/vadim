@@ -20,3 +20,36 @@ instructors.forEach(instructor => {
 let instructors = [
    {id: 1, first_name: 'Vadim', locations: [{id:1, name: Athens}, {id: 2 name: Patra}]},
 ]
+
+------------------------------------------------------------------------------------------------------
+
+-- sql instructors
+SELECT in1.id, in1.first_name FROM instructors in1
+params = []
+-- insrtructors filtered by region
+SELECT in1.id, in1.first_name FROM instructors in1
+INNER JOIN instructors_locations il ON in1.id=il.instructor_id
+INNER JOIN locations loc ON il.location_id=loc.id
+WHERE loc.region_id = ?
+params = [1]
+-- insrtructors filtered  by sport
+SELECT in1.id, in1.first_name FROM instructors in1
+INNER JOIN instructors_sports is1 ON in1.id=is1.instructor_id
+WHERE is1.sport_id = ?
+params = [2]
+-- insrtructors filtered by region and by sport
+SELECT in1.id, in1.first_name FROM instructors in1
+INNER JOIN instructors_locations il ON in1.id=il.instructor_id
+INNER JOIN locations loc ON il.location_id=loc.id
+INNER JOIN instructors_sports is1 ON in1.id=is1.instructor_id
+WHERE loc.region_id = ? AND  is1.sport_id = ?
+params = [1, 2]
+------------------------------------------------------
+const init_sql = "in1.id, in1.first_name FROM instructors in1"
+const tables_sql  = ""
+const where_sql  = ""
+const params = []
+const final_sql  = init_sql + table_sql + " WHERE " + where_sql
+--------------------------------------------------------------------
+-- locations for instructors
+SELECT il.instructor_id, loc.id, loc.name FROM instructors_locations il INNER JOIN locations loc ON loc.id=il.location_id

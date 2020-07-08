@@ -24,8 +24,8 @@ const mailtransport = nodemailer.createTransport({
 //
 let con = mysql.createConnection({
     host: 'localhost',
-    user: `sobhan`,
-    password: `Sobhan123!@#`,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
     database: 'd4d'
 })
 

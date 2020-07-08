@@ -17,6 +17,7 @@ class Search extends React.Component {
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleChange = this.handleChange.bind(this);
+        this.showList = this.showList.bind(this);
     }
     // change() {
 
@@ -58,12 +59,22 @@ class Search extends React.Component {
         }
 
         // if(l.length & s.length > 0){
-        url = `http://localhost:3001/location=${l}-sport=${s}`
+        url = `http://localhost:3001/region=${l}-sport=${s}`
         fetch(url)
             .then(res => res.json())
             .then(data => matches = data)
         //}
         console.log(url)
+    }
+    ///////////---------
+    showList() {
+
+        const listItems = this.state.matches.map((match) =>
+            <li>{match.name} {match.family}</li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
     }
 
 
@@ -74,7 +85,7 @@ class Search extends React.Component {
 
         const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.name}>{item.name}</option>)
 
-        //const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
+        const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
 
         return (
             <div className="container">
@@ -107,7 +118,7 @@ class Search extends React.Component {
                         </div>
                     </div>
                     <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-                        <button type="button" className="btn btn-primary btn-lg"> CLICK TO SEARCH</button>
+                        <button type="button" className="btn btn-primary btn-lg" onClick={this.showList}> CLICK TO SEARCH</button>
                     </div>
                 </div>
             </div>

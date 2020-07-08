@@ -4,7 +4,14 @@ import ContactInstructorForm from '../Components/ContactInstructorForm.js';
 export default function InstructorProfileContact() {
     const [instructor, setInstructor] = useState([]);
     const url = process.env.REACT_APP_API_URL + '/instructor';
+    const styledDetails = {
+        margin: "20px 30px",
+        padding: "20px 30px",
+        fontSize: "1.5em",
+        color: "black",
+        textAlign: "justify"
 
+    };
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -16,36 +23,41 @@ export default function InstructorProfileContact() {
 
 
     return (
-        <div className="contact1">
-            <div className="container-contact1">
-                <div className="image">
-                    <div className="circle-1" />
-                    <div className="circle-2" />
-                    <img src={"https://100dayscss.com/codepen/jessica-potter.jpg"} width={300} height={300} alt="Instructor" />
+        <div className="container">
+            <div className="row row-header align-self-center">
+                <div className="col-12 col-sm-12 col-xs-12 text-center">
+                    <h1 className="text-center"> Instructor Profile</h1>
                 </div>
-                <form className="contact1-form validate-form">
-                    <span className="contact1-form-title">
-                        Instructor's Profile
-            </span>
+            </div>
+            <div className="row align-self-center">
+                <div className="col-md-6">
+                    <div className="image">
+                        <img src={"https://100dayscss.com/codepen/jessica-potter.jpg"}
+                            width={300} height={300} alt="Instructor"
+                            className="rounded mx-auto d-block" />
+                    </div>
+                </div>
+                <div className="col-md-6 text-center align-self-center">
                     <table className="table table-borderless d-flex justify-content-center">
-                        <tbody >
-                            <th scope="row "></th>
-                            <tr>{instructor.first_name} {instructor.last_name}
+                        <tbody style={styledDetails}>
+                            <tr>
+                                {instructor.first_name} {instructor.last_name}
+                            </tr>
+                            <tr>
 
                             </tr>
                             <tr>
-                                <th scope="row"></th>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
+
                             </tr>
                         </tbody>
                     </table>
-                </form>
+                </div>
             </div>
+            <div><p style={styledDetails}>
+                {instructor.details}</p></div>
 
-            <div>    <ContactInstructorForm /> </div>
-        </div>
+            < div > <ContactInstructorForm /> </div>
+        </div >
     );
 }
 

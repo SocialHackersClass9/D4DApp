@@ -96,12 +96,12 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
                     let result = [];
                     instructors.forEach(instructor => {
                         s = sports.filter(sport => sport.instructor_id === instructor.id)
-                        if (s.length !== 0) {
-                            instructor.sports = s;
-                            l = locations.filter(loc => loc.instructor_id === instructor.id)
-                            instructor.locatinos = l;
-                            result.push(instructor);
-                        }
+                        // if (s.length !== 0) {
+                        instructor.sports = s;
+                        l = locations.filter(loc => loc.instructor_id === instructor.id)
+                        instructor.locatinos = l;
+                        result.push(instructor);
+                        // }
 
                     })
                     Promise.all(result)
@@ -120,12 +120,12 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
                     let result = [];
                     instructors.forEach(instructor => {
                         l = locations.filter(loc => loc.instructor_id === instructor.id);
-                        if (l.length !== 0) {
-                            instructor.locations = l;
-                            s = sports.filter(sport => sport.instructor_id === instructor.id)
-                            instructor.sports = s;
-                            result.push(instructor)
-                        }
+                        // if (l.length !== 0) {
+                        instructor.locations = l;
+                        s = sports.filter(sport => sport.instructor_id === instructor.id)
+                        instructor.sports = s;
+                        result.push(instructor)
+                        // }
                     })
                     Promise.all(result)
                         .then(result => res.json(result))
@@ -146,11 +146,11 @@ app.get('/search/region=:region_id-sport=:sport', (req, res) => {
                         s = sports.filter(sport => sport.instructor_id === instructor.id);
 
                         l = locations.filter(loc => loc.instructor_id === instructor.id);
-                        if (s.length !== 0 && l.length !== 0) {
-                            instructor.sports = s;
-                            instructor.locations = l;
-                            result.push(instructor)
-                        }
+                        // if (s.length !== 0 && l.length !== 0) {
+                        instructor.sports = s;
+                        instructor.locations = l;
+                        result.push(instructor)
+                        // }
 
                     })
                     Promise.all(result)

@@ -108,7 +108,7 @@ class Search extends React.Component {
 
 
         this.setState({loadingSports: true});
-        fetch(baseUrl + "/search/sports")
+        fetch(baseUrl + "/sports")
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -126,7 +126,7 @@ class Search extends React.Component {
         this.setState({favSport: e.target.value});
     }
     filterInstructors() {
-        const sport_id = this.state.favSport
+        const sport_id = this.state.favSport === null ? null : parseInt(this.state.favSport);
         return this.state.instructors.filter(item => {
             let res = true;
             if (sport_id != null) {
@@ -139,7 +139,7 @@ class Search extends React.Component {
 
         const locations = this.state.loadingLocations ? "loading" : this.state.locations.map(item => <option value={item.name}>{item.name}</option>)
 
-        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.name}>{item.name}</option>)
+        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.id}>{item.name}</option>)
 
         const matches = this.filterInstructors();
 
@@ -172,10 +172,6 @@ class Search extends React.Component {
                                 {sports}
                             </select>
                         </div>
-                    </div>
-                    <div>
-                        1111 - { this.state.favLocation }
-                        2222 - { this.state.favSport }
                     </div>
                     <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
                         <button type="button" className="btn btn-primary btn-lg"> CLICK TO SEARCH</button>

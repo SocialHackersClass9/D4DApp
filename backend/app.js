@@ -24,8 +24,8 @@ const mailtransport = nodemailer.createTransport({
 //
 let con = mysql.createConnection({
     host: 'localhost',
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     database: 'd4d'
 })
 
@@ -45,8 +45,8 @@ app.get('/instructor', (req, res) => {
 ////////////////////////
 
 
-app.get('/search/sports', (req, res) => {
-    let sql = `SELECT DISTINCT name,name_gr FROM sports`
+app.get('/sports', (req, res) => {
+    let sql = `SELECT id, name FROM sports`
     con.query(sql, (err, result) => {
         if (err) console.log(err);
         res.json(result)
@@ -54,7 +54,7 @@ app.get('/search/sports', (req, res) => {
 });
 
 app.get('/search/regions', (req, res) => {
-    let sql = `SELECT DISTINCT name,name_gr,region_id FROM regions`
+    let sql = `SELECT id, name, name_gr FROM regions`
     con.query(sql, (err, result) => {
         if (err) console.log(err)
         res.json(result)

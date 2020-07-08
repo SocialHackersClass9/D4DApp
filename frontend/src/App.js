@@ -6,6 +6,7 @@ import About from './views/About.js';
 import Search from './views/Search';
 import AccessibleRegistrationForm from './views/AccessibleRegistrationForm'
 import InstructorProfileContact from './views/InstructorProfileContact.js';
+import Ping from './views/Ping.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,14 +16,6 @@ import {
 
 
 function App() {
-  const [greeting, setGreeting] = useState('No greeting');
-  useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL)
-      .then(res => res.json())
-      .then(data => {
-        setGreeting(data.greeting);
-      })
-  });
   return (
     <Router>
 
@@ -30,6 +23,9 @@ function App() {
       <main role="main">
         <Switch>
 
+          <Route exact path="/ping">
+            <Ping />
+          </Route>
           <Route exact path="/search">
             <Search />
           </Route>

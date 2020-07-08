@@ -1,5 +1,77 @@
 import React from 'react';
 //import LocationsFilter from '../Components/LocationsFilter'
+//
+
+const all_instructors = [
+    {
+        "id": 1, "first_name": "Katerina", "last_name": "Ambrazi",
+        "locations": [{ "id": 1, "name": "Athens", "region_id": 1, "region_name": "Attiki" }],
+        "sports": [{ "id": 1, "name": "Volley" }]
+    },
+    {
+        "id": 1, "first_name": "Alexander", "last_name": "Smith",
+        "locations": [
+            { "id": 1, "name": "Athens", "region_id": 1, "region_name": "Attiki" },
+            { "id": 1, "name": "Thessaloniki", "region_id": 2, "region_name": "Macedonia" }
+        ],
+        "sports": [{ "id": 2, "name": "Basket" }]
+    }
+];
+
+function ResultItem(props) {
+    const it = props.item;
+    return (
+        <tr>
+            <td>{it.id}</td>
+            <td>{it.first_name}</td>
+            <td>{it.last_name}</td>
+            <td>{it.locations.map(it => it.name).join(", ")}</td>
+            <td>{it.sports.map(it => it.name).join(', ')} </td>
+            <td><button>Contact</button></td>
+        </tr>
+    )
+}
+
+function Result(props) {
+
+    const items = props.instructors.map(item => <ResultItem item={item} />);
+
+    return (
+        <div>
+            <table border="1">
+                <tr>
+                    <td>Id</td>
+                    <td>first name</td>
+                    <td>last name</td>
+                    <td>locations</td>
+                    <td>sports</td>
+                    <td>contact</td>
+                </tr>
+                {items}
+            </table>
+        </div>
+    )
+}
+
+/*
+{ this.state.matches.length < 1 &&
+        <span>No result found</span>
+}
+{ this.state.matches.length > 0 &&
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>first name</td>
+                <td>last name</td>
+                <td>locations</td>
+                <td>sports</td>
+                <td>contact</td>
+            </tr>
+        </table>
+}
+*/
+
+
 class Search extends React.Component {
     constructor() {
         super();
@@ -8,23 +80,24 @@ class Search extends React.Component {
             sports: [],
             loadingLocations: true,
             loadingSports: true,
-            favSport: "None",
-            favLocation: "None",
+            favSport: null,
+            favLocation: null,
+            instructors: [],
             matches: [],
-            // loadinLocationMatches: true,
-            // loadingSportMatches : true
             loadingMatches: true
         }
-        this.componentDidMount = this.componentDidMount.bind(this)
-        this.handleChange = this.handleChange.bind(this);
-        this.showList = this.showList.bind(this);
+        this.favSportChanged = this.favSportChanged.bind(this);
+        this.favLocationChanged = this.favLocationChanged.bind(this);
     }
     // change() {
 
     // }
 
     componentDidMount() {
-        fetch("http://localhost:3001/search/regions")
+        console.log("rerender");
+        const baseUrl = process.env.REACT_APP_API_URL;
+        this.setState({ loadingLocations: true });
+        fetch(baseUrl + '/search/regions')
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -34,7 +107,8 @@ class Search extends React.Component {
             });
 
 
-        fetch("http://localhost:3001/search/sports")
+        this.setState({ loadingSports: true });
+        fetch(baseUrl + "/sports")
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -43,49 +117,31 @@ class Search extends React.Component {
                 })
             });
 
+        this.setState({ instructors: all_instructors });
     }
-
-    handleChange(e) {
-        const { name, value } = e.target
-        this.setState({ [name]: value })
-
-        let l = "", s = "", url = "";
-        let matches = []
-        if (e.target.name === "favLocation") {
-            l = e.target.value;
-        }
-        if (e.target.name === "favSport") {
-            s = e.target.value;
-        }
-
-        // if(l.length & s.length > 0){
-        url = `http://localhost:3001/region=${l}-sport=${s}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => matches = data)
-        //}
-        console.log(url)
+    favLocationChanged(e) {
+        this.setState({ favLocation: e.target.value });
     }
-    ///////////---------
-    showList() {
-
-        const listItems = this.state.matches.map((match) =>
-            <li>{match.name} {match.family}</li>
-        );
-        return (
-            <ul>{listItems}</ul>
-        );
+    favSportChanged(e) {
+        this.setState({ favSport: e.target.value });
     }
-
-
-
+    filterInstructors() {
+        const sport_id = this.state.favSport === null ? null : parseInt(this.state.favSport);
+        return this.state.instructors.filter(item => {
+            let res = true;
+            if (sport_id != null) {
+                res = res && item.sports.some(sport => sport.id === sport_id);
+            }
+            return res;
+        });
+    }
     render() {
 
         const locations = this.state.loadingLocations ? "loading" : this.state.locations.map(item => <option value={item.name}>{item.name}</option>)
 
-        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.name}>{item.name}</option>)
+        const sports = this.state.loadingSports ? "loading" : this.state.sports.map(item => <option value={item.id}>{item.name}</option>)
 
-        const matches = this.state.loadingMatches ? "select something" : this.state.matches.map(match => <div><p>{match.name}</p><p>{match.family}</p></div>)
+        const matches = this.filterInstructors();
 
         return (
             <div className="container">
@@ -100,8 +156,8 @@ class Search extends React.Component {
                             <h2 className="text-center">Search via Location</h2>
                         </div>
                         <div className="col-md-6 text-center align-self-center">
-                            <select name="favLocation" onChange={this.handleChange} value={this.state.favLocation}>
-                                <option value="None">None</option>
+                            <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
+                                <option value="">All</option>
                                 {locations}
                             </select>
                         </div>
@@ -111,14 +167,24 @@ class Search extends React.Component {
                             <h2 className="text-center">Search via Sports</h2>
                         </div>
                         <div className="col-md-6 text-center align-self-center">
-                            <select name="favSport" onChange={this.handleChange} value={this.state.favSport}>
-                                <option value="None">None</option>
+                            <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
+                                <option value="">All</option>
                                 {sports}
                             </select>
                         </div>
                     </div>
                     <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
                         <button type="button" className="btn btn-primary btn-lg" onClick={this.showList}> CLICK TO SEARCH</button>
+                    </div>
+                    <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+                        Result:
+                        {matches.length === 0 &&
+                            <div> No result found</div>
+                        }
+                        {matches.length > 0 &&
+                            <Result instructors={matches} />
+                        }
+
                     </div>
                 </div>
             </div>

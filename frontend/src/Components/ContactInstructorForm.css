@@ -74,9 +74,13 @@
 
   .contact1-form-title {
     font-size: 2em;
-    color: #333333;
+    color:  #e6e6e6;
     line-height: 1.2;
     padding-bottom: 44px;
+    background: #57b846;
+     height: 50px;
+    border-radius: 25px;
+    padding: 0 25px;
   }
 
   input.input1 {

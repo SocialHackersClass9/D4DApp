@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 //import LocationsFilter from '../Components/LocationsFilter'
 //
 
@@ -27,7 +29,8 @@ function ResultItem(props) {
             <td>{it.last_name}</td>
             <td>{it.locations.map(it => it.name).join(", ")}</td>
             <td>{it.sports.map(it => it.name).join(', ')} </td>
-            <td><button>Contact</button></td>
+            <td><button> <Nav.Link href='/instructor'>Contact</Nav.Link></button></td>
+            {/*   Links only to the female instructor for both buttons */}
         </tr>
     )
 }
@@ -37,22 +40,23 @@ function Result(props) {
     const items = props.instructors.map(item => <ResultItem item={item} />);
 
     return (
-        <div>
-            <table border="1">
+        <div className='col-12 col-sm-12 col-xs-12'>
+            <table className="table text-center ">
                 <tr>
-                    <td>Id</td>
-                    <td>first name</td>
-                    <td>last name</td>
-                    <td>locations</td>
-                    <td>sports</td>
-                    <td>contact</td>
-                </tr>
+                    <td><strong>Id</strong></td>
+                    <td><strong>First Name</strong></td>
+                    <td><strong>Last Name</strong></td>
+                    <td><strong>Locations</strong></td>
+                    <td><strong>Sports</strong></td >
+                    <td><strong>Contact</strong></td >
+                </tr >
                 {items}
-            </table>
-        </div>
+            </table >
+        </div >
     )
 }
 
+//  <table </table>
 /*
 { this.state.matches.length < 1 &&
         <span>No result found</span>
@@ -173,19 +177,18 @@ class Search extends React.Component {
                             </select>
                         </div>
                     </div>
-                    <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.showList}> CLICK TO SEARCH</button>
-                    </div>
-                    <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-                        Result:
-                        {matches.length === 0 &&
-                            <div> No result found</div>
-                        }
-                        {matches.length > 0 &&
-                            <Result instructors={matches} />
-                        }
 
+                    <div className="row">
+                        <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+                            <h3><strong> Results</strong></h3>
+                        </div>
                     </div>
+                    {matches.length === 0 &&
+                        <div> <strong>Sorry! No results found</strong></div>
+                    }
+                    {matches.length > 0 &&
+                        <Result instructors={matches} />
+                    }
                 </div>
             </div>
         )

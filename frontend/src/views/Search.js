@@ -29,8 +29,8 @@ function ResultItem(props) {
             <td>{it.last_name}</td>
             <td>{it.locations.map(it => it.name).join(", ")}</td>
             <td>{it.sports.map(it => it.name).join(', ')} </td>
-            <td><button> <Nav.Link href='/instructor'>Contact</Nav.Link></button></td>
-            {/*   Links only to the female instructor for both buttons */}
+            <td><button> <Nav.Link href='/instructor/:id'>Contact</Nav.Link></button></td>
+
         </tr>
     )
 }

@@ -3,7 +3,7 @@ import ContactInstructorForm from '../Components/ContactInstructorForm.js';
 
 export default function InstructorProfileContact() {
     const [instructor, setInstructor] = useState([]);
-    const url = process.env.REACT_APP_API_URL + '/instructor';
+    const url = process.env.REACT_APP_API_URL + '/instructor/:id';
     const styledDetails = {
         margin: "20px 30px",
         padding: "20px 30px",

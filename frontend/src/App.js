@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/accessibleregistration">
             <AccessibleRegistrationForm />
           </Route>
-          <Route exact path="/instructor/:id">
+          <Route exact path="/instructors/:id">
             <InstructorProfileContact />
 
           </Route>

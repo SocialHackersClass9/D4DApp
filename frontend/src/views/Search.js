@@ -4,21 +4,21 @@ import { Nav } from 'react-bootstrap';
 //import LocationsFilter from '../Components/LocationsFilter'
 //
 
-const all_instructors = [
+/* const all_instructors = [
     {
         "id": 1, "first_name": "Katerina", "last_name": "Ambrazi",
         "locations": [{ "id": 1, "name": "Athens", "region_id": 1, "region_name": "Attiki" }],
         "sports": [{ "id": 1, "name": "Volley" }]
     },
     {
-        "id": 1, "first_name": "Alexander", "last_name": "Smith",
+        "id": 2, "first_name": "Alexander", "last_name": "Smith",
         "locations": [
             { "id": 1, "name": "Athens", "region_id": 1, "region_name": "Attiki" },
             { "id": 1, "name": "Thessaloniki", "region_id": 2, "region_name": "Macedonia" }
         ],
         "sports": [{ "id": 2, "name": "Basket" }]
     }
-];
+]; */
 
 function ResultItem(props) {
     const it = props.item;
@@ -29,7 +29,7 @@ function ResultItem(props) {
             <td>{it.last_name}</td>
             <td>{it.locations.map(it => it.name).join(", ")}</td>
             <td>{it.sports.map(it => it.name).join(', ')} </td>
-            <td><button> <Nav.Link href='/instructor/:id'>Contact</Nav.Link></button></td>
+            <td><button> <Nav.Link href="/instructor/{id}">Contact</Nav.Link></button></td>
 
         </tr>
     )
@@ -120,8 +120,12 @@ class Search extends React.Component {
                     loadingSports: false
                 })
             });
+        fetch(baseUrl + '/instructors')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ instructors: data });
+            });
 
-        this.setState({ instructors: all_instructors });
     }
     favLocationChanged(e) {
         this.setState({ favLocation: e.target.value });
@@ -131,11 +135,14 @@ class Search extends React.Component {
     }
     filterInstructors() {
         const sport_id = this.state.favSport === null ? null : parseInt(this.state.favSport);
+        console.log(sport_id)
         return this.state.instructors.filter(item => {
             let res = true;
+            console.log(item.sports)
             if (sport_id != null) {
-                res = res && item.sports.some(sport => sport.id === sport_id);
+                res = res && item.sports.some(sport => sport.sport_id === sport_id);
             }
+            console.log(res)
             return res;
         });
     }

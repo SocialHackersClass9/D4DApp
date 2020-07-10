@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ContactInstructorForm from '../Components/ContactInstructorForm.js';
+import { useParams } from "react-router-dom";
 
-export default function InstructorProfileContact() {
+export default function InstructorProfileContact(props) {
     const [instructor, setInstructor] = useState([]);
-    const url = process.env.REACT_APP_API_URL + '/instructor/:id';
+    let { id } = useParams();
+    const url = process.env.REACT_APP_API_URL + '/instructors/' + id;
+
+    console.log(id);
     const styledDetails = {
         margin: "20px 30px",
         padding: "20px 30px",
@@ -17,7 +21,7 @@ export default function InstructorProfileContact() {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setInstructor(data);
+                setInstructor(data[0]);
             });
     }, [])
 
@@ -44,7 +48,8 @@ export default function InstructorProfileContact() {
                                 {instructor.first_name} {instructor.last_name}
                             </tr>
                             <tr>
-
+                                {/* If I try to render the sports and locations which are both arrays with {instructor.sports[0].name}
+                                    it breaks */}
                             </tr>
                             <tr>
 

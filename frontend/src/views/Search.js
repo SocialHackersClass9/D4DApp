@@ -101,7 +101,7 @@ class Search extends React.Component {
         console.log("rerender");
         const baseUrl = process.env.REACT_APP_API_URL;
         this.setState({ loadingLocations: true });
-        fetch(baseUrl + '/search/regions')
+        fetch(baseUrl + '/regions')
             .then(response => response.json())
             .then(data => {
                 this.setState({

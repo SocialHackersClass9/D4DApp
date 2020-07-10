@@ -81,7 +81,7 @@ app.get('/regions', (req, res) => {
     })
 });
 
-app.get('/search/region=:region_id-sport=:sport', (req, res) => {
+app.get('/instructor', (req, res) => {
 
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
     let loc_sql = "SELECT insl.instructor_id,insl.location_id ,loc.name,loc.region_id,r.name as rname FROM instructors_locations insl INNER JOIN locations loc ON insl.location_id=loc.id INNER JOIN regions r ON loc.region_id=r.id"

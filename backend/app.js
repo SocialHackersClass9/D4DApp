@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });
 })
 
-app.get('/instructor/:id', (req, res) => {
+app.get('/instructors/:id', (req, res) => {
     let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
 
     con.query(instructorQuery, req.params.id, (err, instructors) => {

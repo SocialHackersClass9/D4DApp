@@ -35,7 +35,6 @@ CREATE TABLE instructors (
     last_name VARCHAR(200) NOT NULL,
     year_of_birth int NOT NULL,
     gender VARCHAR(10) NOT NULL,
-
     street VARCHAR(200) NULL,
     street_number VARCHAR(15) NULL,
     zip VARCHAR(15),
@@ -45,7 +44,6 @@ CREATE TABLE instructors (
     photo VARCHAR(200) NULL,
     occupation VARCHAR(300) NULL,
     details TEXT NULL,
-
     FOREIGN KEY (region_id) REFERENCES regions(id),
     CONSTRAINT chk_instructors_gender CHECK (gender in ('male', 'female'))
 );

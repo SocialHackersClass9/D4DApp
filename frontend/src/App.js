@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Home from './views/Home';
+import Home from './views/Home.js';
 import About from './views/About.js';
-import Search from './views/Search';
-import AccessibleRegistrationForm from './views/AccessibleRegistrationForm'
-import InstructorProfileContact from './views/InstructorProfileContact.js';
-import Ping from './views/Ping.js';
+import Instructors_registration from './views/Instructors_registration/Instructors_registration.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,37 +13,44 @@ import {
 
 
 function App() {
+  const [greeting, setGreeting] = useState('No greeting');
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API_URL)
+    .then(res => res.json())
+    .then(data => {
+        setGreeting(data.greeting);
+    })
+  });
   return (
     <Router>
+        <ul className="nav">
+            <li className="nav-item">
+                <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/Instructors_registration">Instructors Registration</Link>
+            </li>
+        </ul>
 
+      <h1>Greeting: { greeting } </h1>
 
-      <main role="main">
+      <main role="main" className="container">
         <Switch>
-
-          <Route exact path="/ping">
-            <Ping />
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
-          <Route exact path="/accessibleregistration">
-            <AccessibleRegistrationForm />
-          </Route>
-          <Route exact path="/instructor">
-            <InstructorProfileContact />
-
-          </Route>
-          <Route exact path="/about">
+          <Route path="/about">
             <About />
           </Route>
-          <Route exact path="/">
+          <Route path="/Instructors_registration">
+            <Instructors_registration />
+          </Route>
+          <Route path="/">
             <Home />
           </Route>
-
+          
         </Switch>
       </main>
-
-
     </Router>
   );
 }

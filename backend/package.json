@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "3.1.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -12,12 +12,13 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "latest",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-session": "^1.10.1",
     "file-exists": "^5.0.1",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "node-env-file": "^0.1.8",
-    "nodemailer": "^6.4.10"
+    "node-env-file": "^0.1.8"
   }
 }

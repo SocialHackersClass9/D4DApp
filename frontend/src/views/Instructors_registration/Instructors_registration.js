@@ -4,7 +4,6 @@ import AccountSetup from './AccountSetup';
 import SocialProfiles from './SocialProfiles';
 import MoreInfo from './MoreInfo'
 import Success from './Success';
-//first_name, last_name, year_of_birth, gender, street, street_number, zip, region_id, phone, education, photo, occupation, details
 export class Instructors_registration extends Component {
     state = {
         step: 1,

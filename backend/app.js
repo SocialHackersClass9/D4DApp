@@ -71,7 +71,7 @@ app.get('/sports', (req, res) => {
     })
 });
 app.get('/regions', (req, res) => {
-    let sql = `SELECT id, name, name_gr FROM regions`
+    let sql = `SELECT id, name FROM regions`
     con.query(sql, (err, result) => {
         if (err) console.log(err)
         res.json(result)
@@ -113,9 +113,6 @@ app.get('/instructors', (req, res) => {
         sqlQuery(instructors, res);
 
     })
-
-
-
 })
 
 

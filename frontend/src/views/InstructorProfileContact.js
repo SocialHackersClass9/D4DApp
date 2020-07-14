@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export default function InstructorProfileContact(props) {
     const [instructor, setInstructor] = useState([]);
     let { id } = useParams();
-    const url = process.env.REACT_APP_API_URL + '/instructors/' + id;
+    const url = process.env.REACT_APP_API_URL + '/instructor/' + id;
 
     console.log(id);
     const styledDetails = {

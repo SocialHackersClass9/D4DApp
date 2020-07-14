@@ -4,7 +4,6 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const mysql = require('mysql');
-var morgan = require('morgan');
 var cors = require('cors');
 const fileUpload = require('express-fileupload');
 const env = require('./env');
@@ -34,7 +33,6 @@ con.connect(function (err) {
 
 ///////////// MIDLE_HANDLERS ///////////////
 
-app.use(morgan('common'));
 app.use(cors());
 app.use(bodyParser.json());
 

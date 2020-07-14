@@ -7,7 +7,6 @@ function SocialProfiles(props) {
 
     const [file, setFile] = useState('');
     const [filename, setFilename] = useState('Choose File');
-    const [message, setMessage] = useState('');
     const [regions, setRegions] = useState([]);
 
 
@@ -27,7 +26,7 @@ function SocialProfiles(props) {
         const formData = new FormData();
         formData.append('file', file);
         if (typeof(file) == 'object') {
-                   try {
+            try {
             axios.post('http://localhost:3001/api/Instructors_registration/upload/img', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -37,10 +36,8 @@ function SocialProfiles(props) {
         }
         catch (err) {
             if (err.response.status === 500) {
-                setMessage('There was a problem with the server');
-                alert('therer was a problem whit the server');
+            alert('therer was a problem whit the server');
             } else {
-                setMessage(err.response.data.msg);
                 alert('Please chosee a valid photo');
             }
         }
@@ -53,11 +50,6 @@ function SocialProfiles(props) {
         setFilename(e.target.files[0].name);
     };
 
-    const h6 = {
-        textAlign : 'center',
-        color : 'red'
-    }
-
     const options = regions.map((region) => <option value={parseInt(region.id)} name={region.name}>{region.name}</option>
 );  
 
@@ -66,7 +58,7 @@ function SocialProfiles(props) {
         <form onSubmit={(e) => { e.preventDefault() }}>
             <div className="form-container">
                 <h1 className="mb-5">More Information</h1>
-                <h6 style={h6}>this part is fully optional which means you can jamp from it </h6>
+                <h6 id="h6">this part is fully optional which means you can jamp from it </h6>
 
                 <div className="form-group">
                     <label htmlFor="github">Phone Number</label>

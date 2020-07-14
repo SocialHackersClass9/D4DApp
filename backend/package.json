@@ -15,9 +15,7 @@
     "cors": "^2.8.5",
     "express": "latest",
     "express-fileupload": "^1.1.7-alpha.3",
-    "express-session": "^1.10.1",
     "file-exists": "^5.0.1",
-    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "node-env-file": "^0.1.8"
   }

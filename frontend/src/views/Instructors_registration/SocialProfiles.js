@@ -118,16 +118,17 @@ class SocialProfiles extends Component {
   render() {
     const { formErrors } = this.state;
     const { inputChange , values} = this.props;
-    let Available_sport = []
-    this.state.Available_sports.map(item => {
-      Available_sport = [...Available_sport, { name: item.name, value: parseInt(item.id), label: item.name }]
-    })
-    let Available_locations = []
-    this.state.Available_locations.map(item => {
-      Available_locations = [...Available_locations, { name: item.name, value: parseInt(item.id), label: item.name }]
-    })
 
-    return (
+     let Available_sport = []
+     this.state.Available_sports.forEach(item => {
+       Available_sport.push({ name: item.name, value: parseInt(item.id), label: item.name })
+     })
+     let Available_locations = []
+     this.state.Available_locations.forEach(item => {
+       Available_locations.push({ name: item.name, value: parseInt(item.id), label: item.name })
+     })
+
+  return (
       <form onSubmit={(e) => { e.preventDefault() }}>
         <div className="form-container">
            <h1 className="mb-5">Personal Information</h1>

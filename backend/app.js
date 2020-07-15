@@ -6,6 +6,7 @@ const env = require('./env')
 const nodemailer = require('nodemailer');
 const mysql = require('mysql');
 
+
 env.get();
 const port = process.env.PORT
 
@@ -70,6 +71,10 @@ function sqlQuery(instructors, res) {
         })
     })
 }
+
+router.use('/instructors',search)
+
+
 app.get('/instructor/:id', (req, res) => {
     let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
     con.query(instructorQuery, req.params.id, (err, instructors) => {

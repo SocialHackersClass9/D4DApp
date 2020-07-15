@@ -4,7 +4,6 @@ import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
 import Search from './views/Search';
-import AccessibleRegistrationForm from './views/AccessibleRegistrationForm'
 import InstructorProfileContact from './views/InstructorProfileContact.js';
 import Ping from './views/Ping.js';
 import {
@@ -28,9 +27,6 @@ function App() {
           </Route>
           <Route exact path="/search">
             <Search />
-          </Route>
-          <Route exact path="/accessibleregistration">
-            <AccessibleRegistrationForm />
           </Route>
           <Route exact path="/instructor/:id">
             <InstructorProfileContact />

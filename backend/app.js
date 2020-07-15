@@ -33,6 +33,8 @@ let con = mysql.createConnection({
 
 app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });
+    console.log(req.headers)
+    
 })
 ////////////////////////
 app.get('/sports', (req, res) => {
@@ -72,10 +74,11 @@ function sqlQuery(instructors, res) {
     })
 }
 
-router.use('/instructors',search)
+
 
 
 app.get('/instructor/:id', (req, res) => {
+    
     let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
     con.query(instructorQuery, req.params.id, (err, instructors) => {
         if (err) console.log(err);
@@ -83,13 +86,14 @@ app.get('/instructor/:id', (req, res) => {
     })
 })
 app.get('/instructors', (req, res) => {
+    
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
     con.query(inst_sql, (err, instructors) => {
         if (err) console.log(err);
         sqlQuery(instructors, res);
 
     })
-
+    
 
 
 })

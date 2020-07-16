@@ -78,21 +78,22 @@ function sqlQuery(instructors, res) {
 
 
 app.get('/instructor/:id', (req, res) => {
-    
+    if(req.headers.key === "123"){
     let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
     con.query(instructorQuery, req.params.id, (err, instructors) => {
         if (err) console.log(err);
         sqlQuery(instructors, res)
-    })
+    })}
 })
 app.get('/instructors', (req, res) => {
-    
+    if(req.headers.key === "123"){
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
     con.query(inst_sql, (err, instructors) => {
         if (err) console.log(err);
         sqlQuery(instructors, res);
 
     })
+}
     
 
 

@@ -6,6 +6,7 @@ import About from './views/About.js';
 import Search from './views/Search';
 import AccessibleRegistrationForm from './views/AccessibleRegistrationForm'
 import InstructorProfileContact from './views/InstructorProfileContact.js';
+import Instructors_registration from './views/Instructors_registration/Instructors_registration.js';
 import Ping from './views/Ping.js';
 import {
   BrowserRouter as Router,
@@ -34,7 +35,9 @@ function App() {
           </Route>
           <Route exact path="/instructor/:id">
             <InstructorProfileContact />
-
+          </Route>
+          <Route path="/instructors_registration">
+            <Instructors_registration />
           </Route>
           <Route exact path="/about">
             <About />

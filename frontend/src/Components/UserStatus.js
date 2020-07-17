@@ -50,33 +50,35 @@ const Login = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const baseUrl = process.env.REACT_APP_API_URL;
+    const login = baseUrl + "/login"
 
     return (
         <Styles>
             <Button variant="primary" onClick={handleShow}>Login</Button>
-
+            
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form action="http://localhost:3001/login" method="POST">
+                    <Form action={login} method="POST" enctype="application/x-www-form-urlencoded">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="text" placeholder="Enter email" name="email"/>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Password" name="password"/>
                         </Form.Group>
-                        
+                        <Button variant="primary" type="submit">
+                        Login
+                    </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" type="submit">
-                        Login
-                    </Button>
+                    
                 </Modal.Footer>
             </Modal>
         </Styles>

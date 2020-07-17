@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const env = require('./env')
 // const cookieParser = require('cookie-parser');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const mysql = require('mysql');
 
@@ -13,8 +13,9 @@ const port = process.env.PORT
 
 const app = express()
 app.use(cors())
-//for stefanos
+
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 const mailtransport = nodemailer.createTransport({
     service: 'SendGrid',
     auth: {
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
     console.log(req.headers)
     
 })
+
 ////////////////////////
 app.get('/sports', (req, res) => {
     let sql = `SELECT id, name FROM sports`
@@ -45,7 +47,7 @@ app.get('/sports', (req, res) => {
     })
 });
 app.get('/regions', (req, res) => {
-    let sql = `SELECT id, name, name_gr FROM regions`
+    let sql = `SELECT id, name FROM regions`
     con.query(sql, (err, result) => {
         if (err) console.log(err)
         res.json(result)
@@ -94,19 +96,12 @@ app.get('/instructors', (req, res) => {
 
     })
 }
-    
-
-
 })
 
 
 
 app.post('/login', (req, res) => {
-
-    // console.log(req.body)
-    // email or username
-    sql = `SELECT username FROM login WHERE (email="${req.body.username}" AND password="${req.body.password}") OR (username="${req.body.username}" AND password="${req.body.password}")`
-
+    sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`
     con.query(sql, (err, result) => {
         if (err) console.log(err)
         res.json(result)

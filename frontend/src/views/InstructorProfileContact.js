@@ -17,7 +17,11 @@ export default function InstructorProfileContact(props) {
 
     };
     useEffect(() => {
-        fetch(url)
+        fetch(url,{
+            headers : {
+                "key" : "123"
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data);

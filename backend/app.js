@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 
 //for stefanos
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 const mailtransport = nodemailer.createTransport({
     service: 'SendGrid',
     auth: {
@@ -84,31 +85,28 @@ function sqlQuery(instructors, res) {
 
 
 app.get('/instructor/:id', (req, res) => {
-    
+    if(req.headers.key === "123"){
     let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
     con.query(instructorQuery, req.params.id, (err, instructors) => {
         if (err) console.log(err);
         sqlQuery(instructors, res)
-    })
+    })}
 })
 app.get('/instructors', (req, res) => {
-    
+    if(req.headers.key === "123"){
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
     con.query(inst_sql, (err, instructors) => {
         if (err) console.log(err);
         sqlQuery(instructors, res);
 
     })
+}
 })
 
 
 
 app.post('/login', (req, res) => {
-
-    // console.log(req.body)
-    // email or username
-    sql = `SELECT username FROM login WHERE (email="${req.body.username}" AND password="${req.body.password}") OR (username="${req.body.username}" AND password="${req.body.password}")`
-
+    sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`
     con.query(sql, (err, result) => {
         if (err) console.log(err)
         res.json(result)

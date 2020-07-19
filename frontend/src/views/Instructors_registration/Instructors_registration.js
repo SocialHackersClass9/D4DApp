@@ -4,6 +4,7 @@ import AccountSetup from './AccountSetup';
 import SocialProfiles from './SocialProfiles';
 import MoreInfo from './MoreInfo'
 import Success from './Success';
+
 export class Instructors_registration extends Component {
     state = {
         step: 1,

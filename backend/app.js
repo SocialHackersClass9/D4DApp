@@ -24,11 +24,12 @@ const mailtransport = nodemailer.createTransport({
 });
 //
 let con = mysql.createConnection({
-  host: "localhost",
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: "d4d",
-});
+    host: 'localhost',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+})
+
 
 app.get("/", (req, res) => {
   res.json({ greeting: "Hello World!" });

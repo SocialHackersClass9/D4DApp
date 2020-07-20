@@ -8,7 +8,7 @@ const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
 
 env.get();
-const port = "9000";
+const port = process.env.PORT
 
 const app = express();
 app.use(cors());

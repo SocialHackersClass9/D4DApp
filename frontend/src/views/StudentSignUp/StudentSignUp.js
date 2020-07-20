@@ -1,7 +1,6 @@
 import React from "react";
+import apis from '../../apis.js';
 import {Form, Button} from "react-bootstrap";
-
-const URL = "http://localhost:3001/register/student"
 
 export default class StudentSignUp extends React.Component {
 	constructor (props) {
@@ -28,11 +27,8 @@ export default class StudentSignUp extends React.Component {
   }
 
 	handleSubmit(e) {
-    fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: { "Content-Type": "application/json" }
-    })
+	e.preventDefault();
+	apis.post('/register/student', this.state)
       .then(resp => resp.json())
       .catch(err => console.error(err));
   }

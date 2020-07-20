@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Instructors_registration.css";
-import axios from "axios";
+import apis from "../../apis.js";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -48,14 +48,16 @@ class AccountSetup extends Component {
   }
 
   request() {
-    const url = process.env.REACT_APP_API_URL + '/instructors/used';
-    axios.get(url, { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
-      .then(response => {
-        var emailuser = response.data.emailuser;
-        emailuser.map((i) => {
-          this.setState({emails: [...this.state.emails, i.email] })
-          this.setState({user_names: [...this.state.user_names, i.user_name] })
-        })
+    apis.get('/instructors/used')
+      .then(data => {
+          alert("Loaded");
+          console.log("OK");
+            var emailuser = data.emailuser;
+            emailuser.map((i) => {
+            this.setState({emails: [...this.state.emails, i.email] })
+            this.setState({user_names: [...this.state.user_names, i.user_name] })
+            return null;
+            })
       })
       .catch(err => {
         alert('database is offline and your registration is not going to save into out database')

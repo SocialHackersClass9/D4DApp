@@ -48,7 +48,8 @@ class AccountSetup extends Component {
   }
 
   request() {
-    axios.get('http://localhost:3001/instructors/used', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
+    const url = process.env.REACT_APP_API_URL + '/instructors/used';
+    axios.get(url, { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
       .then(response => {
         var emailuser = response.data.emailuser;
         emailuser.map((i) => {

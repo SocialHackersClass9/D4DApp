@@ -12,7 +12,7 @@ function SocialProfiles(props) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/regions', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
+        axios.get(process.env.REACT_APP_API_URL + '/regions', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
       .then(response => {
         var regions = response.data;
         setRegions(regions);
@@ -27,7 +27,7 @@ function SocialProfiles(props) {
         formData.append('file', file);
         if (typeof(file) == 'object') {
             try {
-            axios.post('http://localhost:3001/instructors/upload/img', formData, {
+            axios.post(process.env.REACT_APP_API_URL + '/instructors/upload/img', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'key': 'd4dapplicationregistrationapipostmethod1234567890'

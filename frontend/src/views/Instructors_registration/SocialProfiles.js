@@ -41,12 +41,13 @@ class SocialProfiles extends Component {
   }
 
   componentDidMount(){
-        axios.get('http://localhost:3001/sports', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
+    const url = process.env.REACT_APP_API_URL + '/sports';
+        axios.get(url)
       .then(response => {
         var sports = response.data;
         this.setState({Available_sports : sports});
       })
-    axios.get('http://localhost:3001/locations', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
+    axios.get(process.env.REACT_APP_API_URL + '/locations', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
       .then(response => {
         var locations = response.data;
         this.setState({Available_locations : locations});

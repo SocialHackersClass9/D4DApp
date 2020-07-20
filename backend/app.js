@@ -31,8 +31,7 @@ let con = mysql.createConnection({
     host: 'localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    // database: 'd4d'
-    database: 'D4DApp'
+    database: process.env.DB_NAME,
 })
 
 

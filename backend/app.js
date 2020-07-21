@@ -31,9 +31,9 @@ let con = mysql.createConnection({
 })
 
 
-app.get('/', (req, res) => {
-    res.json({ "greeting": "Hello World!" });
-    console.log(req.headers)
+app.get("/", (req, res) => {
+  res.json({ greeting: "Hello World!" });
+  console.log(req.headers);
 });
 
 ////////////////////////
@@ -76,34 +76,51 @@ function sqlQuery(instructors, res) {
   });
 }
 
-app.get('/instructor/:id', (req, res) => {
-    if (req.headers.key === "123") {
-        let instructorQuery = 'SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?'
-        con.query(instructorQuery, req.params.id, (err, instructors) => {
-            if (err) console.log(err);
-            sqlQuery(instructors, res)
-        })
-    }
-})
-app.get('/instructors', (req, res) => {
-    if (req.headers.key === "123") {
-        const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
-        con.query(inst_sql, (err, instructors) => {
-            if (err) console.log(err);
-            sqlQuery(instructors, res);
+app.get("/instructor/:id", (req, res) => {
+  if (req.headers.key === "123") {
+    let instructorQuery =
+      "SELECT id,user_name,email,first_name,last_name,year_of_birth,gender,street,street_number,region_id,phone,education,photo,details FROM instructors WHERE id=?";
+    con.query(instructorQuery, req.params.id, (err, instructors) => {
+      if (err) console.log(err);
+      sqlQuery(instructors, res);
+    });
+  }
+});
 
-        });
-    }
+
+app.get("/instructors", (req, res) => {
+  if (req.headers.key === "123") {
+    const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
+    con.query(inst_sql, (err, instructors) => {
+      if (err) console.log(err);
+      sqlQuery(instructors, res);
+    });
+  }
 });
 
 
 app.post("/login", (req, res) => {
-  sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`;
-  con.query(sql, (err, result) => {
+  const params = [req.body.email, req.body.password];
+  sql = 'SELECT user_name FROM students WHERE email=? AND password=?';
+  con.query(sql, params, (err, result) => {
     if (err) console.log(err);
-    res.json(result);
+    if (result.length > 0) {
+        const row = result[0];
+        res.json({is_authenticated: true, user: {user_name: row.user_name, user_type: 'student'}});
+    } else {
+        sql = 'SELECT user_name FROM instructors WHERE email=? AND password=?';
+        con.query(sql, params, (err, result) => {
+            if (result.length > 0) {
+                res.json({is_authenticated: true, user: {user_name: row.user_name, user_type: 'instructor'}});
+            }
+            else {
+                res.json({is_authenticated: false});
+            }
+        });
+    }
   });
 });
+
 
 // app.post('/register/instructor', (req, res) => {
 //     let sql = `INSERT INTO instructors (first_name , last_name , year_of_birth , street_number , street , )`
@@ -142,96 +159,96 @@ app.post("/register/student", (req, res) => {
 
 app.post('/instructors/upload/data', function (req, resp, next) {
 
-    const { email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, locations, sports, zip, occupation, details, photo } = req.body;
-
-    function insert(input_name_val, insert_name) {
-        let instructor_id = null;
-        con.query(insert_name, [input_name_val], function (err, result) {
-            if (err) throw err;
-            var sql = 'SELECT id FROM instructors WHERE email = ? AND user_name = ?';
-            con.query(sql, [email, user_name], function (err, result) {
-                if (err) throw err;
-                instructor_id = parseInt(result[0].id);
-                var sql1 = "INSERT INTO instructors_locations (instructor_id, location_id) VALUES ?";
-                locations.map(item => {
-                    var locations = [[instructor_id, item]]
-                    con.query(sql1, [locations], function (err, result) {
+    const { email, user_name, password, first_name, last_name, year_of_birth, region_id ,phone , education, gender, street, street_number ,locations ,sports , zip, occupation, details, photo} = req.body;
+   
+        function insert (input_name_val , insert_name) {
+            let instructor_id = null ; 
+                con.query(insert_name, [input_name_val], function (err, result) {
+                    if  (err) throw err;    
+                    var sql = 'SELECT id FROM instructors WHERE email = ? AND user_name = ?';
+                    con.query(sql, [email , user_name], function (err, result) {
                         if (err) throw err;
+                        instructor_id = parseInt(result[0].id);    
+                        var sql1 = "INSERT INTO instructors_locations (instructor_id, location_id) VALUES ?";
+                        locations.map(item => {
+                        var locations = [[instructor_id,item]]
+                        con.query(sql1, [locations], function (err, result) {
+                            if (err) throw err;
+                          });
+                        })
+                
+                        var sql2 = "INSERT INTO instructors_sports (instructor_id, sport_id) VALUES ?";
+                        sports.map(item => {
+                        var sports = [[instructor_id,item]]
+                        con.query(sql2, [sports], function (err, result) {
+                            if (err) throw err;
+                          });
+                        })
+                
                     });
-                })
+            });
+            console.log('database uploaded');
+            resp.json({ msg: 'Registration have been complited' })
+        }
+        
+            var input_name_val1 ;
+            var insert_name1 ;
 
-                var sql2 = "INSERT INTO instructors_sports (instructor_id, sport_id) VALUES ?";
-                sports.map(item => {
-                    var sports = [[instructor_id, item]]
-                    con.query(sql2, [sports], function (err, result) {
-                        if (err) throw err;
-                    });
-                })
+            if(region_id.length != 0 ){
+                var input_name_val1 = [[email, user_name, password, first_name, last_name, year_of_birth, region_id ,phone , education, gender, street, street_number, zip, occupation, details, photo]];
+                var insert_name1 = "INSERT INTO instructors(email, user_name, password, first_name, last_name, year_of_birth, region_id ,phone , education, gender, street, street_number, zip, occupation, details, photo) VALUES ?";
+                insert(input_name_val1, insert_name1);
+            }else{
+                var input_name_val2 = [[email, user_name, password, first_name, last_name, year_of_birth ,phone , education, gender, street, street_number, zip, occupation, details, photo]];
+                var insert_name2 = "INSERT INTO instructors(email, user_name, password, first_name, last_name, year_of_birth ,phone , education, gender, street, street_number, zip, occupation, details, photo) VALUES ?";
+                insert(input_name_val2, insert_name2)
+            }
+    });
+    
+
+    
+    app.post('/instructors/upload/img', fileUpload(), (req, res) => {
+
+            if (req.files === null) {
+                return res.status(400).json({ msg: 'No file uploaded' });
+            }
+    
+            const file = req.files.file;
+    
+            file.mv(`${__dirname}/Instructors_profile_images/${file.name}`, err => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).send(err);
+                }
+                res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });            
+                console.log('image uploaded');
 
             });
-        });
-        console.log('database uploaded');
-        resp.json({ msg: 'Registration have been complited' })
-    }
-
-    var input_name_val1;
-    var insert_name1;
-
-    if (region_id.length != 0) {
-        var input_name_val1 = [[email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, details, photo]];
-        var insert_name1 = "INSERT INTO instructors(email, user_name, password, first_name, last_name, year_of_birth, region_id ,phone , education, gender, street, street_number, zip, occupation, details, photo) VALUES ?";
-        insert(input_name_val1, insert_name1);
-    } else {
-        var input_name_val2 = [[email, user_name, password, first_name, last_name, year_of_birth, phone, education, gender, street, street_number, zip, occupation, details, photo]];
-        var insert_name2 = "INSERT INTO instructors(email, user_name, password, first_name, last_name, year_of_birth ,phone , education, gender, street, street_number, zip, occupation, details, photo) VALUES ?";
-        insert(input_name_val2, insert_name2)
-    }
-});
-
-
-
-app.post('/instructors/upload/img', fileUpload(), (req, res) => {
-
-    if (req.files === null) {
-        return res.status(400).json({ msg: 'No file uploaded' });
-    }
-
-    const file = req.files.file;
-
-    file.mv(`${__dirname}/Instructors_profile_images/${file.name}`, err => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send(err);
-        }
-        res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-        console.log('image uploaded');
-
     });
-});
-
-
-app.get('/instructors/used', function (req, resp, next) {
-
-    con.query("SELECT email,user_name FROM instructors", function (err, result, fields) {
-        if (err) throw err;
-        console.log(result);
-        const emailuser = result;
-        resp.json({ emailuser: emailuser })
-        next();
+    
+    
+    app.get('/instructors/used', function (req, resp, next) {
+    
+            con.query("SELECT email,user_name FROM instructors", function (err, result, fields) {
+                if (err) throw err;
+                console.log(result);
+                const emailuser = result;
+                resp.json({ emailuser: emailuser })
+                next();
+            })
     })
-})
-
-app.get('/locations', function (req, resp, next) {
-
-    con.query("SELECT * FROM locations", function (err, result, fields) {
-        if (err) throw err;
-        console.log(result);
-        const locations = result;
-        resp.json(locations)
-        next();
+   
+    app.get('/locations', function (req, resp, next) {
+    
+            con.query("SELECT * FROM locations", function (err, result, fields) {
+                if (err) throw err;
+                console.log(result);
+                const locations = result;
+                resp.json(locations)
+                next();
+            })
     })
-})
-
+    
 ////////////////////////
 
 

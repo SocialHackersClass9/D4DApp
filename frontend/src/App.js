@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home';
 import About from './views/About.js';
 import Search from './views/Search';
 import InstructorProfileContact from './views/InstructorProfileContact.js';
-import Instructors_registration from './views/Instructors_registration/Instructors_registration.js';
+import InstructorsRegistration from './views/Instructors_registration/Instructors_registration.js';
 import StudentSignUp from "./views/StudentSignUp/StudentSignUp"
 import Navigation from "./Components/Navigation";
 
@@ -14,7 +14,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -36,7 +35,7 @@ function App() {
             <InstructorProfileContact />
           </Route>
           <Route exact path="/instructors_registration">
-            <Instructors_registration />
+            <InstructorsRegistration />
           </Route>
           <Route exact path="/student_sign_up">
             <StudentSignUp />

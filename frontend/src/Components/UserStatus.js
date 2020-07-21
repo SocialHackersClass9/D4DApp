@@ -1,5 +1,7 @@
 import React from 'react';
 import {useState} from "react";
+import apis from '../apis.js';
+import storage from '../storage.js';
 
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -47,30 +49,58 @@ const Register = () => {
 
 const Login = () => {
     const [show, setShow] = useState(false);
+    const [values, setValues] = useState({email: "george@test.com", password: "12345"});
+    const [user, setUser] = useState(storage.current_user);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const baseUrl = process.env.REACT_APP_API_URL;
-    const login = baseUrl + "/login"
+    const handleChangeEmail = function (e) {
+        setValues({...values, email: e.target.value});
+    }
+    const handleChangePassword = function (e) {
+        setValues({...values, password: e.target.value});
+    }
+    const handleSubmit = function (e) {
+        e.preventDefault();
+        console.log(values);
+        apis.post('/login', values)
+        .then(data => {
+            if (data.is_authenticated) {
+                storage.current_user = data.user;
+                setUser(storage.current_user);
+                setShow(false);
+                console.log(data.user);
+            } else {
+                alert("User name or password is wrong. Please try again.");
+            }
+        });
+
+        alert("Submit me");
+    }
 
     return (
         <Styles>
+        { user == null &&
             <Button variant="primary" onClick={handleShow}>Login</Button>
-            
+        }
+        { user != null &&
+                <span>{ user.name }</span>
+        }
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form action={login} method="POST" enctype="application/x-www-form-urlencoded">
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="text" placeholder="Enter email" name="email"/>
+                            <Form.Control type="text" placeholder="Enter email" name="email" value={values.email} onChange={handleChangeEmail}/>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" name="password"/>
+                            <Form.Control type="password" placeholder="Password" name="password" value={values.password} onChange={handleChangePassword}/>
                         </Form.Group>
                         <Button variant="primary" type="submit">
                         Login

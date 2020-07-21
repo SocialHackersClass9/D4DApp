@@ -86,6 +86,8 @@ app.get("/instructor/:id", (req, res) => {
     });
   }
 });
+
+
 app.get("/instructors", (req, res) => {
   if (req.headers.key === "123") {
     const inst_sql = `SELECT inst.id,inst.first_name,inst.last_name FROM instructors inst`;
@@ -96,13 +98,29 @@ app.get("/instructors", (req, res) => {
   }
 });
 
+
 app.post("/login", (req, res) => {
-  sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`;
-  con.query(sql, (err, result) => {
+  const params = [req.body.email, req.body.password];
+  sql = 'SELECT user_name FROM students WHERE email=? AND password=?';
+  con.query(sql, params, (err, result) => {
     if (err) console.log(err);
-    res.json(result);
+    if (result.length > 0) {
+        const row = result[0];
+        res.json({is_authenticated: true, user: {user_name: row.user_name, user_type: 'student'}});
+    } else {
+        sql = 'SELECT user_name FROM instructors WHERE email=? AND password=?';
+        con.query(sql, params, (err, result) => {
+            if (result.length > 0) {
+                res.json({is_authenticated: true, user: {user_name: row.user_name, user_type: 'instructor'}});
+            }
+            else {
+                res.json({is_authenticated: false});
+            }
+        });
+    }
   });
 });
+
 
 // app.post('/register/instructor', (req, res) => {
 //     let sql = `INSERT INTO instructors (first_name , last_name , year_of_birth , street_number , street , )`

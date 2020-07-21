@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apis from '../../apis.js';
 import "./Instructors_registration.css";
 
 
@@ -12,10 +12,9 @@ function SocialProfiles(props) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/regions', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
-      .then(response => {
-        var regions = response.data;
-        setRegions(regions);
+        apis.get('/regions')
+      .then(data => {
+        setRegions(data);
       })
 },[])
 
@@ -26,23 +25,15 @@ function SocialProfiles(props) {
         const formData = new FormData();
         formData.append('file', file);
         if (typeof(file) == 'object') {
-            try {
-            axios.post('http://localhost:3001/instructors/upload/img', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'key': 'd4dapplicationregistrationapipostmethod1234567890'
-                }
-            });
+            apis.postForm('/instructors/upload/img', formData)
+            .then(data => {
+                alert("Success saved");
+            })
+            .catch(err => {
+                alert("Error");
+                console.log(err);
+            })
         }
-        catch (err) {
-            if (err.response.status === 500) {
-            alert('therer was a problem whit the server');
-            } else {
-                alert('Please chosee a valid photo');
-            }
-        }
-        }else{return;}  
- 
     };
 
     const onChangePhoto = e => {

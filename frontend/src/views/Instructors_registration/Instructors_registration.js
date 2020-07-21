@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import apis from '../../apis.js';
 import AccountSetup from './AccountSetup';
 import SocialProfiles from './SocialProfiles';
 import MoreInfo from './MoreInfo'
 import Success from './Success';
+
 export class Instructors_registration extends Component {
     state = {
         step: 1,
@@ -38,14 +39,13 @@ export class Instructors_registration extends Component {
 
     lastStep = () => {
         const { email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, details, photo, locations, sports, locations_name, sports_name } = this.state;
-        axios.post('http://localhost:3001/instructors/upload/data', JSON.stringify({ email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, locations, sports, details, photo: `/backed/Coach_Profile_images/${photo}` }), {
-            headers: {
-                'key': 'd4dapplicationregistrationapipostmethod1234567890',
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json',
+        apis.post(
+            '/instructors/upload/data',
+            {
+                email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, locations, sports, details, photo: `/backed/Coach_Profile_images/${photo}` 
             }
-        })
-    }
+        );
+    };
 
     inputChange = input => e => {
 

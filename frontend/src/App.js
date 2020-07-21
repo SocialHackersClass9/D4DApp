@@ -6,6 +6,9 @@ import About from './views/About.js';
 import Search from './views/Search';
 import InstructorProfileContact from './views/InstructorProfileContact.js';
 import Instructors_registration from './views/Instructors_registration/Instructors_registration.js';
+import StudentSignUp from "./views/StudentSignUp/StudentSignUp"
+import Navigation from "./Components/Navigation";
+
 import Ping from './views/Ping.js';
 import {
   BrowserRouter as Router,
@@ -18,7 +21,7 @@ import {
 function App() {
   return (
     <Router>
-
+      <Navigation />
 
       <main role="main">
         <Switch>
@@ -32,8 +35,11 @@ function App() {
           <Route exact path="/instructor/:id">
             <InstructorProfileContact />
           </Route>
-          <Route path="/instructors_registration">
+          <Route exact path="/instructors_registration">
             <Instructors_registration />
+          </Route>
+          <Route exact path="/student_sign_up">
+            <StudentSignUp />
           </Route>
           <Route exact path="/about">
             <About />

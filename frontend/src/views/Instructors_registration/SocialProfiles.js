@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Instructors_registration.css";
-import axios from "axios";
+import apis from '../../apis.js';
 import Select from 'react-select';
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -41,14 +41,14 @@ class SocialProfiles extends Component {
   }
 
   componentDidMount(){
-        axios.get('http://localhost:3001/sports', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
-      .then(response => {
-        var sports = response.data;
+      apis.get('/sports')
+      .then(data => {
+        var sports = data;
         this.setState({Available_sports : sports});
       })
-    axios.get('http://localhost:3001/locations', { 'headers': { 'key': 'd4dapplicationregistrationapigetmethod1234567890' } })
-      .then(response => {
-        var locations = response.data;
+      apis.get('/locations')
+      .then(data => {
+        var locations = data;
         this.setState({Available_locations : locations});
       })
   }

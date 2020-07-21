@@ -1,88 +1,80 @@
-const express = require('express')
-const cors = require('cors')
-const env = require('./env')
+const express = require("express");
+const cors = require("cors");
+const env = require("./env");
 // const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const mysql = require('mysql');
-const fileUpload = require('express-fileupload');
-const { get } = require("./env");
-env.get();
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+const mysql = require("mysql");
+const fileUpload = require("express-fileupload");
 
+env.get();
 const port = process.env.PORT
 
+const app = express();
+app.use(cors());
 
-const app = express()
-app.use(cors())
-app.use(bodyParser.json());
-
-//for stefanos
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 const mailtransport = nodemailer.createTransport({
-    service: 'SendGrid',
-    auth: {
-        user: process.env.SENDGRID_USER,
-        pass: process.env.SENDGRID_PASSWORD
-    }
-})
+  service: "SendGrid",
+  auth: {
+    user: process.env.SENDGRID_USER,
+    pass: process.env.SENDGRID_PASSWORD,
+  },
+});
 //
 let con = mysql.createConnection({
     host: 'localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'd4d'
-    // database: 'D4DApp'
+    database: process.env.DB_NAME,
 })
 
 
 app.get('/', (req, res) => {
     res.json({ "greeting": "Hello World!" });
     console.log(req.headers)
-
-})
+});
 
 ////////////////////////
-
-app.get('/sports', (req, res) => {
-    let sql = `SELECT id, name FROM sports`
-    con.query(sql, (err, result) => {
-        if (err) console.log(err);
-        res.json(result)
-    })
+app.get("/sports", (req, res) => {
+  let sql = `SELECT id, name FROM sports`;
+  con.query(sql, (err, result) => {
+    if (err) console.log(err);
+    res.json(result);
+  });
 });
-app.get('/regions', (req, res) => {
-    let sql = `SELECT id, name FROM regions`
-    con.query(sql, (err, result) => {
-        if (err) console.log(err)
-        res.json(result)
-    })
+app.get("/regions", (req, res) => {
+  let sql = `SELECT id, name FROM regions`;
+  con.query(sql, (err, result) => {
+    if (err) console.log(err);
+    res.json(result);
+  });
 });
 function sqlQuery(instructors, res) {
-    let loc_sql = "SELECT insl.instructor_id,insl.location_id ,loc.name,loc.region_id,r.name as rname FROM instructors_locations insl INNER JOIN locations loc ON insl.location_id=loc.id INNER JOIN regions r ON loc.region_id=r.id"
-    let sprt_sql = "SELECT inss.instructor_id , inss.sport_id , s.name FROM instructors_sports inss INNER JOIN sports s ON inss.sport_id=s.id"
+  let loc_sql =
+    "SELECT insl.instructor_id,insl.location_id ,loc.name,loc.region_id,r.name as rname FROM instructors_locations insl INNER JOIN locations loc ON insl.location_id=loc.id INNER JOIN regions r ON loc.region_id=r.id";
+  let sprt_sql =
+    "SELECT inss.instructor_id , inss.sport_id , s.name FROM instructors_sports inss INNER JOIN sports s ON inss.sport_id=s.id";
 
-    con.query(loc_sql, (err, locations) => {
-        if (err) console.log(err);
-        con.query(sprt_sql, (err, sports) => {
-            if (err) console.log(err);
-            let result = [];
-            instructors.forEach(instructor => {
-                locs = locations.filter(loc => loc.instructor_id === instructor.id)
-                instructor.locations = locs;
-                sprts = sports.filter(sport => sport.instructor_id === instructor.id)
-                instructor.sports = sprts;
-                result.push(instructor);
-            });
-            Promise.all(result)
-                .then(result => res.json(result))
-                .catch(err => console.log(err))
-        })
-    })
+  con.query(loc_sql, (err, locations) => {
+    if (err) console.log(err);
+    con.query(sprt_sql, (err, sports) => {
+      if (err) console.log(err);
+      let result = [];
+      instructors.forEach((instructor) => {
+        locs = locations.filter((loc) => loc.instructor_id === instructor.id);
+        instructor.locations = locs;
+        sprts = sports.filter((sport) => sport.instructor_id === instructor.id);
+        instructor.sports = sprts;
+        result.push(instructor);
+      });
+      Promise.all(result)
+        .then((result) => res.json(result))
+        .catch((err) => console.log(err));
+    });
+  });
 }
-
-
-
 
 app.get('/instructor/:id', (req, res) => {
     if (req.headers.key === "123") {
@@ -100,45 +92,50 @@ app.get('/instructors', (req, res) => {
             if (err) console.log(err);
             sqlQuery(instructors, res);
 
-        })
+        });
     }
-})
+});
 
 
-
-app.post('/login', (req, res) => {
-    sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`
-    con.query(sql, (err, result) => {
-        if (err) console.log(err)
-        res.json(result)
-    })
-})
+app.post("/login", (req, res) => {
+  sql = `SELECT user_name FROM students WHERE (email="${req.body.email}" AND password="${req.body.password}") OR (user_name="${req.body.email}" AND password="${req.body.password}")`;
+  con.query(sql, (err, result) => {
+    if (err) console.log(err);
+    res.json(result);
+  });
+});
 
 // app.post('/register/instructor', (req, res) => {
 //     let sql = `INSERT INTO instructors (first_name , last_name , year_of_birth , street_number , street , )`
 // })
 
 //for stefanos
-app.post('/contact', (req, res) => {
+app.post("/contact", (req, res) => {
+  const msg = {
+    to: "sobhanessifa@gmail.com",
+    from: req.body.email,
+    subject: req.body.subject,
+    text: req.body.message,
+  };
+  async function send(msg) {
+    try {
+      const result = await mailtransport.sendMail(msg);
+      res.json({ status: "success" });
+    } catch (err) {
+      console.log(err.message);
+      res.json({ status: "failed" });
+    }
+  }
+  send(msg);
+});
 
-    const msg = {
-        to: 'sobhanessifa@gmail.com',
-        from: req.body.email,
-        subject: req.body.subject,
-        text: req.body.message
-    }
-    async function send(msg) {
-        try {
-            const result = await mailtransport.sendMail(msg);
-            res.json({ "status": "success" })
-        }
-        catch (err) {
-            console.log(err.message);
-            res.json({ "status": "failed" })
-        }
-    }
-    send(msg);
-})
+//for marios
+app.post("/register/student", (req, res) => {
+  sql = `INSERT INTO students (user_name,email,password,first_name,last_name,phone,details) VALUES ("${req.body.user_name}","${req.body.email}","${req.body.password}","${req.body.first_name}","${req.body.last_name}","${req.body.phone}","${req.body.details}")`;
+  con.query(sql, (err, result) => {
+    res.json("done");
+  });
+});
 
 
 
@@ -245,4 +242,6 @@ app.get('/', (req, res) => {
 
 ////////////////////////
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () =>
+  console.log(`Example app listening at http://localhost:${port}`)
+);

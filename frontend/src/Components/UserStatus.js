@@ -69,7 +69,6 @@ const Login = () => {
             if (data.is_authenticated) {
                 console.log(data);
                 context.setContext({user: data.user});
-                alert("TODO update user in context");
                 setShow(false);
             } else {
                 alert("User name or password is wrong. Please try again.");

@@ -9,8 +9,8 @@ export default function InstructorProfileContact(props) {
 
     console.log(id);
     const styledDetails = {
-        margin: "20px 30px",
-        padding: "20px 30px",
+        margin: "10px 30px",
+        padding: "10px 30px",
         fontSize: "1.5em",
         color: "black",
         textAlign: "justify"
@@ -49,14 +49,19 @@ export default function InstructorProfileContact(props) {
                     <table className="table table-borderless d-flex justify-content-center">
                         <tbody style={styledDetails}>
                             <tr>
-                                {instructor.first_name} {instructor.last_name}
+                                <td align="middle">
+                                    {instructor.first_name} {instructor.last_name}
+                                </td>
                             </tr>
                             <tr>
-                                {/* If I try to render the sports and locations which are both arrays with {instructor.sports[0].name}
-                                    it breaks */}
+                                <td align="middle">
+                                    <strong>Sports: </strong>{instructor.sports && instructor.sports.map(sports => { return <div>{sports.name}</div> })}
+                                </td>
                             </tr>
                             <tr>
-
+                                <td align="middle">
+                                    <div><strong>Locations: </strong></div>  {instructor.locations && instructor.locations.map(locations => { return <div>{locations.name}</div> })}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import AppContext from '../context';
 
 
 function ResultItem(props) {
@@ -61,6 +62,7 @@ function Result(props) {
 
 
 class Search extends React.Component {
+    static contextType = AppContext;
     constructor() {
         super();
         this.state = {
@@ -144,6 +146,8 @@ class Search extends React.Component {
         const matches = this.filterInstructors();
 
         return (
+            <AppContext.Consumer>
+            {context => (
             <div className="container">
                 <div className="row row-header align-self-center">
                     <div className="col-12 col-sm-12 col-xs-12 text-center">
@@ -173,6 +177,24 @@ class Search extends React.Component {
                             </select>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+                            <h3><strong> User</strong></h3>
+                            { context.user == null &&
+                                (
+                                    <div>No user defined</div>
+                                )
+                            }
+                            { context.user != null &&
+                                (
+                                    <div>
+                                    <div>{ context.user.user_name }</div>
+                                    <div>{ context.user.user_type }</div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
 
                     <div className="row">
                         <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
@@ -187,6 +209,8 @@ class Search extends React.Component {
                     }
                 </div>
             </div>
+            )}
+            </AppContext.Consumer>
         )
     }
 }

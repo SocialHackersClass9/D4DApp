@@ -28,19 +28,31 @@ const initialContext = {
     }
 }
 
+const loadContext = function () {
+    var ctx = localStorage.getItem('AppContext');
+    alert("Load context");
+    console.log(ctx);
+    if (ctx == null) {
+        return initialContext;
+    }
+    return JSON.parse(ctx);
+
+}
+
 function App() {
-  const [context_, setContext_] = useState(initialContext);
+  const [context_, setContext_] = useState(loadContext);
   const setContext = function (ctx) {
+      localStorage.setItem('AppContext', JSON.stringify(ctx));
       setContext_(ctx)
   }
   const context = Object.assign({}, context_, {setContext: setContext});
   return (
-    <AppContext.Provider value={context}>
     <Router>
       <Navigation />
 
       <main role="main">
         <Switch>
+            <AppContext.Provider value={context}>
 
           <Route exact path="/ping">
             <Ping />
@@ -63,13 +75,13 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+            </AppContext.Provider>
 
         </Switch>
       </main>
 
 
     </Router>
-    </AppContext.Provider>
   );
 }
 

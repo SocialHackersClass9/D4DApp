@@ -30,7 +30,6 @@ const initialContext = {
 
 const loadContext = function () {
     var ctx = localStorage.getItem('AppContext');
-    alert("Load context");
     console.log(ctx);
     if (ctx == null) {
         return initialContext;

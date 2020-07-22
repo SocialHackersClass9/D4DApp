@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Home from './views/Home';
@@ -18,8 +19,24 @@ import {
 } from "react-router-dom";
 
 
+import AppContext from './context';
+
+
+const initialContext = {
+    user: null,
+    setContext: function (content) {
+        alert('setContent');
+    }
+}
+
 function App() {
+  const [context_, setContext_] = useState(initialContext);
+  const setContext = function (ctx) {
+      setContext_(ctx)
+  }
+  const context = Object.assign({}, context_, {setContext: setContext});
   return (
+    <AppContext.Provider value={context}>
     <Router>
       <Navigation />
 
@@ -56,6 +73,7 @@ function App() {
 
 
     </Router>
+    </AppContext.Provider>
   );
 }
 

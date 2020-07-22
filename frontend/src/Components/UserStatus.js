@@ -1,7 +1,8 @@
 import React from 'react';
-import {useState} from "react";
+import {useState, useContext} from "react";
 import apis from '../apis.js';
-import storage from '../storage.js';
+import AppContext from '../context.js';
+import { Nav } from 'react-bootstrap';
 
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -50,43 +51,40 @@ const Register = () => {
 const Login = () => {
     const [show, setShow] = useState(false);
     const [values, setValues] = useState({email: "george@test.com", password: "12345"});
-    const [user, setUser] = useState(storage.current_user);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const baseUrl = process.env.REACT_APP_API_URL;
     const handleChangeEmail = function (e) {
         setValues({...values, email: e.target.value});
     }
     const handleChangePassword = function (e) {
         setValues({...values, password: e.target.value});
     }
+    const context = useContext(AppContext);
     const handleSubmit = function (e) {
         e.preventDefault();
         console.log(values);
         apis.post('/login', values)
         .then(data => {
             if (data.is_authenticated) {
-                storage.current_user = data.user;
-                setUser(storage.current_user);
+                console.log(data);
+                context.setContext({user: data.user});
+                alert("TODO update user in context");
                 setShow(false);
-                console.log(data.user);
             } else {
                 alert("User name or password is wrong. Please try again.");
             }
         });
-
-        alert("Submit me");
     }
 
     return (
         <Styles>
-        { user == null &&
+            {(context.user == null) &&
             <Button variant="primary" onClick={handleShow}>Login</Button>
-        }
-        { user != null &&
-                <span>{ user.name }</span>
-        }
+            }
+            {(context.user != null) &&
+                <Nav.Item><Nav.Link href="/">{ context.user.user_name }</Nav.Link></Nav.Item>              
+            }
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
@@ -114,6 +112,5 @@ const Login = () => {
         </Styles>
     )
 }
-
 
 export default UserStatus;

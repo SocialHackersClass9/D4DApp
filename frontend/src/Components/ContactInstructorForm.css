@@ -42,7 +42,6 @@
   }
   /*------------------------------------------------------------------  [  ]*/
   .contact1-form {
-    width: 390px;
     font-size: 1.5em;
     display: flex;
     flex-wrap: wrap;
@@ -50,15 +49,9 @@
     align-items: center;
    }
   .contact1-form-title {
-    font-size: 2em;
-    color:  #e6e6e6;
-    line-height: 1.2;
-    padding-bottom: 44px;
-    background: #57b846;
-    height: 50px;
-    border-radius: 25px;
-    padding: 0 25px;
-  }
+    font-size: 3.5em;
+    color: #57b846;
+   }
   input.input1 {
     height: 50px;
     border-radius: 25px;
@@ -125,23 +118,15 @@
   }
   @media (max-width: 768px) {
     .container-contact1 {
-      padding: 90px 80px 88px 80px;
-    }
-    .contact1-pic {
-      display: none;
+      padding: 5px;
     }
     .contact1-form {
       width: 100%;
     }
-     .contact1-form-btn {
-    width:450px;
-    }
+
   }
   @media (max-width: 576px) {
     .container-contact1 {
-      padding: 90px 15px 88px 15px;
-    }
-    .contact1-form-btn {
-    width:300px;
+      padding: 5px;
     }
   }

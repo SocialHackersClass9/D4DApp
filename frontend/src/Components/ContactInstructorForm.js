@@ -1,6 +1,6 @@
 import React from "react"
 import './ContactInstructorForm.css';
-import { Route, Redirect } from 'react-router'
+import AppContext from '../context.js';
 
 class MessageBox extends React.Component {
     render() {
@@ -26,7 +26,14 @@ class MessageBox extends React.Component {
         );
     }
 }
-let userIsLoggedIn = false;
+const styledDetails = {
+    margin: "10px 30px",
+    padding: "10px 30px",
+    fontSize: "1.5em",
+    color: "black",
+    textAlign: "center"
+
+};
 class ContactInstructorForm extends React.Component {
     constructor() {
         super();
@@ -35,30 +42,44 @@ class ContactInstructorForm extends React.Component {
         }
     }
 
+
     render() {
         return (
-            <div className="contact1">
-                <div className="container-contact1">
+            <AppContext.Consumer>
+                {context => (
+                    <div className="contact1">
+                        <div className="container-contact1">
+                            <div className='col-12 col-sm-12 col-xs-12 text-center'>
+                                <h2 className="contact1-form-title" >
+                                    Get in touch
+                                 </h2>
 
-                    <div className='col-12 col-sm-12 col-xs-12 text-center'>
-                        <button className="contact1-form-title" onClick={() => this.onClick()}>
-                            Get in touch
-                     </button>
-                        {
-                            this.state.childVisible
-                                ? <MessageBox />
-                                : null
-                        }
+
+                                {context.user == null &&
+                                    (
+                                        <div style={styledDetails}>
+                                            <br></br><strong><p>Dear User, remember that in order to contact an instructor,
+                                            you need to be logged in!<br></br> </p></strong></div>
+                                    )
+                                }
+                                {context.user != null &&
+                                    (
+                                        <div>
+                                            <MessageBox />
+                                        </div>)}
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )
+                }
+            </AppContext.Consumer>
         )
     }
-
-
-    onClick() {
-        this.setState({ childVisible: !this.state.childVisible });
-    }
 }
+
+
+
+
 export default ContactInstructorForm
 

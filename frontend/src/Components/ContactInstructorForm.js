@@ -10,7 +10,7 @@ class MessageBox extends React.Component {
                     <div className='col-12 col-sm-12 col-xs-12 align-self-center'>
                         <form className="contact1-form validate-form">
                             <div className="wrap-input1 validate-input" data-validate="Message is required">
-                                <textarea className="input1" name="message" placeholder="Message" defaultValue={""} />
+                                <textarea className="input1" name="message" placeholder="Message" defaultValue={""} required />
                                 <span className="shadow-input1" />
                             </div>
                             <div className="container-contact1-form-btn">

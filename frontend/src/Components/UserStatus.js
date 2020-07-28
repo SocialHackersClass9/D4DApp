@@ -62,6 +62,7 @@ const Login = () => {
   const baseUrl = process.env.REACT_APP_API_URL;
   const login = baseUrl + "/login";
   const googleLogin = baseUrl + "/auth/google";
+  const facebookLogin = baseUrl + "/auth/facebook";
 
   return (
     <Styles>
@@ -102,6 +103,7 @@ const Login = () => {
           </Form>
           <div>
             <a href={googleLogin}>Sign in with google</a>
+            <a href={facebookLogin}>Sign in with facebook</a>
           </div>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>

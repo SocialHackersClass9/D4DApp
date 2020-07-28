@@ -21,6 +21,7 @@
     "node-env-file": "^0.1.8",
     "nodemailer": "^6.4.10",
     "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
     "passport-google-oauth": "^2.0.0",
     "query-string": "^6.13.1"
   }

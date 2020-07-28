@@ -8,6 +8,7 @@ const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const FacebookStrategy = require("passport-facebook");
 
 let userProfile;
 
@@ -26,8 +27,7 @@ const mailtransport = nodemailer.createTransport({
     pass: process.env.SENDGRID_PASSWORD,
   },
 });
-//
-//authentication with google
+////////////////////////
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,7 +39,7 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
-
+//authentication with google
 passport.use(
   new GoogleStrategy(
     {
@@ -67,7 +67,31 @@ app.get(
     res.send("you are validated");
   }
 );
+////////////
+//authentication with facebook
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: "http://localhost:3001/auth/facebook/callback",
+    },
+    function (accessToken, refreshToken, profile, done) {
+      userProfile = profile;
+      return done(null, userProfile);
+    }
+  )
+);
+app.get("/auth/facebook", passport.authenticate("facebook"));
 
+app.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", { failureRedirect: "/" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.send("you are validated");
+  }
+);
 /////////////////////////////////////
 //mysql connection
 let con = mysql.createConnection({

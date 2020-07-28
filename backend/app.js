@@ -5,6 +5,10 @@ const env = require("./env");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const mysql = require("mysql");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+
+let userProfile;
 
 env.get();
 const port = process.env.PORT;
@@ -22,19 +26,62 @@ const mailtransport = nodemailer.createTransport({
   },
 });
 //
+//authentication with google
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+  cb(null, obj);
+});
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      callbackURL: "http://localhost:3001/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, done) {
+      userProfile = profile;
+      return done(null, userProfile);
+    }
+  )
+);
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/" }),
+  function (req, res) {
+    // Successful authentication, redirect success.
+    res.send("you are validated");
+  }
+);
+
+/////////////////////////////////////
+//mysql connection
 let con = mysql.createConnection({
   host: "localhost",
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: "d4d",
 });
-
+////////////////////////////////
+//routes
 app.get("/", (req, res) => {
   res.json({ greeting: "Hello World!" });
   console.log(req.headers);
 });
 
-////////////////////////
 app.get("/sports", (req, res) => {
   let sql = `SELECT id, name FROM sports`;
   con.query(sql, (err, result) => {

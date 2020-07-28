@@ -1,5 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import apis from "../apis.js";
+import AppContext from "../context.js";
+import { Nav } from "react-bootstrap";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -106,5 +109,4 @@ const Login = () => {
     </Styles>
   );
 };
-
 export default UserStatus;

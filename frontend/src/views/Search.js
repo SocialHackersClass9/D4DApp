@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import AppContext from '../context';
 
 
 function ResultItem(props) {
@@ -61,6 +62,7 @@ function Result(props) {
 
 
 class Search extends React.Component {
+    static contextType = AppContext;
     constructor() {
         super();
         this.state = {
@@ -101,9 +103,9 @@ class Search extends React.Component {
                     loadingSports: false
                 })
             });
-        fetch(baseUrl + '/instructors',{
-            headers : {
-                "key" : "123"
+        fetch(baseUrl + '/instructors', {
+            headers: {
+                "key": "123"
             }
         })
             .then(response => response.json())
@@ -143,50 +145,83 @@ class Search extends React.Component {
 
         const matches = this.filterInstructors();
 
+        const separatingFromNavbar = {
+            margin: "150px 40px 40px 40px",
+            fontSize: "1.5em"
+        };
         return (
-            <div className="container">
-                <div className="row row-header align-self-center">
-                    <div className="col-12 col-sm-12 col-xs-12 text-center">
-                        <h1 className="text-center"> Instructor Search</h1>
-                    </div>
-                </div>
-                <div className="searchFeat">
-                    <div className="row align-self-center">
-                        <div className="col-md-6 text-center">
-                            <h2 className="text-center">Search via Location</h2>
-                        </div>
-                        <div className="col-md-6 text-center align-self-center">
-                            <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
-                                <option value="">All</option>
-                                {locations}
-                            </select>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-6 text-center align-self-center">
-                            <h2 className="text-center">Search via Sports</h2>
-                        </div>
-                        <div className="col-md-6 text-center align-self-center">
-                            <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
-                                <option value="">All</option>
-                                {sports}
-                            </select>
-                        </div>
-                    </div>
+            <AppContext.Consumer>
+                {context => (
+                    <div className="container">
+                        <div className="row row-header align-self-center">
+                            <div className="col-12 col-sm-12 col-xs-12 text-center" style={separatingFromNavbar}>
 
-                    <div className="row">
-                        <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-                            <h3><strong> Results</strong></h3>
+                                <h1 className="text-center"> Instructor Search Page</h1>
+                                {context.user == null &&
+                                    (
+                                        <div>
+                                            <p>Dear User, remember that in order to contact an instructor,
+                                            you need to be logged in!<br></br> Here you can look for instructors
+                                            that match your location, your sports of preference or both!</p></div>
+                                    )
+                                }
+                                {context.user != null &&
+                                    (
+                                        <div>
+                                            <p>Hello, <strong>{context.user.user_name}</strong>. Here you can look for instructors
+                                                that match your location, your sports of preference or both!
+                                                By pressing the Contact Link you will be able to see the instructor's details
+                                                and contact him/her.</p>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                        <div className="searchFeat">
+                            <div className="row align-self-center">
+                                <div className="col-md-6 text-center">
+                                    <h2 className="text-center">Search via Location</h2>
+                                </div>
+                                <div className="col-md-6 text-center align-self-center">
+                                    <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
+                                        <option value="">All</option>
+                                        {locations}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6 text-center align-self-center">
+                                    <h2 className="text-center">Search via Sports</h2>
+                                </div>
+                                <div className="col-md-6 text-center align-self-center">
+                                    <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
+                                        <option value="">All</option>
+                                        {sports}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+
+
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+                                    <h3><strong> Results</strong></h3>
+                                </div>
+                            </div>
+                            {matches.length === 0 &&
+                                <div> <strong>Sorry! No results found</strong></div>
+                            }
+                            {matches.length > 0 &&
+                                <Result instructors={matches} />
+                            }
                         </div>
                     </div>
-                    {matches.length === 0 &&
-                        <div> <strong>Sorry! No results found</strong></div>
-                    }
-                    {matches.length > 0 &&
-                        <Result instructors={matches} />
-                    }
-                </div>
-            </div>
+                )}
+            </AppContext.Consumer>
         )
     }
 }

@@ -3,7 +3,6 @@ import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 import Logo from '../assets/accountlogo.png';
 import UserStatus from './UserStatus';
-import { Link } from 'react-router-dom';
 
 
 const Styles = styled.div`
@@ -40,6 +39,7 @@ const NavigationBar = () => (
                     <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/contact">Paralympics Sports</Nav.Link></Nav.Item> 
                     <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
+                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item>              
 
                 </Nav>
             </Navbar.Collapse>

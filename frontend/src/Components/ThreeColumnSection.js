@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../assets/accountlogo.png';
+import Logo from '../assets/d4d.jpg';
 import Coach from '../assets/coaches.jpg';
 import Sports from '..//assets/sports.jpg';
 import Styled from 'styled-components';

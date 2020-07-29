@@ -215,24 +215,28 @@ app.post("/login", (req, res) => {
 // })
 
 //for stefanos
+
+
+var transporter = nodemailer.createTransport(mailtransport);
 app.post("/contact", (req, res) => {
   const msg = {
-    to: "sobhanessifa@gmail.com",
+    to: "nyx5437@gmail.com",
     from: req.body.email,
     subject: req.body.subject,
     text: req.body.message,
   };
-  async function send(msg) {
-    try {
-      const result = await mailtransport.sendMail(msg);
-      res.json({ status: "success" });
-    } catch (err) {
-      console.log(err.message);
-      res.json({ status: "failed" });
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: 'fail'
+      })
+    } else {
+      res.json({
+        msg: 'success'
+      })
     }
-  }
-  send(msg);
-});
+  })
+})
 
 //for marios
 app.post("/register/student", (req, res) => {

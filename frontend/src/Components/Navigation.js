@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-import Logo from '../assets/accountlogo.png';
+import Logo from '../assets/d4d.jpg';
 import UserStatus from './UserStatus';
 
 
@@ -29,7 +29,7 @@ navbar-brand, .navbar-nav .nav-link {
 const NavigationBar = () => (
     <Styles>
         <Navbar expand='lg' fixed="top" bg="">
-            <Navbar.Brand href='/'><img width="60" height="40" src={Logo}></img></Navbar.Brand>
+            <Navbar.Brand href='/'><img width="80" height="70" src={Logo}></img></Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
@@ -37,9 +37,13 @@ const NavigationBar = () => (
                     <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/SportParalympics">Paralympics Sports</Nav.Link></Nav.Item> 
+
+                    <Nav.Item><Nav.Link href="/SportParalympics">Par-sports</Nav.Link></Nav.Item> 
                     <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
-                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item>              
+                    <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>              
+{/* 
+                    <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item> */}
 
                 </Nav>
             </Navbar.Collapse>

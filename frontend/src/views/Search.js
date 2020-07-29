@@ -15,7 +15,6 @@ function ResultItem(props) {
             <td>{it.locations.map(it => it.name).join(", ")}</td>
             <td>{it.sports.map(it => it.name).join(', ')} </td>
             <td><button> <Nav.Link href={url} >Contact</Nav.Link></button></td>
-
         </tr>
     )
 }

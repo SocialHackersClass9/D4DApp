@@ -42,6 +42,5 @@ export default {
                 resolve(data);
             });
         });
-
     }
 }

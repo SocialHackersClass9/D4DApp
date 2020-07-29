@@ -1,0 +1,87 @@
+.container-fluid {
+  padding-top: 10rem;
+  margin-top: 5rem;
+}
+
+.instructor {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+.images {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: flex;
+}
+.history {
+  text-align: center;
+  justify-content: center;
+  display: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 20px;
+}
+table,
+td,
+th {
+  /* border: 1px solid black; */
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  /* display: table-cell; */
+}
+h2 {
+  font-size: 1rem;
+}
+.linkk {
+  float: left;
+  /* background: rgb(49, 86, 252); */
+  margin: 1rem;
+  color: #000000;
+  outline: none;
+}
+.details-ul1 {
+  color: #000000;
+}
+.linkk:hover {
+  color: rgb(0, 104, 240);
+}
+.details-ul {
+  text-decoration: none;
+  list-style: none;
+}
+.details-ul h6,
+li {
+  color: #000000;
+}
+th {
+  /* height: 40px; */
+  width: 5%;
+}
+.summer {
+  text-align: left;
+}
+
+.read-more-link {
+  color: blueviolet;
+  /* text-decoration: underline; */
+  /* letter-spacing: 1px; */
+  cursor: pointer;
+}
+.extra-content {
+  color: cornflowerblue;
+  text-align: left;
+  font-weight: 10;
+}
+.row p{
+    text-align: ;
+}

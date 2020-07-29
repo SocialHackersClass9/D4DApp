@@ -29,6 +29,16 @@ const mailtransport = nodemailer.createTransport({
 });
 ////////////////////////
 
+/////////////////////////////////////
+//mysql connection
+let con = mysql.createConnection({
+  host: "localhost",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+//////////////////////////////////
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -63,8 +73,21 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   function (req, res) {
-    // Successful authentication, redirect success.
-    res.send("you are validated");
+    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
+    con.query(sql, (err, result) => {
+      if (err) console.log(err);
+      if (result.length !== 0) {
+        res.send("you are validated as student ...");
+      } else {
+        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
+        con.query(sql2, (err, result) => {
+          if (err) console.log(err);
+          if (result.length != 0) {
+            res.send("you are registered to the website");
+          }
+        });
+      }
+    });
   }
 );
 ////////////
@@ -92,14 +115,6 @@ app.get(
     res.send("you are validated");
   }
 );
-/////////////////////////////////////
-//mysql connection
-let con = mysql.createConnection({
-  host: "localhost",
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
 
 ////////////////////////////////
 //routes

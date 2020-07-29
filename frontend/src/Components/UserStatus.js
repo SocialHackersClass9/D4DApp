@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import apis from "../apis.js";
 import AppContext from "../context.js";
 import { Nav } from "react-bootstrap";
-
 import { Modal, Button, Form } from "react-bootstrap";
 
 import Styled from "styled-components";
@@ -16,6 +15,9 @@ const Styles = Styled.div`
     .register .btn{
         po
     }
+    
+    
+    
 `;
 
 const UserStatus = () => (
@@ -101,9 +103,22 @@ const Login = () => {
               Login
             </Button>
           </Form>
-          <div>
-            <a href={googleLogin}>Sign in with google</a>
-            <a href={facebookLogin}>Sign in with facebook</a>
+
+          <div style={{ marginTop: "1%" }}>
+            <a
+              href={googleLogin}
+              class="btn"
+              style={{ color: "white", backgroundColor: "#dd4b39" }}
+            >
+              <i class="fa fa-google fa-fw"></i>Log In with Google
+            </a>
+            <a
+              href={facebookLogin}
+              class="btn"
+              style={{ backgroundColor: "#3B5998", color: "white" }}
+            >
+              <i class="fa fa-facebook fa-fw"></i>Log In with Facebook
+            </a>
           </div>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>

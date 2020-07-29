@@ -7,10 +7,8 @@ const nodemailer = require("nodemailer");
 const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const FacebookStrategy = require("passport-facebook");
-
-let userProfile;
+const studentLoginGoogle = require("./studentLoginGoogle");
+const instructorLoginGoogle = require("./instructorLoginGoogle");
 
 env.get();
 const port = process.env.PORT;
@@ -38,85 +36,38 @@ let con = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 //////////////////////////////////
-
 app.use(passport.initialize());
 app.use(passport.session());
-
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
-//authentication with google
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3001/auth/google/callback",
-    },
-    function (accessToken, refreshToken, profile, done) {
-      userProfile = profile;
-      return done(null, userProfile);
-    }
-  )
-);
-
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
-  function (req, res) {
-    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
-      if (err) console.log(err);
-      if (result.length !== 0) {
-        res.send("you are validated as student ...");
-      } else {
-        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          if (result.length != 0) {
-            res.send("you are registered to the website");
-          }
-        });
-      }
-    });
-  }
-);
 //////////////
 //authentication with facebook
-passport.use(
-  new FacebookStrategy(
-    {
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:3001/auth/facebook/callback",
-    },
-    function (accessToken, refreshToken, profile, done) {
-      userProfile = profile;
-      return done(null, userProfile);
-    }
-  )
-);
-app.get("/auth/facebook", passport.authenticate("facebook"));
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: process.env.FACEBOOK_CLIENT_ID,
+//       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//       callbackURL: "http://localhost:3001/auth/facebook/callback",
+//     },
+//     function (accessToken, refreshToken, profile, done) {
+//       userProfile = profile;
+//       return done(null, userProfile);
+//     }
+//   )
+// );
+// app.get("/auth/facebook", passport.authenticate("facebook"));
 
-app.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.send("you are validated");
-  }
-);
+// app.get(
+//   "/auth/facebook/callback",
+//   passport.authenticate("facebook", { failureRedirect: "/" }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     res.send("you are validated");
+//   }
+// );
 
 ////////////////////////////////
 //routes
+app.use("/auth/google/instructor", instructorLoginGoogle);
+app.use("/auth/google/student", studentLoginGoogle);
 
 app.get("/", (req, res) => {
   res.json({ greeting: "Hello World!" });

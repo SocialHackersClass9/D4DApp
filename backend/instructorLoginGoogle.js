@@ -7,7 +7,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const FacebookStrategy = require("passport-facebook");
 
 const app = express();
-
+env.get();
 const router = express.Router();
 app.use(cors());
 
@@ -32,11 +32,9 @@ passport.deserializeUser(function (obj, cb) {
 passport.use(
   new GoogleStrategy(
     {
-      //clientID: process.env.GOOGLE_CLIENT_ID_INSTRUCTOR,
-      //clientSecret: process.env.GOOGLE_CLIENT_SECRET_INSTRUCTOR,
-      clientID:
-        "550205679393-6d14j3qbga6bqasloo7f2qlvanko4nql.apps.googleusercontent.com",
-      clientSecret: "sc5mj70In46fqYOzuxPaxXS5",
+      clientID: process.env.GOOGLE_CLIENT_ID_INSTRUCTOR,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET_INSTRUCTOR,
+
       callbackURL: "http://localhost:3001/auth/google/instructor/callback",
     },
     function (accessToken, refreshToken, profile, done) {

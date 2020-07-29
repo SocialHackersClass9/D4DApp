@@ -12,6 +12,8 @@
     "bootstrap": "^4.5.0",
     "env": "0.0.2",
     "g": "^2.0.1",
+    "gapi-script": "^1.0.2",
+    "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",

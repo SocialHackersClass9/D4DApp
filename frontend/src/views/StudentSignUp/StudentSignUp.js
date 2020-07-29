@@ -33,7 +33,6 @@ export default class StudentSignUp extends React.Component {
       .catch(err => console.error(err));
   }
 
-
 	handleCancel(e) {
     e.preventDefault();
 		this.setState ({
@@ -46,34 +45,33 @@ export default class StudentSignUp extends React.Component {
 			details: ""
 		})
   }
-
 	render() {
 		let data = this.state
 		return (
 			<Form onSubmit={this.handleSubmit} className="m-5 p-5">
 				<Form.Group controlId="formName">
     			<Form.Label>First Name</Form.Label>
-    			<Form.Control type="text" placeholder="John" name="first_name" value={data.first_name} onChange={this.handleChange} />
+    			<Form.Control type="text" placeholder="John" name="first_name" value={data.first_name} required onChange={this.handleChange} />
     			<Form.Label>Last Name</Form.Label>
-    			<Form.Control type="text" placeholder="Doe" name="last_name" value={data.last_name} onChange={this.handleChange} />
+    			<Form.Control type="text" placeholder="Doe" name="last_name" value={data.last_name} required onChange={this.handleChange} />
   			</Form.Group>
 
 				<Form.Group controlId="formBasicEmail">
     			<Form.Label>Email address</Form.Label>
-    			<Form.Control type="email" placeholder="johndoe@example.com" name="email" value={data.email} onChange={this.handleChange} />
+    			<Form.Control type="email" placeholder="johndoe@example.com" name="email" value={data.email} required onChange={this.handleChange} />
   			</Form.Group>
 		
 		  	<Form.Group controlId="formBasicPassword">
     			<Form.Label>Password</Form.Label>
-    			<Form.Control type="password" placeholder="Password" name="password" value={data.password}  onChange={this.handleChange} />
+    			<Form.Control type="password" placeholder="Password" name="password" value={data.password}  required onChange={this.handleChange} />
   			</Form.Group>
 		  	<Form.Group controlId="formPhone">
     			<Form.Label>Phone</Form.Label>
-    			<Form.Control type="number" placeholder="+306999999123" name="phone" value={data.phone} onChange={this.handleChange} />
+    			<Form.Control type="number" placeholder="+306999999123" name="phone" value={data.phone} required onChange={this.handleChange} />
   			</Form.Group>
 		  	<Form.Group controlId="formDetails">
     			<Form.Label>Details</Form.Label>
-    			<Form.Control as="textarea" rows="5" placeholder="Hi I am a.." name="details" value={data.details} onChange={this.handleChange} />
+    			<Form.Control as="textarea" rows="5" placeholder="Hi I am a.." name="details" value={data.details} required onChange={this.handleChange} />
   			</Form.Group>
 
   			<Button variant="primary" type="submit">

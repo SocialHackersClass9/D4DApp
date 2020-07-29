@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 function Ping() {
   const [greeting, setGreeting] = useState('No greeting');
   useEffect(() => {
@@ -17,7 +16,6 @@ function Ping() {
       </header>
       <h1>Greeting: {greeting} </h1>
       <div>
-
       </div>
     </div>
   );

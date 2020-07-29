@@ -23,7 +23,7 @@ const ThreeColumnSection = () => (
                 <a href="/search" >See which coaches are near you...</a>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4">
-                <Images src={Logo}></Images>
+                {/* <Images src={Logo}></Images> */}
 
                 <h3>About D4D</h3>
                 <p>Some general info about the organization...</p>

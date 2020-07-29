@@ -14,10 +14,7 @@ const home = () => (
         <ThreeColumnSection />
         <MidSection />
         <Inspirational />
-
         <Footer />
-
-
     </div>
 );
 export default home;

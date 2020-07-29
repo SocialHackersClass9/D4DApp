@@ -37,8 +37,13 @@ const NavigationBar = () => (
                     <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
+
+                    <Nav.Item><Nav.Link href="/SportParalympics">Par-sports</Nav.Link></Nav.Item> 
+                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
+                    <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>              
+{/* 
                     <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item> */}
 
                 </Nav>
             </Navbar.Collapse>

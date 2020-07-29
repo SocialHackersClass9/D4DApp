@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
-const passport = require("passport");
+var passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const FacebookStrategy = require("passport-facebook");
 
@@ -51,11 +51,11 @@ passport.deserializeUser(function (obj, cb) {
 });
 //authentication with google
 passport.use(
-  new GoogleStrategy(
+  new FacebookStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3001/auth/google/callback",
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: "http://localhost:3001/auth/facebook/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;
@@ -63,7 +63,6 @@ passport.use(
     }
   )
 );
-
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })

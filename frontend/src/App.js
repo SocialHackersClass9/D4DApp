@@ -9,7 +9,7 @@ import InstructorProfileContact from './views/InstructorProfileContact.js';
 import InstructorsRegistration from './views/Instructors_registration/Instructors_registration.js';
 import StudentSignUp from "./views/StudentSignUp/StudentSignUp"
 import Navigation from "./Components/Navigation";
-
+import SportParalympics from './views/SportParalympics';
 import Ping from './views/Ping.js';
 import {
   BrowserRouter as Router,
@@ -19,6 +19,7 @@ import {
 
 
 import AppContext from './context';
+
 
 
 const initialContext = {
@@ -56,8 +57,17 @@ function App() {
           <Route exact path="/ping">
             <Ping />
           </Route>
+          
           <Route exact path="/search">
             <Search />
+          </Route>
+
+          <Route exact path="/search">
+            <Search />
+          </Route>
+
+          <Route exact path="/SportParalympics">
+            <SportParalympics />
           </Route>
           <Route exact path="/instructor/:id">
             <InstructorProfileContact />

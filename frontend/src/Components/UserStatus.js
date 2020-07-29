@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import apis from "../apis.js";
 import AppContext from "../context.js";
 import { Nav } from "react-bootstrap";
+
 import { Modal, Button, Form } from "react-bootstrap";
 
 import Styled from "styled-components";
@@ -58,36 +59,61 @@ const Register = () => {
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const [values, setValues] = useState({
+    email: "george@test.com",
+    password: "12345",
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const baseUrl = process.env.REACT_APP_API_URL;
-  const login = baseUrl + "/login";
-  const googleLogin = baseUrl + "/auth/google";
-  const facebookLogin = baseUrl + "/auth/facebook";
+  const handleChangeEmail = function (e) {
+    setValues({ ...values, email: e.target.value });
+  };
+  const handleChangePassword = function (e) {
+    setValues({ ...values, password: e.target.value });
+  };
+  const context = useContext(AppContext);
+  const handleSubmit = function (e) {
+    e.preventDefault();
+    console.log(values);
+    apis.post("/login", values).then((data) => {
+      if (data.is_authenticated) {
+        console.log(data);
+        context.setContext({ user: data.user });
+        setShow(false);
+      } else {
+        alert("User name or password is wrong. Please try again.");
+      }
+    });
+  };
 
   return (
     <Styles>
-      <Button variant="primary" onClick={handleShow}>
-        Login
-      </Button>
-
+      {context.user == null && (
+        <Button variant="primary" onClick={handleShow}>
+          Login
+        </Button>
+      )}
+      {context.user != null && (
+        <Nav.Item>
+          <Nav.Link href="/">{context.user.user_name}</Nav.Link>
+        </Nav.Item>
+      )}
+      ///////
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form
-            action={login}
-            method="POST"
-            enctype="application/x-www-form-urlencoded"
-          >
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter email"
                 name="email"
+                value={values.email}
+                onChange={handleChangeEmail}
               />
             </Form.Group>
 
@@ -97,13 +123,14 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
+                value={values.password}
+                onChange={handleChangePassword}
               />
             </Form.Group>
             <Button variant="primary" type="submit">
               Login
             </Button>
           </Form>
-
           <div style={{ marginTop: "1%" }}>
             <a
               href={googleLogin}

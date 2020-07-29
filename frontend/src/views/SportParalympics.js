@@ -73,6 +73,8 @@ function SportParalymics() {
     ? "Read less  "
     : " More about PARALYMIC... ";
   return (
+    <React.Fragment>
+
     <Styles className="container-fluid">
       <h1>PARALYMIC SPORTS</h1>
       <div className="images">
@@ -114,7 +116,7 @@ function SportParalymics() {
       </div>
 
       {/* ///////////////////////////////////////////////// */}
-      <div>
+  
         <div className="row">
           <div
             className="history col-xs-8 col-sm-8 col-md-8 pr-20px"
@@ -126,7 +128,8 @@ function SportParalymics() {
             <p className="summer">Paralympic Games sports details</p>
            
             <table>
-               <tbody>
+        <tbody> 
+
               <tr>
                 <th> Sports 1</th>
                 <th> Sports 2</th>
@@ -171,32 +174,33 @@ function SportParalymics() {
                 <td>Cleveland</td>
                 <td>Cleveland</td>
               </tr>
-              <br />
-              
-                <div className="App">
-                  <a
-                    className="read-more-link"
-                    onClick={() => {
-                      setReadMore(!readMore);
-                    }}
-                  >
-                    <h2 className="linkk">{linkName}</h2>
-                  </a>
-                  {readMore && extraContent}
-                </div>
-             
-              
-               </tbody>
+            </tbody>
+            <tbody>
 
+              
+              <div className="App">
+                <a
+                  className="read-more-link"
+                  onClick={() => {
+                    setReadMore(!readMore);
+                  }}
+                >
+                  <h2 className="linkk">{linkName}</h2>
+                </a>
+                {readMore && extraContent}
+              </div>
+           
+        
+            </tbody>
             </table>
+                
            
             <br />
             <hr
               style={{ paddingTop: "50px", borderTop: "1px solid black" }}
-            ></hr>
+              ></hr>
           </div>
         </div>
-      </div>
 
       {/* ///////////////////////////////////////////////// */}
       
@@ -205,7 +209,7 @@ function SportParalymics() {
           <div
             className="history col-xs-8 col-sm-8 col-md-8 pr-20px"
             style={{ paddingBottom: "100px" }} >
-              
+
             <h1 className="summer">WINTER PAR:SPORTS </h1>
             <br />
             <p className="summer">Paralympic winter sports details</p>
@@ -217,6 +221,7 @@ function SportParalymics() {
         </div>
       
     </Styles>
+              </React.Fragment>
   );
 }
 

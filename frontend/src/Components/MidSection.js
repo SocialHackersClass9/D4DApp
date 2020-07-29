@@ -35,11 +35,11 @@ const MidSection = () => (
 
 
     <Styles>
-        
+
         <div className="jumbo container-fluid">
             <div className="overlay"></div>
         </div>
-        
+
     </Styles>
 )
 

@@ -9,6 +9,8 @@ export default function InstructorProfileContact(props) {
     const url = process.env.REACT_APP_API_URL + '/instructor/' + id;
 
     console.log(id);
+
+    ////----temporary css 
     const styledDetails = {
         margin: "10px 30px",
         padding: "10px 30px",
@@ -21,6 +23,7 @@ export default function InstructorProfileContact(props) {
         margin: "150px 40px 40px 40px",
         fontSize: "1.5em"
     };
+    ///////
     useEffect(() => {
         fetch(url, {
             headers: {
@@ -77,7 +80,7 @@ export default function InstructorProfileContact(props) {
                     <div><p style={styledDetails}>
                         {instructor.details}</p></div>
 
-                    < div > <ContactInstructorForm /> </div>
+                    < div > <ContactInstructorForm instructor={instructor} /> </div>
                 </div >
             )}
         </AppContext.Consumer>

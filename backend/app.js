@@ -9,6 +9,7 @@ const fileUpload = require("express-fileupload");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const FacebookStrategy = require("passport-facebook");
+const { request } = require("express");
 
 let userProfile;
 
@@ -185,22 +186,22 @@ app.get("/instructors", (req, res) => {
 
 app.post("/login", (req, res) => {
   const params = [req.body.email, req.body.password];
-  sql = "SELECT user_name FROM students WHERE email=? AND password=?";
+  sql = "SELECT user_name, email FROM students WHERE email=? AND password=?";
   con.query(sql, params, (err, result) => {
     if (err) console.log(err);
     if (result.length > 0) {
       const row = result[0];
       res.json({
         is_authenticated: true,
-        user: { user_name: row.user_name, user_type: "student" },
+        user: { user_name: row.user_name, user_type: "student", email: row.email },
       });
     } else {
-      sql = "SELECT user_name FROM instructors WHERE email=? AND password=?";
+      sql = "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
       con.query(sql, params, (err, result) => {
         if (result.length > 0) {
           res.json({
             is_authenticated: true,
-            user: { user_name: row.user_name, user_type: "instructor" },
+            user: { user_name: row.user_name, user_type: "instructor", email: row.email },
           });
         } else {
           res.json({ is_authenticated: false });
@@ -217,26 +218,24 @@ app.post("/login", (req, res) => {
 //for stefanos
 
 
-var transporter = nodemailer.createTransport(mailtransport);
 app.post("/contact", (req, res) => {
   const msg = {
-    to: "nyx5437@gmail.com",
-    from: req.body.email,
-    subject: req.body.subject,
-    text: req.body.message,
+    to: req.body.email,
+    from: "admin@d4d.com",
+    subject: "Message from D4DApp",
+    text: req.body.message + " " + req.body.studentEmail,
   };
-  transporter.sendMail(mail, (err, data) => {
-    if (err) {
-      res.json({
-        msg: 'fail'
-      })
-    } else {
-      res.json({
-        msg: 'success'
-      })
+  async function send(msg) {
+    try {
+      const result = await mailtransport.sendMail(msg);
+      res.json({ status: "success" });
+    } catch (err) {
+      console.log(err.message);
+      res.json({ status: "failed" });
     }
-  })
-})
+  }
+  send(msg);
+});
 
 //for marios
 app.post("/register/student", (req, res) => {

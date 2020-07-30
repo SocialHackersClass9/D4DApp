@@ -52,7 +52,7 @@ passport.deserializeUser(function (obj, cb) {
 //authentication with google
 
 passport.use(
-  new FacebookStrategy(
+  new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID_STUDENT,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET_STUDENT,

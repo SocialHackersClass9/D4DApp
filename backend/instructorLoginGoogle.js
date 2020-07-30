@@ -32,10 +32,8 @@ passport.deserializeUser(function (obj, cb) {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID_INSTRUCTOR,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET_INSTRUCTOR,
-
-      callbackURL: "http://localhost:3001/auth/google/instructor/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID_STUDENT,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET_STUDENT,
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;

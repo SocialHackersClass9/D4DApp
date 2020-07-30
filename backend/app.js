@@ -7,16 +7,11 @@ const nodemailer = require("nodemailer");
 const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
 const passport = require("passport");
-<<<<<<< HEAD
-const studentLoginGoogle = require("./studentLoginGoogle");
-const instructorLoginGoogle = require("./instructorLoginGoogle");
-=======
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const FacebookStrategy = require("passport-facebook");
 const { request } = require("express");
 
 let userProfile;
->>>>>>> origin/Dev
 
 env.get();
 const port = process.env.PORT;
@@ -46,6 +41,28 @@ let con = mysql.createConnection({
 //////////////////////////////////
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+  cb(null, obj);
+});
+//authentication with google
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID_STUDENT,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET_STUDENT,
+    },
+    function (accessToken, refreshToken, profile, done) {
+      userProfile = profile;
+      return done(null, userProfile);
+    }
+  )
+);
 //////////////
 //authentication with facebook
 // passport.use(
@@ -74,8 +91,6 @@ app.use(passport.session());
 
 ////////////////////////////////
 //routes
-app.use("/auth/google/instructor", instructorLoginGoogle);
-app.use("/auth/google/student", studentLoginGoogle);
 
 app.get("/", (req, res) => {
   res.json({ greeting: "Hello World!" });
@@ -151,15 +166,24 @@ app.post("/login", (req, res) => {
       const row = result[0];
       res.json({
         is_authenticated: true,
-        user: { user_name: row.user_name, user_type: "student", email: row.email },
+        user: {
+          user_name: row.user_name,
+          user_type: "student",
+          email: row.email,
+        },
       });
     } else {
-      sql = "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
+      sql =
+        "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
       con.query(sql, params, (err, result) => {
         if (result.length > 0) {
           res.json({
             is_authenticated: true,
-            user: { user_name: row.user_name, user_type: "instructor", email: row.email },
+            user: {
+              user_name: row.user_name,
+              user_type: "instructor",
+              email: row.email,
+            },
           });
         } else {
           res.json({ is_authenticated: false });
@@ -174,7 +198,6 @@ app.post("/login", (req, res) => {
 // })
 
 //for stefanos
-
 
 app.post("/contact", (req, res) => {
   const msg = {
@@ -351,10 +374,70 @@ app.get("/locations", function (req, resp, next) {
 });
 
 ////////////////////////
+//google authentication
 
-app.get("/", (req, res) => {
-  res.json({ greeting: "Hello World!" });
-});
+app.get(
+  "/auth/google/student",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    callbackURL: "http://localhost:3001/auth/google/student/callback",
+  })
+);
+app.get(
+  "/auth/google/student/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/google/student/callback",
+  }),
+
+  function (req, res) {
+    console.log(userProfile);
+    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
+    con.query(sql, (err, result) => {
+      if (err) console.log(err);
+      if (result.length !== 0) {
+        res.send("you are validated as student ...");
+      } else {
+        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
+        con.query(sql2, (err, result) => {
+          if (err) console.log(err);
+          res.send("you are registered as student for this app");
+        });
+      }
+    });
+  }
+);
+
+app.get(
+  "/auth/google/instructor",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    callbackURL: "http://localhost:3001/auth/google/instructor/callback",
+  })
+);
+app.get(
+  "/auth/google/instructor/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/google/instructor/callback",
+  }),
+  function (req, res) {
+    console.log(userProfile);
+    let sql = `SELECT user_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
+    con.query(sql, (err, result) => {
+      if (err) console.log(err);
+      if (result.length !== 0) {
+        res.send("you are validated as instructor ...");
+      } else {
+        let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
+        con.query(sql2, (err, result) => {
+          if (err) console.log(err);
+          res.send("you are registered as instructor for this app");
+        });
+      }
+    });
+  }
+);
 
 ////////////////////////
 

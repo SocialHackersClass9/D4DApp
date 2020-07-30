@@ -85,9 +85,11 @@ const Login = () => {
       }
     });
   };
-const baseUrl = process.env.REACT_APP_API_URL;
-const googleLogin = baseUrl + "/auth/google";
-const facebookLogin = baseUrl + "/auth/facebook";
+  const baseUrl = process.env.REACT_APP_API_URL;
+
+  const googleLoginStudent = baseUrl + "/auth/google/student";
+  const googleLoginInstructor = baseUrl + "/auth/google/instructor";
+  const facebookLogin = baseUrl + "/auth/facebook";
 
   return (
     <Styles>
@@ -101,7 +103,7 @@ const facebookLogin = baseUrl + "/auth/facebook";
           <Nav.Link href="/">{context.user.user_name}</Nav.Link>
         </Nav.Item>
       )}
-      ///////
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
@@ -135,11 +137,18 @@ const facebookLogin = baseUrl + "/auth/facebook";
           </Form>
           <div style={{ marginTop: "1%" }}>
             <a
-              href={googleLogin}
+              href={googleLoginStudent}
               class="btn"
               style={{ color: "white", backgroundColor: "#dd4b39" }}
             >
-              <i class="fa fa-google fa-fw"></i>Log In with Google
+              <i class="fa fa-google fa-fw"></i>Log In with Google as Student
+            </a>
+            <a
+              href={googleLoginInstructor}
+              class="btn"
+              style={{ color: "white", backgroundColor: "#dd4b39" }}
+            >
+              <i class="fa fa-google fa-fw"></i>Log In with Google as Instructor
             </a>
             <a
               href={facebookLogin}

@@ -193,10 +193,6 @@ app.post("/login", (req, res) => {
   });
 });
 
-// app.post('/register/instructor', (req, res) => {
-//     let sql = `INSERT INTO instructors (first_name , last_name , year_of_birth , street_number , street , )`
-// })
-
 //for stefanos
 
 app.post("/contact", (req, res) => {

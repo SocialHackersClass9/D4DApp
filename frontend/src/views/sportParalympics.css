@@ -3,34 +3,46 @@
   margin-top: 5rem;
 }
 
-.instructor {
-  position: absolute;
-  top: 7rem;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  font-size: 20px;
-  color: white;
+.titleh1{
+  padding-bottom: 2rem;
+  padding-top: 6rem;
+
 }
+.row p{
+  text-align: left;
+  padding-bottom: 2rem;
+}
+.row1 p{
+  text-align: left;
+  padding-bottom: 2rem;
+}
+/* ] */
 .images {
   align-items: center;
   text-align: center;
   justify-content: center;
   position: flex;
 }
+.images h1{
+  padding-top: 1rem;
+}
 .history {
   text-align: center;
+  /* margin: auto; */
   justify-content: center;
-  display: column;
+  /* text-justify: center; */
+  /* display: column; */
   padding-left: 10%;
   padding-right: 10%;
   font-size: 20px;
+  padding-bottom: 0rem;
+}
+.history h1{
+  padding-top: 2rem;
 }
 table,
 td,
 th {
-  /* border: 1px solid black; */
   text-align: left;
 }
 
@@ -39,16 +51,18 @@ table {
   width: 100%;
   /* display: table-cell; */
 }
-h2 {
-  font-size: 1rem;
+.row1 h2 {
+  font-size: 2.5rem;
+  text-align: left;
 }
-.linkk {
-  float: left;
-  /* background: rgb(49, 86, 252); */
+
+.App{
+   float: left;
   margin: 1rem;
   color: #000000;
   outline: none;
 }
+
 .details-ul1 {
   color: #000000;
 }
@@ -64,22 +78,23 @@ li {
   color: #000000;
 }
 th {
-  /* height: 40px; */
   width: 5%;
 }
-.summer {
+
+.row1 h1{
+  padding-bottom: 1rem;
   text-align: left;
 }
 
 .read-more-link {
   color: blueviolet;
-  /* text-decoration: underline; */
-  /* letter-spacing: 1px; */
+  text-decoration: underline;
   cursor: pointer;
+}
+.read-more-link  h3{
+text-align: left;
 }
 .extra-content {
   color: cornflowerblue;
   text-align: left;
-  font-weight: 10;
 }
-

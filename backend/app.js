@@ -7,8 +7,16 @@ const nodemailer = require("nodemailer");
 const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
 const passport = require("passport");
+<<<<<<< HEAD
 const studentLoginGoogle = require("./studentLoginGoogle");
 const instructorLoginGoogle = require("./instructorLoginGoogle");
+=======
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const FacebookStrategy = require("passport-facebook");
+const { request } = require("express");
+
+let userProfile;
+>>>>>>> origin/Dev
 
 env.get();
 const port = process.env.PORT;
@@ -136,22 +144,22 @@ app.get("/instructors", (req, res) => {
 
 app.post("/login", (req, res) => {
   const params = [req.body.email, req.body.password];
-  sql = "SELECT user_name FROM students WHERE email=? AND password=?";
+  sql = "SELECT user_name, email FROM students WHERE email=? AND password=?";
   con.query(sql, params, (err, result) => {
     if (err) console.log(err);
     if (result.length > 0) {
       const row = result[0];
       res.json({
         is_authenticated: true,
-        user: { user_name: row.user_name, user_type: "student" },
+        user: { user_name: row.user_name, user_type: "student", email: row.email },
       });
     } else {
-      sql = "SELECT user_name FROM instructors WHERE email=? AND password=?";
+      sql = "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
       con.query(sql, params, (err, result) => {
         if (result.length > 0) {
           res.json({
             is_authenticated: true,
-            user: { user_name: row.user_name, user_type: "instructor" },
+            user: { user_name: row.user_name, user_type: "instructor", email: row.email },
           });
         } else {
           res.json({ is_authenticated: false });
@@ -166,12 +174,14 @@ app.post("/login", (req, res) => {
 // })
 
 //for stefanos
+
+
 app.post("/contact", (req, res) => {
   const msg = {
-    to: "sobhanessifa@gmail.com",
-    from: req.body.email,
-    subject: req.body.subject,
-    text: req.body.message,
+    to: req.body.email,
+    from: "admin@d4d.com",
+    subject: "Message from D4DApp",
+    text: req.body.message + " " + req.body.studentEmail,
   };
   async function send(msg) {
     try {

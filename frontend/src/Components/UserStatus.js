@@ -20,6 +20,9 @@ const Styles = Styled.div`
     
     
 `;
+const baseUrl = process.env.REACT_APP_API_URL;
+const googleLogin = baseUrl + "/auth/google";
+const facebookLogin = baseUrl + "/auth/facebook";
 
 const UserStatus = () => (
   <>
@@ -104,7 +107,7 @@ const Login = () => {
           <Nav.Link href="/">{context.user.user_name}</Nav.Link>
         </Nav.Item>
       )}
-      ///////
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>

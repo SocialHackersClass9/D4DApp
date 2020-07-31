@@ -190,7 +190,7 @@ app.post("/contact", (req, res) => {
     to: req.body.email,
     from: "admin@d4d.com",
     subject: "Message from D4DApp",
-    text: req.body.message + " " + req.body.studentEmail,
+    text: req.body.message + "\n\n" + req.body.studentEmail,
   };
   async function send(msg) {
     try {
@@ -359,8 +359,30 @@ app.get("/locations", function (req, resp, next) {
   });
 });
 
+let studentAuth = (res, row) => {
+  res.json({
+    is_authenticated: true,
+    user: {
+      user_name: row.user_name,
+      user_type: "student",
+      email: row.email,
+    },
+  });
+};
+
+let instructorAuth = (res, row) => {
+  res.json({
+    is_authenticated: true,
+    user: {
+      user_name: row.user_name,
+      user_type: "instructor",
+      email: row.email,
+    },
+  });
+};
+
 ////////////////////////
-//google authentication
+//google authentica,usertion
 
 app.get(
   "/auth/google/student",
@@ -377,11 +399,11 @@ app.get(
   }),
 
   function (req, res) {
-    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
       if (result.length !== 0) {
-        res.send("you are validated as student ...");
+        studentAuth(res, result);
       } else {
         let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
         con.query(sql2, (err, result) => {
@@ -407,11 +429,11 @@ app.get(
     callbackURL: "http://localhost:3001/auth/google/instructor/callback",
   }),
   function (req, res) {
-    let sql = `SELECT user_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
+    let sql = `SELECT user_name,email,first_name,last_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
       if (result.length !== 0) {
-        res.send("you are validated as instructor ...");
+        instructorAuth(res, result);
       } else {
         let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
         con.query(sql2, (err, result) => {
@@ -438,11 +460,11 @@ app.get(
   }),
   function (req, res) {
     console.log(userProfile);
-    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
       if (result.length !== 0) {
-        res.send("you are validated as student ...");
+        studentAuth(res, result);
       } else {
         let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
         con.query(sql2, (err, result) => {
@@ -469,11 +491,11 @@ app.get(
     callbackURL: "http://localhost:3001/auth/facebook/instructor/callback",
   }),
   function (req, res) {
-    let sql = `SELECT user_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
+    let sql = `SELECT user_name,email,first_name,last_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
       if (result.length !== 0) {
-        res.send("you are validated as instructor ...");
+        instructorAuth(res, result);
       } else {
         let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
         con.query(sql2, (err, result) => {

@@ -54,8 +54,8 @@ passport.deserializeUser(function (obj, cb) {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID_STUDENT,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET_STUDENT,
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;
@@ -65,29 +65,19 @@ passport.use(
 );
 //////////////
 //authentication with facebook
-// passport.use(
-//   new FacebookStrategy(
-//     {
-//       clientID: process.env.FACEBOOK_CLIENT_ID,
-//       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//       callbackURL: "http://localhost:3001/auth/facebook/callback",
-//     },
-//     function (accessToken, refreshToken, profile, done) {
-//       userProfile = profile;
-//       return done(null, userProfile);
-//     }
-//   )
-// );
-// app.get("/auth/facebook", passport.authenticate("facebook"));
-
-// app.get(
-//   "/auth/facebook/callback",
-//   passport.authenticate("facebook", { failureRedirect: "/" }),
-//   function (req, res) {
-//     // Successful authentication, redirect home.
-//     res.send("you are validated");
-//   }
-// );
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      profileFields: ["id", "displayName", "photos", "email", "gender"],
+    },
+    function (accessToken, refreshToken, profile, done) {
+      userProfile = profile;
+      return done(null, userProfile);
+    }
+  )
+);
 
 ////////////////////////////////
 //routes
@@ -387,7 +377,6 @@ app.get(
   }),
 
   function (req, res) {
-    console.log(userProfile);
     let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
@@ -418,7 +407,6 @@ app.get(
     callbackURL: "http://localhost:3001/auth/google/instructor/callback",
   }),
   function (req, res) {
-    console.log(userProfile);
     let sql = `SELECT user_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
     con.query(sql, (err, result) => {
       if (err) console.log(err);
@@ -429,6 +417,37 @@ app.get(
         con.query(sql2, (err, result) => {
           if (err) console.log(err);
           res.send("you are registered as instructor for this app");
+        });
+      }
+    });
+  }
+);
+app.get(
+  "/auth/facebook/student",
+  passport.authenticate("facebook", {
+    scope: ["email"],
+    callbackURL: "http://localhost:3001/auth/facebook/student/callback",
+  })
+);
+
+app.get(
+  "/auth/facebook/student/callback",
+  passport.authenticate("facebook", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/facebook/student/callback",
+  }),
+  function (req, res) {
+    console.log(userProfile);
+    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
+    con.query(sql, (err, result) => {
+      if (err) console.log(err);
+      if (result.length !== 0) {
+        res.send("you are validated as student ...");
+      } else {
+        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
+        con.query(sql2, (err, result) => {
+          if (err) console.log(err);
+          res.send("you are registered as student for this app");
         });
       }
     });

@@ -454,6 +454,36 @@ app.get(
   }
 );
 
+app.get(
+  "/auth/facebook/instructor",
+  passport.authenticate("facebook", {
+    scope: ["email"],
+    callbackURL: "http://localhost:3001/auth/facebook/instructor/callback",
+  })
+);
+
+app.get(
+  "/auth/facebook/instructor/callback",
+  passport.authenticate("facebook", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/facebook/instructor/callback",
+  }),
+  function (req, res) {
+    let sql = `SELECT user_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
+    con.query(sql, (err, result) => {
+      if (err) console.log(err);
+      if (result.length !== 0) {
+        res.send("you are validated as instructor ...");
+      } else {
+        let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
+        con.query(sql2, (err, result) => {
+          if (err) console.log(err);
+          res.send("you are registered as instructor for this app");
+        });
+      }
+    });
+  }
+);
 ////////////////////////
 
 app.listen(port, () =>

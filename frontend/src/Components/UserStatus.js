@@ -93,7 +93,8 @@ const Login = () => {
 
   const googleLoginStudent = baseUrl + "/auth/google/student";
   const googleLoginInstructor = baseUrl + "/auth/google/instructor";
-  const facebookLogin = baseUrl + "/auth/facebook/student";
+  const facebookLoginStudent = baseUrl + "/auth/facebook/student";
+  const facebookLoginInstructor = baseUrl + "/auth/facebook/instructor";
 
   return (
     <Styles>
@@ -155,12 +156,20 @@ const Login = () => {
               <i class="fa fa-google fa-fw"></i>Log In with Google as Instructor
             </a>
             <a
-              href={facebookLogin}
+              href={facebookLoginStudent}
               class="btn"
               style={{ backgroundColor: "#3B5998", color: "white" }}
             >
               <i class="fa fa-facebook fa-fw"></i>Log In with Facebook as
               Student
+            </a>
+            <a
+              href={facebookLoginInstructor}
+              class="btn"
+              style={{ backgroundColor: "#3B5998", color: "white" }}
+            >
+              <i class="fa fa-facebook fa-fw"></i>Log In with Facebook as
+              Instructor
             </a>
           </div>
         </Modal.Body>

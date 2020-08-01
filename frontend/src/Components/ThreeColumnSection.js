@@ -23,7 +23,7 @@ const ThreeColumnSection = () => (
                 <a href="/search" >See which coaches are near you...</a>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4">
-                {/* <Images src={Logo}></Images> */}
+                <Images src={Logo}></Images>
 
                 <h3>About D4D</h3>
                 <p>Some general info about the organization...</p>
@@ -33,7 +33,7 @@ const ThreeColumnSection = () => (
                 <Images src={Sports} style={{ borderRadius: "20px", height: "250px", width: "43np0px" }}></Images>
                 <h3>Sports</h3>
                 <p>Try different sports and choose what you like the most!</p>
-                <a href="/paralympics">Learn more...</a>
+                <a href="SportParalympics">Learn more...</a>
             </div>
         </div>
     </div>

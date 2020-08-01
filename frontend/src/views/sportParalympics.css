@@ -61,6 +61,7 @@ table {
   margin: 1rem;
   color: #000000;
   outline: none;
+  /* display: flex; */
 }
 
 .details-ul1 {
@@ -95,6 +96,7 @@ th {
 text-align: left;
 }
 .extra-content {
-  color: cornflowerblue;
+  color: rgb(54, 54, 54);
   text-align: left;
+  
 }

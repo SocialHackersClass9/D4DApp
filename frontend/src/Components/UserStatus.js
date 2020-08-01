@@ -19,6 +19,7 @@ const Styles = Styled.div`
     
 `;
 
+  
 const UserStatus = () => (
   <>
     <Login />
@@ -84,13 +85,11 @@ const Login = () => {
       }
     });
   };
-
   const baseUrl = process.env.REACT_APP_API_URL;
 
   const googleLoginStudent = baseUrl + "/auth/google/student";
   const googleLoginInstructor = baseUrl + "/auth/google/instructor";
   const facebookLogin = baseUrl + "/auth/facebook";
-
 
   return (
     <Styles>

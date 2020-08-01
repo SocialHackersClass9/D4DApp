@@ -14,7 +14,7 @@ navbar-brand, .navbar-nav .nav-link {
     color: white;
     font-size:23px;
     font-weight:600;
-    padding-left:50px;
+    padding-left:40px;
     text-align:center;
 
     &:hover {
@@ -38,10 +38,12 @@ const NavigationBar = () => (
                     <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
 
-                    <Nav.Item><Nav.Link href="/SportParalympics">paralymic-sports</Nav.Link></Nav.Item> 
-                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>              
-                    <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>              
-
+                    <Nav.Item><Nav.Link href="/SportParalympics">Paralympics Sports</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/contact">Announcements</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>
+                    {/* 
+                    <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/student_sign_up">Student SignUp</Nav.Link></Nav.Item> */}
 
                 </Nav>
             </Navbar.Collapse>

@@ -18,8 +18,10 @@ const Styles = Styled.div`
     }
     
 `;
+const baseUrl = process.env.REACT_APP_API_URL;
+const googleLogin = baseUrl + "/auth/google";
+const facebookLogin = baseUrl + "/auth/facebook";
 
-  
 const UserStatus = () => (
   <>
     <Login />

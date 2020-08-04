@@ -2,11 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import './style.css';
 import GDPR from 'react-gdpr-consent';
-import Toggle from './Toggle'
+//import Toggle from './Toggle'
 
-
-
-export default class GDPRP extends React.Component {
+export default class GDPRPolicy extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,7 +40,7 @@ export default class GDPRP extends React.Component {
             <div className="container">
 
                 <p>Privacy consent: {this.state.privacy ? 'checked' : 'unchecked'}</p>
-                <GDPR config={config} toggleHandler={toggleHandler} linkHanlder={linkHanlder} />;
+                <GDPR config={config} toggleHandler={this.toggleHandler} linkHanlder={this.linkHanlder} />;
 
             </div>
         )

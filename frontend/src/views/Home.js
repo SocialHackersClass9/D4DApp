@@ -5,11 +5,11 @@ import ThreeColumnSection from '../Components/ThreeColumnSection';
 import MidSection from '../Components/MidSection';
 import Inspirational from '../Components/Inspirational';
 import Footer from '../Components/Footer';
-import GDPR from '../Components/GDPR';
+import GDPRPolicy from '../Components/GDPR';
 
 const home = () => (
     <div className="container-fluid">
-        <GDPR />
+        <GDPRPolicy />
         <Navigation />
         <Carousel />
         <ThreeColumnSection />

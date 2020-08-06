@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './style.css';
+import './GDPR.css';
 import GDPR from 'react-gdpr-consent/dist/index';
 //import Toggle from './Toggle'
 

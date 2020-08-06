@@ -66,10 +66,6 @@ function App() {
               <Search />
             </Route>
 
-            <Route exact path="/search">
-              <Search />
-            </Route>
-
             <Route exact path="/SportParalympics">
               <SportParalympics />
             </Route>

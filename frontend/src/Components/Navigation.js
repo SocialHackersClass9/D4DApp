@@ -1,13 +1,13 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
-import styled from 'styled-components';
+import './Navigation.css';
 import Logo from '../assets/d4d.jpg';
 import UserStatus from './UserStatus';
 
 
 
 
-const Styles = styled.div`
+/* const Styles = styled.div`
 .navbar {
     background-color:rgba(33, 33, 33,0.8);
 }
@@ -26,28 +26,32 @@ navbar-brand, .navbar-nav .nav-link {
 }
 
 
-`
+` */
 
 const NavigationBar = () => (
-    <Styles>
-        <Navbar expand='lg' fixed="top" bg="">
-            <Navbar.Brand href='/'><img width="80" height="70" src={Logo}></img></Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav>
-                    <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/SportParalympics">Paralympics Sports</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/gdrp">GDRP Policy</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>
-                </Nav>
-            </Navbar.Collapse>
-            <UserStatus />
-            <h4>GR/EN</h4>
-        </Navbar>
-    </Styles>
+    // <Styles>
+    <Navbar collapseOnSelect expand='lg' fixed="top" bg="dark" variant="dark">
+        <Navbar.Brand href='/'><img width="80" height="70" src={Logo} alt="logo"></img></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+
+                <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/SportParalympics">Paralympics Sports</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/gdpr">GDPR Policy</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>
+                <UserStatus />
+                {/* MISSING LANGUAGE FUNCTIONALITY */}
+                <h4>GR/EN</h4>
+
+            </Nav>
+        </Navbar.Collapse>
+
+    </Navbar>
+    //  </Styles>
 );
 
 export default NavigationBar;

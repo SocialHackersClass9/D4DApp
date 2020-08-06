@@ -1,0 +1,25 @@
+
+ .footer-middle {
+    background-color : #18181a;
+    padding-top: 3rem;
+    color: white;
+    text-align:left;
+
+  }
+
+  .footer-bottom {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  ul li {
+    margin-top: 10px;
+  }
+
+  ul li a {
+    color: white;
+  }
+  
+  ul li a:hover {
+    color: lightgrey;
+  }

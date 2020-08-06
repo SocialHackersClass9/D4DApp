@@ -24,16 +24,14 @@ const UserRegister = () => {
                     <Modal.Title>Register as</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
-                    <Button variant="primary" type="submit" href="/student_sign_up">
-                        User
+                    <div className="d-flex justify-content-around">
+                        <Button variant="primary" href="/student_sign_up" size="lg">
+                            User
                     </Button>
-
-
-                    <Button variant="primary" type="submit" href="/instructors_registration">
-                        Coach
+                        <Button variant="primary" href="/instructors_registration" size="lg">
+                            Coach
                     </Button>
-
+                    </div>
                 </Modal.Body>
             </Modal>
         </div>

@@ -85,25 +85,26 @@ const UserLogin = () => {
               Login
             </Button>
           </Form>
-          <div style={{ marginTop: "1%" }}>
+          <div>
             <a
               href={googleLoginStudent}
               class="btn"
-              style={{ color: "white", backgroundColor: "#dd4b39" }}
+              style={{ color: "white", backgroundColor: "#dd4b39", margin: "15px 10px" }}
             >
               <i class="fa fa-google fa-fw"></i>Log In with Google as Student
             </a>
+
             <a
               href={googleLoginInstructor}
               class="btn"
-              style={{ color: "white", backgroundColor: "#dd4b39" }}
+              style={{ color: "white", backgroundColor: "#dd4b39", margin: "10px" }}
             >
               <i class="fa fa-google fa-fw"></i>Log In with Google as Instructor
             </a>
             <a
               href={facebookLogin}
               class="btn"
-              style={{ backgroundColor: "#3B5998", color: "white" }}
+              style={{ backgroundColor: "#3B5998", color: "white", margin: "10px" }}
             >
               <i class="fa fa-facebook fa-fw"></i>Log In with Facebook
             </a>

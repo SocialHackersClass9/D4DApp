@@ -40,26 +40,6 @@ function Result(props) {
     )
 }
 
-//  <table </table>
-/*
-{ this.state.matches.length < 1 &&
-        <span>No result found</span>
-}
-{ this.state.matches.length > 0 &&
-        <table>
-            <tr>
-                <td>Id</td>
-                <td>first name</td>
-                <td>last name</td>
-                <td>locations</td>
-                <td>sports</td>
-                <td>contact</td>
-            </tr>
-        </table>
-}
-*/
-
-
 class Search extends React.Component {
     static contextType = AppContext;
     constructor() {

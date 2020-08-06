@@ -66,7 +66,7 @@ function App() {
               <Search />
             </Route>
 
-            <Route exact path="/SportParalympics">
+            <Route exact path="/paralympics">
               <SportParalympics />
             </Route>
             <Route exact path="/instructor/:id">

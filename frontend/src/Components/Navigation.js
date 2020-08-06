@@ -29,6 +29,7 @@ navbar-brand, .navbar-nav .nav-link {
 ` */
 
 const NavigationBar = () => (
+
     // <Styles>
     <Navbar collapseOnSelect expand='lg' fixed="top" bg="dark" variant="dark">
         <Navbar.Brand href='/'><img width="80" height="70" src={Logo} alt="logo"></img></Navbar.Brand>
@@ -40,18 +41,19 @@ const NavigationBar = () => (
                 <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="/SportParalympics">Paralympics Sports</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/gdpr">GDPR Policy</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="/student_sign_up">SignUp</Nav.Link></Nav.Item>
+
                 <UserStatus />
                 {/* MISSING LANGUAGE FUNCTIONALITY */}
                 <h4>GR/EN</h4>
 
-            </Nav>
-        </Navbar.Collapse>
+            </Nav >
+        </Navbar.Collapse >
 
-    </Navbar>
-    //  </Styles>
+    </Navbar >
+    // </Styles> 
+
 );
 
 export default NavigationBar;

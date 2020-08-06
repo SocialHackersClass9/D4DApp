@@ -36,7 +36,8 @@ const Register = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Styles>
+    // <Styles>
+    <div>
       <Button variant="success" onClick={handleShow}>
         Register
       </Button>
@@ -46,15 +47,15 @@ const Register = () => {
           <Modal.Title>Register as</Modal.Title>
         </Modal.Header>
         <Modal.Body className="register">
-          <Button href="#" variant="outline-success" size="lg" block>
+          <Button href="/student_sign_up" variant="outline-success" size="lg" block>
             User
           </Button>
-          <Button href="#" variant="outline-primary" size="lg" block>
+          <Button href="/instructors_registration" variant="outline-primary" size="lg" block>
             Coach
           </Button>
         </Modal.Body>
       </Modal>
-    </Styles>
+    </div>
   );
 };
 
@@ -87,16 +88,16 @@ const Login = () => {
       }
     });
   };
-  const baseUrl = process.env.REACT_APP_API_URL;
 
+  const baseUrl = process.env.REACT_APP_API_URL;
   const googleLoginStudent = baseUrl + "/auth/google/student";
   const googleLoginInstructor = baseUrl + "/auth/google/instructor";
   const facebookLogin = baseUrl + "/auth/facebook";
 
   return (
-    <Styles>
+    <div>
       {context.user == null && (
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="success" onClick={handleShow}>
           Login
         </Button>
       )}
@@ -163,7 +164,7 @@ const Login = () => {
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
-    </Styles>
+    </div>
   );
 };
 export default UserStatus;

@@ -3,63 +3,10 @@ import { useState, useContext } from "react";
 import apis from "../apis.js";
 import AppContext from "../context.js";
 import { Nav } from "react-bootstrap";
-
 import { Modal, Button, Form } from "react-bootstrap";
+import './Navigation.css';
 
-import Styled from "styled-components";
-
-const Styles = Styled.div`
-    .btn{
-        margin: 10px 10px 5px 0;
-    }
-
-    .register .btn{
-        po
-    }
-    
-`;
-const baseUrl = process.env.REACT_APP_API_URL;
-const googleLogin = baseUrl + "/auth/google";
-const facebookLogin = baseUrl + "/auth/facebook";
-
-const UserStatus = () => (
-  <>
-    <Login />
-    <Register />
-  </>
-);
-
-const Register = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    // <Styles>
-    <div>
-      <Button variant="success" onClick={handleShow}>
-        Register
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Register as</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="register">
-          <Button href="/student_sign_up" variant="outline-success" size="lg" block>
-            User
-          </Button>
-          <Button href="/instructors_registration" variant="outline-primary" size="lg" block>
-            Coach
-          </Button>
-        </Modal.Body>
-      </Modal>
-    </div>
-  );
-};
-
-const Login = () => {
+const UserLogin = () => {
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     email: "george@test.com",
@@ -97,13 +44,13 @@ const Login = () => {
   return (
     <div>
       {context.user == null && (
-        <Button variant="success" onClick={handleShow}>
+        <Button variant="outline-warning" onClick={handleShow}>
           Login
         </Button>
       )}
       {context.user != null && (
-        <Nav.Item>
-          <Nav.Link href="/">{context.user.user_name}</Nav.Link>
+        <Nav.Item className="username">
+          {context.user.user_name}
         </Nav.Item>
       )}
 
@@ -167,4 +114,4 @@ const Login = () => {
     </div>
   );
 };
-export default UserStatus;
+export default UserLogin;

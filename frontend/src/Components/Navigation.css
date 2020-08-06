@@ -1,13 +1,30 @@
- .nav-item {
-    color: #ffffff;
+.navbar .nav-item .nav-link {
+    color: #fcf8f8;
     font-size:1.5em;
     font-weight:bold;
     text-align:center;
- }
-.navbar-light .navbar-nav .nav-link {
-    color: #ffffff;
-    font-size:1em;
+    padding-left:1em;  
+}
+.navbar{
+    background: #007bff; 
+}
+
+.navbar .nav-item .btn {
+ 
+    border-radius: 10px;
+   text-align:center;
+   font-weight:bold;
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    font-size:1.5em;
+}
+.username{
+    color: #fcf8f8;
+    font-size:1.5em;
     font-weight:bold;
     text-align:center;
-    
+    padding-left:1em; 
 }

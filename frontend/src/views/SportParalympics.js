@@ -30,7 +30,6 @@ function SportParalymics() {
   const [readMore21, setReadMore21] = useState(false);
   const [readMore22, setReadMore22] = useState(false);
 
-
   const extraContent1 = (
     <div>
       <p className="extra-content text-justify">
@@ -195,12 +194,12 @@ function SportParalymics() {
         δύναμης, ο συντονισμός κινήσεων ή το εύρος της κίνησης και, στη
         συνέχεια, αξιολογείται μέσα στο νερό η λειτουργική δυνατότητα και ο
         περιορισμός κινήσεων στα διάφορα στυλ κολύμβησης. Μετά από την παραπάνω
-        αξιολόγηση οι αθλητές κατατάσσονται σε μία από τις {" "}
+        αξιολόγηση οι αθλητές κατατάσσονται σε μία από τις{" "}
         <li>
           {" "}
           10 κατηγορίες, S1-S10, για το ελεύθερο, το ύπτιο και την πεταλούδα{" "}
         </li>
-       <li> 8 για το πρόσθιο, SB2-SB9 </li>{" "}
+        <li> 8 για το πρόσθιο, SB2-SB9 </li>{" "}
         <li> 8 για τη μεικτή ατομική, SM3-SM10 </li>
         Όσο μεγαλύτερες είναι οι κινητικές δυνατότητες ενός κολυμβητή τόσο
         υψηλότερη είναι και η κατηγορία στην οποία θα ενταχθεί. Ένας κολυμβητής
@@ -247,8 +246,7 @@ function SportParalymics() {
   const extraContent10 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Η Ξιφασκία με αμαξίδιο είναι ένα άθλημα υψηλών απαιτήσεων
+        <br />Η Ξιφασκία με αμαξίδιο είναι ένα άθλημα υψηλών απαιτήσεων
         προσαρμογής, οργάνωσης και υπομονής. Η εφευρετικότητα σε συνδυασμό με
         την πολύωρη άσκηση και προπόνηση αποτελούν βασικά εφόδια για κάθε αθλητή
         της Ξιφασκίας. Στη Ξιφασκία συμμετέχουν αθλητές με κινητικές αναπηρίες,
@@ -264,7 +262,6 @@ function SportParalymics() {
           {" "}
           Ξίφος ασκήσεων ανδρών (φλερέ ανδρών). Κατηγορία Α και κατηγορία Β{" "}
         </li>
-
         <li>
           {" "}
           Ξίφος ασκήσεων γυναικών (φλερέ γυναικών). Κατηγορία Α και κατηγορία Β{" "}
@@ -570,7 +567,10 @@ function SportParalymics() {
   );
 
   // const linkName = readMore ? "Read less  " : " 1)Αντισφαίριση με αμαξίδιο... ";
-  const linkName1 = readMore1 ? "Read less  " : " 1)Αντισφαίριση με αμαξίδιο... ";
+  const linkName1 = readMore1
+    ? "Read less  "
+    : " 1)Αντισφαίριση με αμαξίδιο... ";
+
   const linkName2 = readMore2 ? "Read less  " : " 2)Άρση βαρών σε πάγκο... ";
   const linkName3 = readMore3 ? "Read less  " : " 3)Γκόλμπολ (Goalball)... ";
 
@@ -633,9 +633,9 @@ function SportParalymics() {
       {/* image part */}
       <div className="images">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSKtJJFvg8Q4qCfwajyb-kLlidWquz9r7nw3g&usqp=CAU"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5zcZFxrYrs_K0gp51InvVMblSLmmk6FnL1A&usqp=CAU"
           alt="sports"
-        />
+        />  
       </div>
 
       {/* history part */}
@@ -648,41 +648,56 @@ function SportParalymics() {
 
           <p className="text-justify">
             {" "}
-            The first races for athletes with disabilities took place in 1948 in
-            StokeMadville, England. On the day of the opening ceremony for the
-            1948 Olympic Games in London, the StokeMadeville Games began and
-            were instituted and the first wheelchair sports event took place.
-            Four years later, athletes from the Netherlands took part in these
-            games, giving birth to the international movement now known as the
-            Paralympic Movement. The first Olympic Games for athletes with
-            disabilities were organized in 1960 in Rome, after the Olympic Games
-            in the same city. They are considered to be the first Paralympic
-            Games. About 400 athletes from 23 countries participated in 8
-            sports, 6 of which are still included in the program of the
-            Paralympic Games (Archery, Swimming, Fencing, Basketball, Table
-            Tennis, Athletics). Since then, the Paralympic Games are held every
-            4 years, always in the same year as the Olympic Games. In 1976 in
-            Toronto, other categories of disability were added and the idea of
-            ​​merging different categories of athletes with disabilities for
-            their participation in international sporting events was born. The
-            same year saw the first Winter Paralympic Games in Sweden. The Seoul
-            Paralympic Games (1988) also stood out from the fact that the
-            Olympic and Paralympic Games were hosted in the same country, in the
-            same city and the same facilities as the Olympic Games were used.
-            Since then, the Paralympic Games have always been held in the same
-            city as the Olympic Games. Since 1960, twelve (12) Summer Paralympic
-            Games and nine (9) Winter Games have been organized. The Paralympic
-            Games have now become the second largest sporting event after the
-            Olympics. Greek athletes have been participating in the Paralympic
-            Games since 1976. Since 1988, Greece has been participating in the
-            Games with official National Missions. All these years, the Greek
-            athletes achieved good performance and won many medals. The first
-            participation of a Greek Athlete in the Winter Paralympic Games took
-            place in 2002 in Salt Lake City. The Torino Paralympic Games in 2006
-            were the second Winter Paralympic Games in which a Greek Mission
-            participated. The Vancouver Paralympic Winter Games are the third
-            Winter Games that Greece will participate with the participation of
-            the first athlete.
+            Οι Παραολυμπιακοί Αγώνες (ParalympicGames) είναι οι
+            αντίστοιχοι Ολυμπιακοί Αγώνες για τους αθλητές με κινητικές, οπτικές
+            ή διανοητικές αναπηρίες. <br />
+            Οι πρώτοι αγώνες για αθλητές με αναπηρία έγιναν το 1948 στο
+            ΣτόουκMάντεβιλ στην Αγγλία. Την ημέρα της τελετής έναρξης για τους
+            Ολυμπιακούς Αγώνες του 1948 στο Λονδίνο, ξεκίνησαν και
+            θεσμοθετήθηκαν οι αγώνες του ΣτόουκMάντεβιλ και πραγματοποιήθηκε η
+            πρώτη αθλητική διοργάνωση για αθλητές με αμαξίδιο.
+            <br />
+            Τέσσερα χρόνια αργότερα, αθλητές από την Ολλανδία συμμετείχαν σε
+            αυτούς τους αγώνες και έτσι γεννήθηκε το διεθνές κίνημα που είναι
+            γνωστό πλέον ως Παραολυμπιακό κίνημα.
+            <br />
+            Οι πρώτοι Αγώνες Ολυμπιακού χαρακτήρα για αθλητές με αναπηρία
+            οργανώθηκαν το 1960 στην Ρώμη, ύστερα από τους Ολυμπιακούς Αγώνες
+            στην ίδια πόλη. Θεωρούνται ως οι πρώτοι Παραολυμπιακοί Αγώνες.
+            Περίπου 400 αθλητές από 23 χώρες συμμετείχαν σε 8 αθλήματα, 6 από τα
+            οποία εξακολουθούν να περιλαμβάνονται στο αγωνιστικό πρόγραμμα των
+            Παραολυμπιακών Αγώνων (Τοξοβολία, Κολύμβηση, Ξιφασκία,
+            Καλαθοσφαίριση, Επιτραπέζια Αντισφαίριση, Στίβος).
+            <br />
+            Από τότε, οι Παραολυμπιακοί Αγώνες διεξάγονται κάθε 4 χρόνια, πάντα
+            την ίδια χρονιά με τους Ολυμπιακούς Αγώνες. Το 1976 στο Τορόντο,
+            προστέθηκαν και άλλες κατηγορίες αναπηρίας και γεννήθηκε η ιδέα της
+            συγχώνευσης διαφορετικών κατηγοριών αθλητών με αναπηρία για τη
+            συμμετοχή τους σε διεθνείς αθλητικές διοργανώσεις. Την ίδια χρονιά
+            έγιναν και οι πρώτοι Χειμερινοί Παραολυμπιακοί Αγώνες στην Σουηδία.
+            <br />
+            Οι Παραολυμπιακοί Αγώνες της Σεούλ (1988) ξεχώρισαν και από το
+            γεγονός ότι οι Ολυμπιακοί και Παραολυμπιακοί Αγώνες φιλοξενήθηκαν
+            στην ίδια χώρα, στην ίδια πόλη και χρησιμοποιήθηκαν οι ίδιες
+            εγκαταστάσεις με τους Ολυμπιακούς Αγώνες. Έκτοτε, οι Παραολυμπιακοί
+            Αγώνες γίνονται πάντα στην ίδια πόλη με τους Ολυμπιακούς Αγώνες.
+            <br />
+            Από το 1960, έχουν διοργανωθεί δώδεκα (12) Θερινοί Παραολυμπιακοί
+            Αγώνες και εννέα (9) Χειμερινοί. Οι Παραολυμπιακοί Αγώνες έχουν
+            εξελιχθεί πλέον στο δεύτερο μεγαλύτερο αθλητικό γεγονός μετά τους
+            Ολυμπιακούς.
+            <br />
+            Έλληνες αθλητές συμμετέχουν στους Παραολυμπιακούς Αγώνες από το
+            1976. Από το 1988, η Ελλάδα συμμετέχει στους Αγώνες με επίσημες
+            Εθνικές Αποστολές. Όλα αυτά τα χρόνια, οι Έλληνες αθλητές πέτυχαν
+            καλές επιδόσεις και κέρδισαν πολλά μετάλλια.
+            <br />Η πρώτη συμμετοχή Έλληνα Αθλητή σε Χειμερινούς Παραολυμπιακούς
+            Αγώνες έγινε το 2002 στο ΣολτΛέικΣίτι. Οι Παραολυμπιακούς Αγώνες του
+            Τορίνο το 2006 ήταν οι δεύτεροι Χειμερινοί Παραολυμπιακοί Αγώνες
+            όπου συμμετείχε Ελληνική Αποστολή. Οι Χειμερινοί Παραολυμπιακοί
+            Αγώνες του Βανκούβερ αποτελούν τους τρίτους Χειμερινούς Αγώνες που
+            θα συμμετάσχει η Ελλάδα με τη συμμετοχή μάλιστα και της πρώτης
+            αθλήτριας.
           </p>
 
           <hr style={{ paddingTop: "1px", borderTop: "1px solid black" }}></hr>
@@ -693,26 +708,30 @@ function SportParalymics() {
 
       <div className="row1">
         <div className="history col-xs-10 col-sm-10 col-md-10">
-          <h1>SUMMER PARALYMPIC SPORTS </h1>
+          <h1>ΘΕΡΙΝΑ ΠΑΡΑΟΛΥΜΠΙΑΚΑ ΑΘΛΗΜΑΤΑ</h1>
           <p className="text-justify">
-            The competition program of the Summer Paralympic Games now includes
-            22 summer sports. Eighteen of them are common to the Olympics and
-            the other four are exclusively Paralympic. These are Botsia, Golf,
-            Weightlifting and Wheelchair Rugby. The sport of 5x5 Football was
-            added to the Athens Games, while in Beijing for the first time
-            athletes competed in Rowing. Canoe and Triathlon were added to the
-            Rio Games. The records set at the Paralympic Games can be compared
-            to the records of the Olympic athletes (such as in the men's 100m in
-            Track and Field) and in some cases (such as in weightlifting) the
-            Paralympic records surpass those of athletes without disabilities.
-            In some sports athletes from all or most categories of disability
-            participate, while in others from only one category. In detail, the
-            Paralympic sports are
+            Το αγωνιστικό πρόγραμμα των Θερινών Παραολυμπιακών Αγώνων
+            περιλαμβάνει πλέον 22 θερινά αθλήματα. Δεκαοκτώ από αυτά είναι κοινά
+            με τους Ολυμπιακούς Αγώνες και τα υπόλοιπα τέσσερα είναι
+            αποκλειστικά Παραολυμπιακά. Αυτά είναι τα Μπότσια, Γκόλμπολ, Άρση
+            βαρών σε πάγκο και Ράγκμπι με αμαξίδιο. Στους Αγώνες της Αθήνας
+            προστέθηκε το άθλημα του Ποδοσφαίρου 5x5, ενώ στο Πεκίνο για πρώτη
+            φορά αγωνίστηκαν αθλητές στην Κωπηλασία. Στους Αγώνες του Ρίο
+            προστέθηκαν το Κανόε και το Τρίαθλο. <br />
+            Τα ρεκόρ που σημειώνονται στους Παραολυμπιακούς Αγώνες μπορούν να
+            συγκριθούν με τα ρεκόρ των Ολυμπιακών αθλητών (όπως στα 100μ. ανδρών
+            στο Στίβο) και σε ορισμένες περιπτώσεις (όπως στην Άρση βαρών σε
+            πάγκο) τα Παραολυμπιακά ρεκόρ ξεπερνούν εκείνα των αθλητών χωρίς
+            αναπηρία.
+            <br />
+            Σε κάποια αθλήματα συμμετέχουν αθλητές από όλες ή τις περισσότερες
+            κατηγορίες αναπηρίας, ενώ σε άλλα από μια κατηγορία μόνο.
+            <br />
+            Αναλυτικά τα Παραολυμπιακά αθλήματα είναι:
           </p>
           {/* <h2 className="summer">Paralympic Games sports details</h2> */}
           <br />
           <div className="App">
-           
             <a
               className="read-more-link"
               onClick={() => {
@@ -721,7 +740,7 @@ function SportParalymics() {
             >
               <h3>{linkName1}</h3>
             </a>
-            {readMore1 && extraContent2}
+            {readMore1 && extraContent1}
             <br />
 
             <a
@@ -732,7 +751,7 @@ function SportParalymics() {
             >
               <h3>{linkName2}</h3>
             </a>
-            {readMore2 && extraContent3}
+            {readMore2 && extraContent2}
             <br />
 
             <a
@@ -743,7 +762,7 @@ function SportParalymics() {
             >
               <h3>{linkName3}</h3>
             </a>
-            {readMore3 && extraContent4}
+            {readMore3 && extraContent3}
 
             <br />
 
@@ -755,7 +774,7 @@ function SportParalymics() {
             >
               <h3>{linkName4}</h3>
             </a>
-            {readMore4 && extraContent5}
+            {readMore4 && extraContent4}
             <br />
 
             <a
@@ -766,7 +785,7 @@ function SportParalymics() {
             >
               <h3>{linkName5}</h3>
             </a>
-            {readMore5 && extraContent6}
+            {readMore5 && extraContent5}
             <br />
 
             <a
@@ -823,8 +842,6 @@ function SportParalymics() {
             </a>
             {readMore10 && extraContent10}
             <br />
-
-         
 
             <a
               className="read-more-link"
@@ -957,26 +974,40 @@ function SportParalymics() {
               <h3>{linkName22}</h3>
             </a>
             {readMore22 && extraContent22}
-          </div>
-        </div>
-      </div>
+       
+    
+<br />
+<hr
+              style={{ paddingTop: "20px", borderTop: "1px solid black" }}
+            ></hr>
 
-      {/* ///////////////////////////////////////////////// */}
+          <ul>
+          
+            <li>
+            3)Κέρλινγκ με αμαξίδιο
+              </li>
+            <li>
+            4)Σκι αντοχής
+              </li>
+            <li>
+            5)Χόκεϊ επί πάγου με έλκηθρο
 
-      {/* <div className="row">
-          <div
-            className="history col-xs-8 col-sm-8 col-md-8 pr-20px"
-            style={{ paddingBottom: "100px" }}
-          >
-            <h1 className="summer">WINTER PAR:SPORTS </h1>
-            <br />
-            <p className="summer">Paralympic winter sports details</p>
-            <br />
+              </li>
+ 
+            <li>
+            6)Έπταθλο
+              </li>
+          </ul>
+          <p className="text-justify">
+          Θα εμφανίζονται με σειρά τα αθλήματα και αν κάποιος ακουμπάει το ποντίκι επάνω ή κάνει κλικ , να του βγάζει σαν ρολό αναλυτικά για το κάθε άθλημα. Σαν πρώτη ματιά τα αθλήματα θα φαίνονται μόνο αναφορικά.
+          </p>
             <hr
               style={{ paddingTop: "50px", borderTop: "1px solid black" }}
             ></hr>
-          </div>
-        </div> */}
+    
+        </div>
+        </div>
+        </div>
     </React.Fragment>
   );
 }

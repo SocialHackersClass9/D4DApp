@@ -16,6 +16,7 @@
   text-align: left;
   padding-bottom: 2rem;
 }
+
 /* ] */
 .images {
   align-items: center;
@@ -56,6 +57,7 @@ table {
   text-align: left;
 }
 
+
 .App{
    float: left;
   margin: 1rem;
@@ -82,9 +84,20 @@ th {
   width: 5%;
 }
 
-.row1 h1{
+/* .row1 h1{
   padding-bottom: 1rem;
   text-align: left;
+} */
+
+.row1 ul {
+  /* padding-bottom: 1rem;   */
+  text-align: left;
+  font-size: 1.75rem;
+}
+.row1 li{
+  list-style: none;
+  padding-right: 1rem;
+
 }
 
 .read-more-link {
@@ -100,3 +113,4 @@ text-align: left;
   text-align: left;
   
 }
+

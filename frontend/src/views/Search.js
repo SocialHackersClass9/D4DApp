@@ -159,7 +159,7 @@ class Search extends React.Component {
                             <div className="searchFeat">
                                 <div className="row">
                                     <div className="col-md-5 text-center">
-                                        <h2 className="text-center">Search via Location</h2>
+                                        <h2 className="text-center"><strong>Search via Location</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
                                         <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
@@ -170,7 +170,7 @@ class Search extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-5 text-center">
-                                        <h2 className="text-center">Search via Sports</h2>
+                                        <h2 className="text-center"><strong>Search via Sports</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
                                         <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>

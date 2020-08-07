@@ -20,7 +20,7 @@ export default function GDPRPolicy() {
                     they were given and are used exclusively for the purposes for which they have been collected and
                     in particular:<br></br>
                     ● Identification data: Name, date of birth, police ID or passport number, TIN, IP Address… etc <br></br>
-                    ● Contact Data: address, phone, email λπ etc.<br></br>
+                    ● Contact Data: address, phone, email etc.<br></br>
                     ● Photographic Material: Photos, Videos<br></br>
                     ● Data necessary for the processing of Applications for participation in Sports Activities:<br></br>
                     Information necessary for the management of applications for participation in Sports Activities

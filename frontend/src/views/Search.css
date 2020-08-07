@@ -1,0 +1,21 @@
+ .userStatusP {
+  font-size:1.5em;
+  border-color:#007bff;
+  border-style:solid;
+  border-radius: 10px;
+  margin: 2em;
+}
+
+.text-center h2{
+font-size:1.5em;
+padding:10px;
+}
+
+.resultFeat {
+    padding-top:100px;
+}
+
+.resultFeat td {
+    font-size:1.5em;
+    text-align: center;
+}

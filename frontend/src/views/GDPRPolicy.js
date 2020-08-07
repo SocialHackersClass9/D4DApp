@@ -1,24 +1,26 @@
 import React from 'react';
+import "../App.css";
 
 export default function GDPRPolicy() {
     return (
-        <div className="container">
-            <div className="container-fluid">
+        <div className="sepNav">
+            <div className="container">
+                <div className="container-fluid">
 
-                <h1>INFORMATION & DECLARATION OF CONSENT <br></br>CONCERNING PERSONAL DATA</h1>
-                <br></br>
-                <p className="text-justify">
+                    <h1>INFORMATION & DECLARATION OF CONSENT <br></br>CONCERNING PERSONAL DATA</h1>
+                    <br></br>
+                    <p className="text-justify" style={{ fontSize: "1.3em" }}>
 
-                    The Athletic Association of Persons with Disabilities HERODIKOS which is based in the city of Komotini,
-                    on Marasli and Pyrgou street (corner), with TIN. 998738678 Δ.Ο.Υ. Komotini and contact phone 2531036909
-                    legally represented by the Chairman of the Board. Michael Ragoussi (hereinafter referred to as the
-                    "Association" or "us"), acting as the Editor solely for the purposes of this application and the website
+                        The Athletic Association of Persons with Disabilities HERODIKOS which is based in the city of Komotini,
+                        on Marasli and Pyrgou street (corner), with TIN. 998738678 Δ.Ο.Υ. Komotini and contact phone 2531036909
+                        legally represented by the Chairman of the Board. Michael Ragoussi (hereinafter referred to as the
+                        "Association" or "us"), acting as the Editor solely for the purposes of this application and the website
                     linked to it, collects, stores, uses and generally processes personal data your <br></br>
                     (1) We take care to collect only Data that is absolutely necessary for the service of the purpose for which
                     they were given and are used exclusively for the purposes for which they have been collected and
                     in particular:<br></br>
                     ● Identification data: Name, date of birth, police ID or passport number, TIN, IP Address… etc <br></br>
-                    ● Contact Data: address, phone, email λπ etc.<br></br>
+                    ● Contact Data: address, phone, email etc.<br></br>
                     ● Photographic Material: Photos, Videos<br></br>
                     ● Data necessary for the processing of Applications for participation in Sports Activities:<br></br>
                     Information necessary for the management of applications for participation in Sports Activities
@@ -49,8 +51,9 @@ export default function GDPRPolicy() {
                     the right or by reasonably rejecting the request or explaining the reasons for the delay. In any case of delay, however, the Association
                     must respond positively or negatively within 3 months of the request.
 </p>
-            </div>
-        </div >
+                </div>
+            </div >
+        </div>
     )
 }
 

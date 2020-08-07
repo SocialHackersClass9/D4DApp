@@ -7,6 +7,7 @@ import Inspirational from '../Components/Inspirational';
 import Footer from '../Components/Footer';
 import GDPRPolicy from '../Components/GDPR';
 
+
 const home = () => (
     <div className="container-fluid">
         <GDPRPolicy />

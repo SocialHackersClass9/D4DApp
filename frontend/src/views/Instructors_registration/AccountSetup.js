@@ -50,17 +50,16 @@ class AccountSetup extends Component {
   request() {
     apis.get('/instructors/used')
       .then(data => {
-          alert("Loaded");
-          console.log("OK");
-            var emailuser = data.emailuser;
-            emailuser.map((i) => {
-            this.setState({emails: [...this.state.emails, i.email] })
-            this.setState({user_names: [...this.state.user_names, i.user_name] })
-            return null;
-            })
+        console.log("OK");
+        var emailuser = data.emailuser;
+        emailuser.map((i) => {
+          this.setState({ emails: [...this.state.emails, i.email] })
+          this.setState({ user_names: [...this.state.user_names, i.user_name] })
+          return null;
+        })
       })
       .catch(err => {
-        alert('database is offline and your registration is not going to save into out database')
+        alert('Sorry, something went wrong!')
       })
 
   }
@@ -77,11 +76,11 @@ class AccountSetup extends Component {
     }
     else {
       let formErrors = { ...this.state.formErrors };
-      alert('you can not let acount setup informations empty !!!')
-      formErrors.user_name = "Username can not be empty !";
-      formErrors.email = "Email can not be empty !";
-      formErrors.password = "Password can not  be empty !";
-      formErrors.conpassword = "Confirm password can not be empty !";
+      alert('Account setup information fields cannot be empty! Please fill all the fields.')
+      formErrors.user_name = "Username cannot be empty!";
+      formErrors.email = "Email cannot be empty!";
+      formErrors.password = "Password cannot be empty!";
+      formErrors.conpassword = "Confirm password cannot be empty!";
     }
   };
 
@@ -95,19 +94,19 @@ class AccountSetup extends Component {
         if (usernameRegex.test(value)) {
           formErrors.user_name = "";
           if (value.length < 4) {
-            formErrors.user_name = "minimum 3 characaters required";
+            formErrors.user_name = "Minimum 3 characaters required!";
           }
           else if (value.length > 17) {
-            formErrors.user_name = "maximum 16 characters required";
+            formErrors.user_name = "Maximum 16 characters required!";
           }
           else if (this.state.user_names.indexOf(value) > -1) {
-            formErrors.user_name = "Entered Username is in use";
+            formErrors.user_name = "Entered username is in use! Please choose a different username.";
           } else {
             formErrors.user_name = ''
           }
         }
         else {
-          formErrors.user_name = 'Enter a valid Username'
+          formErrors.user_name = 'Enter a valid username!'
         }
         break;
 
@@ -115,22 +114,22 @@ class AccountSetup extends Component {
         if (emailRegex.test(value)) {
           formErrors.email = "";
           if (this.state.emails.indexOf(value) > -1) {
-            formErrors.email = "Entered E-mail is already using"
+            formErrors.email = "Entered e-mail is already in use!"
           }
         }
         else {
-          formErrors.email = "Enter a vaild E-mail"
+          formErrors.email = "Enter a vaild e-mail!"
         }
         break;
 
       case "conpassword":
         formErrors.conpassword =
-          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same whith you choosen password" : ""
+          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same whith you choosen password!" : ""
         break;
 
       case "password":
         formErrors.password =
-          value.length < 5 ? "minimum 6 characaters required" : ""
+          value.length < 5 ? "Minimum 6 characaters required!" : ""
         break;
       default:
         break;
@@ -200,7 +199,7 @@ class AccountSetup extends Component {
             <label htmlFor="conpassword">Confirm Password</label>
             <input type="password"
               className={'form-control'}
-              placeholder="Reenter Password"
+              placeholder="Re-enter Password"
               type="password"
               name="conpassword"
               noValidate

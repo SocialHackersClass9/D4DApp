@@ -75,24 +75,24 @@ function SportParalymics() {
   return (
     <React.Fragment>
 
-    <Styles className="container-fluid">
-      <h1>PARALYMIC SPORTS</h1>
-      <div className="images">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSKtJJFvg8Q4qCfwajyb-kLtddWquz9r7nw3g&usqp=CAU"
-          alt="sports"
-        />
-      </div>
+      <Styles className="container-fluid">
+        <h1>PARALYMIC SPORTS</h1>
+        <div className="images">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSKtJJFvg8Q4qCfwajyb-kLtddWquz9r7nw3g&usqp=CAU"
+            alt="sports"
+          />
+        </div>
 
-      <div className="row">
-        <div
-          className="history col-xs-10 col-sm-12 col-md-12"
-          style={{ paddingBottom: "100px" }}
-        >
-          <h1>HISTORY OF PARALYMIC</h1>
-          <h3>❝ SPORTS ❞</h3>
-          <br />
-        
+        <div className="row">
+          <div
+            className="history col-xs-10 col-sm-12 col-md-12"
+            style={{ paddingBottom: "100px" }}
+          >
+            <h1>HISTORY OF PARALYMIC</h1>
+            <h3>❝ SPORTS ❞</h3>
+            <br />
+
             Paralympic Games. In 1948, Sir Ludwig Guttmann organised a sports
             competition involving World War II veterans with a spinal
             cord-related injury in Stoke Mandeville, England. Four years later,
@@ -109,14 +109,14 @@ function SportParalymics() {
               </a>
               {readMoreHistory && extraContent1}
             </div>
-         
-          <br />
-          <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
-        </div>
-      </div>
 
-      {/* ///////////////////////////////////////////////// */}
-  
+            <br />
+            <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
+          </div>
+        </div>
+
+        {/* ///////////////////////////////////////////////// */}
+
         <div className="row">
           <div
             className="history col-xs-8 col-sm-8 col-md-8 pr-20px"
@@ -126,84 +126,84 @@ function SportParalymics() {
             <br />
 
             <p className="summer">Paralympic Games sports details</p>
-           
+
             <table>
-        <tbody> 
+              <tbody>
 
-              <tr>
-                <th> Sports 1</th>
-                <th> Sports 2</th>
-                <th> Sports 3</th>
-              </tr>
-              <tr>
-                <td>rafting</td>
-                <td>rafting</td>
-                <td>rafting</td>
-              </tr>
+                <tr>
+                  <th> Sports 1</th>
+                  <th> Sports 2</th>
+                  <th> Sports 3</th>
+                </tr>
+                <tr>
+                  <td>rafting</td>
+                  <td>rafting</td>
+                  <td>rafting</td>
+                </tr>
 
-              <tr>
-                <td>canoeing</td>
-                <td>canoeing</td>
-                <td>canoeing</td>
-              </tr>
+                <tr>
+                  <td>canoeing</td>
+                  <td>canoeing</td>
+                  <td>canoeing</td>
+                </tr>
 
-              <tr>
-                <td>bobsleigh</td>
-                <td>bobsleigh</td>
-                <td>bobsleigh</td>
-              </tr>
+                <tr>
+                  <td>bobsleigh</td>
+                  <td>bobsleigh</td>
+                  <td>bobsleigh</td>
+                </tr>
 
-              <tr>
-                <td>kayaking</td>
-                <td>kayaking</td>
-                <td>kayaking</td>
-              </tr>
+                <tr>
+                  <td>kayaking</td>
+                  <td>kayaking</td>
+                  <td>kayaking</td>
+                </tr>
 
-              <tr>
-                <td>Lois</td>
-                <td>Lois</td>
-                <td>Lois</td>
-              </tr>
-              <tr>
-                <td>Joe</td>
-                <td>Joe</td>
-                <td>Joe</td>
-              </tr>
-              <tr>
-                <td>Cleveland</td>
-                <td>Cleveland</td>
-                <td>Cleveland</td>
-              </tr>
-            </tbody>
-            <tbody>
+                <tr>
+                  <td>Lois</td>
+                  <td>Lois</td>
+                  <td>Lois</td>
+                </tr>
+                <tr>
+                  <td>Joe</td>
+                  <td>Joe</td>
+                  <td>Joe</td>
+                </tr>
+                <tr>
+                  <td>Cleveland</td>
+                  <td>Cleveland</td>
+                  <td>Cleveland</td>
+                </tr>
+              </tbody>
+              <tbody>
 
-              
-              <div className="App">
-                <a
-                  className="read-more-link"
-                  onClick={() => {
-                    setReadMore(!readMore);
-                  }}
-                >
-                  <h2 className="linkk">{linkName}</h2>
-                </a>
-                {readMore && extraContent}
-              </div>
-           
-        
-            </tbody>
+
+                <div className="App">
+                  <a
+                    className="read-more-link"
+                    onClick={() => {
+                      setReadMore(!readMore);
+                    }}
+                  >
+                    <h2 className="linkk">{linkName}</h2>
+                  </a>
+                  {readMore && extraContent}
+                </div>
+
+
+              </tbody>
             </table>
-                
-           
+
+
             <br />
             <hr
               style={{ paddingTop: "50px", borderTop: "1px solid black" }}
-              ></hr>
+            ></hr>
           </div>
         </div>
 
-      {/* ///////////////////////////////////////////////// */}
-      
+        {/* ///////////////////////////////////////////////// */}
+
 
         <div className="row">
           <div
@@ -219,9 +219,9 @@ function SportParalymics() {
             ></hr>
           </div>
         </div>
-      
-    </Styles>
-              </React.Fragment>
+
+      </Styles>
+    </React.Fragment>
   );
 }
 

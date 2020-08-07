@@ -7,7 +7,7 @@ import UserRegister from './UserRegister';
 
 const NavigationBar = () => (
 
-    // <Styles>
+
     <Navbar className="navbar" collapseOnSelect expand='lg' fixed="top" >
         <Navbar.Brand href='/'>
             <img

@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import './GDPR.css';
 import GDPR from 'react-gdpr-consent/dist/index';
 //import Toggle from './Toggle'
+import "../App.css";
 
 export default class GDPRPolicy extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ export default class GDPRPolicy extends React.Component {
 
             <div className="container">
 
-                <p></p>
+
                 <GDPR config={config} toggleHandler={this.toggleHandler} linkHanlder={this.linkHanlder} />
 
             </div>

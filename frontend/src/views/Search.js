@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import AppContext from '../context';
+import "../App.css";
+import "./Search.css";
 
 
 function ResultItem(props) {
@@ -24,8 +26,8 @@ function Result(props) {
     const items = props.instructors.map(item => <ResultItem item={item} />);
 
     return (
-        <div className='col-12 col-sm-12 col-xs-12'>
-            <table className="table text-center ">
+        <div className='col-md-12 col-sm-10 col-xs-10'>
+            <table className="table text-center">
                 <tr>
                     <td><strong>Id</strong></td>
                     <td><strong>First Name</strong></td>
@@ -124,82 +126,79 @@ class Search extends React.Component {
 
         const matches = this.filterInstructors();
 
-        const separatingFromNavbar = {
-            margin: "150px 40px 40px 40px",
-            fontSize: "1.5em"
-        };
+
         return (
             <AppContext.Consumer>
                 {context => (
-                    <div className="container">
-                        <div className="row row-header align-self-center">
-                            <div className="col-12 col-sm-12 col-xs-12 text-center" style={separatingFromNavbar}>
+                    <div className="sepNav">
+                        <div className="container">
+                            <div className="row row-header align-self-center">
+                                <div className="col-md-12 col-sm-12 col-xs-12 text-center" >
 
-                                <h1 className="text-center"> Instructor Search Page</h1>
-                                {context.user == null &&
-                                    (
-                                        <div>
-                                            <p>Dear User, remember that in order to contact an instructor,
+                                    <h1 className="text-center"> Instructor Search Page</h1>
+                                    {context.user == null &&
+                                        (
+                                            <div>
+                                                <p className="userStatusP">Dear User, remember that in order to contact an instructor,
                                             you need to be logged in!<br></br> Here you can look for instructors
                                             that match your location, your sports of preference or both!</p></div>
-                                    )
-                                }
-                                {context.user != null &&
-                                    (
-                                        <div>
-                                            <p>Hello, <strong>{context.user.user_name}</strong>. Here you can look for instructors
+                                        )
+                                    }
+                                    {context.user != null &&
+                                        (
+                                            <div>
+                                                <p className="userStatusP">Hello, <strong>{context.user.user_name}</strong>. Here you can look for instructors
                                                 that match your location, your sports of preference or both!
                                                 By pressing the Contact Link you will be able to see the instructor's details
                                                 and contact him/her.</p>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                            <div className="searchFeat">
+                                <div className="row">
+                                    <div className="col-md-5 text-center">
+                                        <h2 className="text-center">Search via Location</h2>
+                                    </div>
+                                    <div className="col-md-5 text-center">
+                                        <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
+                                            <option value="">All</option>
+                                            {locations}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-5 text-center">
+                                        <h2 className="text-center">Search via Sports</h2>
+                                    </div>
+                                    <div className="col-md-5 text-center">
+                                        <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
+                                            <option value="">All</option>
+                                            {sports}
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div className="resultFeat">
+                                    <div className="row">
+                                        <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
+                                            <h3><strong> Results</strong></h3>
                                         </div>
-                                    )
-                                }
-                            </div>
-                        </div>
-                        <div className="searchFeat">
-                            <div className="row align-self-center">
-                                <div className="col-md-6 text-center">
-                                    <h2 className="text-center">Search via Location</h2>
-                                </div>
-                                <div className="col-md-6 text-center align-self-center">
-                                    <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
-                                        <option value="">All</option>
-                                        {locations}
-                                    </select>
+                                    </div>
+                                    {matches.length === 0 &&
+                                        <div> <strong>Sorry! No results found</strong></div>
+                                    }
+                                    {matches.length > 0 &&
+                                        <Result instructors={matches} />
+                                    }
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-6 text-center align-self-center">
-                                    <h2 className="text-center">Search via Sports</h2>
-                                </div>
-                                <div className="col-md-6 text-center align-self-center">
-                                    <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
-                                        <option value="">All</option>
-                                        {sports}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-
-
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className='col-12 col-sm-12 col-xs-12 text-center align-self-center'>
-                                    <h3><strong> Results</strong></h3>
-                                </div>
-                            </div>
-                            {matches.length === 0 &&
-                                <div> <strong>Sorry! No results found</strong></div>
-                            }
-                            {matches.length > 0 &&
-                                <Result instructors={matches} />
-                            }
                         </div>
                     </div>
-                )}
+                )
+                }
             </AppContext.Consumer>
         )
     }

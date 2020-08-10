@@ -7,7 +7,7 @@ import About from './views/About.js';
 import Search from './views/Search';
 import InstructorProfileContact from './views/InstructorProfileContact.js';
 import InstructorsRegistration from './views/Instructors_registration/Instructors_registration.js';
-import StudentSignUp from "./views/StudentSignUp/StudentSignUp"
+import StudentRegistration from "./views/StudentRegistration"
 import Navigation from "./Components/Navigation";
 import SportParalympics from './views/SportParalympics';
 import Ping from './views/Ping.js';
@@ -75,8 +75,8 @@ function App() {
             <Route exact path="/instructors_registration">
               <InstructorsRegistration />
             </Route>
-            <Route exact path="/student_sign_up">
-              <StudentSignUp />
+            <Route exact path="/student_registration">
+              <StudentRegistration />
             </Route>
             <Route exact path="/about">
               <About />

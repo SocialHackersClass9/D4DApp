@@ -41,7 +41,7 @@ export default class GDPRPolicy extends React.Component {
             <div className="container">
 
 
-                <GDPR config={config} toggleHandler={this.toggleHandler} linkHanlder={this.linkHanlder} />
+                {/*  <GDPR config={config} toggleHandler={this.toggleHandler} linkHanlder={this.linkHanlder} /> */}
 
             </div>
         )

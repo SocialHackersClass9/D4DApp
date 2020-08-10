@@ -6,7 +6,16 @@
   margin: 1em;
   padding:1em;
 }
+.sorry{
+font-size:1.5em;
+  border-color:#ffd000;
+  border-style:solid;
+  border-radius: 20px;
+  border-width:10px;
+  margin: 1em;
+  padding:1em;
 
+}
 .text-center h2{
 font-size:1.5em;
 padding:10px;
@@ -24,3 +33,7 @@ padding:10px;
 .searchFeat {
     font-size:1.2em;
    }
+.resultFeat h3{
+    font-size:2em;
+    padding-bottom:20px;
+}

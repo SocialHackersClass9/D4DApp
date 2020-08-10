@@ -140,7 +140,7 @@ class Search extends React.Component {
                                         (
                                             <div>
                                                 <p className="userStatusP">Dear User, remember that in order to contact an instructor,
-                                            you need to be logged in!<br></br> Here you can look for instructors
+                                            you need to be <strong>logged in!</strong><br></br> Here you can look for instructors
                                             that match your location, your sports of preference or both!</p></div>
                                         )
                                     }
@@ -188,7 +188,7 @@ class Search extends React.Component {
                                         </div>
                                     </div>
                                     {matches.length === 0 &&
-                                        <div className="userStatusP"> <strong>Sorry! No results found</strong></div>
+                                        <div className="sorry"> <strong>Sorry! No results found</strong></div>
                                     }
                                     {matches.length > 0 &&
                                         <Result instructors={matches} />

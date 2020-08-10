@@ -76,7 +76,7 @@ class AccountSetup extends Component {
     }
     else {
       let formErrors = { ...this.state.formErrors };
-      alert('Account setup information fields cannot be empty! Please fill all the fields.')
+      alert('Please fill all the fields!')
       formErrors.user_name = "Username cannot be empty!";
       formErrors.email = "Email cannot be empty!";
       formErrors.password = "Password cannot be empty!";
@@ -140,83 +140,85 @@ class AccountSetup extends Component {
   render() {
     const { formErrors } = this.state;
     return (
-      <form id='form'>
-        <div className="form-container">
-          <h1 className="mb-5">Account Setup</h1>
-          <div className="form-group">
-            <label htmlFor="name">Email</label>
-            <input
-              className={'form-control'}
-              placeholder="Email"
-              type="email"
-              name="email"
-              noValidate
-              required
-              onChange={this.props.inputChange('email')}
-              onInput={this.handleChange}
-              value={this.props.values.email}
-            />
-            {formErrors.email.length > 0 && (
-              <span className="errorMessage">{formErrors.email}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Username</label>
-            <input
-              type="username"
-              className={'form-control'}
-              placeholder="Username"
-              type="text"
-              name="user_name"
-              noValidate
-              onChange={this.props.inputChange('user_name')}
-              onInput={this.handleChange}
-              value={this.props.values.user_name}
-              required
-            />
-            {formErrors.user_name.length > 0 && (
-              <span className="errorMessage">{formErrors.user_name}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password"
-              className={'form-control'}
-              placeholder="Password"
-              type="password"
-              name="password"
-              noValidate
-              onChange={this.props.inputChange('password')}
-              onInput={this.handleChange}
-              value={this.props.values.password}
-              required
-            />
-            {formErrors.password.length > 0 && (
-              <span className="errorMessage">{formErrors.password}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="conpassword">Confirm Password</label>
-            <input type="password"
-              className={'form-control'}
-              placeholder="Re-enter Password"
-              type="password"
-              name="conpassword"
-              noValidate
-              onChange={this.props.inputChange('conpassword')}
-              onInput={this.handleChange}
-              value={this.props.values.conpassword}
-              required
-            />
-            {formErrors.conpassword.length > 0 && (
-              <span className="errorMessage">{formErrors.conpassword}</span>
-            )}
-          </div>
+      <div className="sepNav">
+        <form id='form'>
+          <div className="form-container">
+            <h1 className="mb-5">Instructor Account Setup</h1>
+            <div className="form-group">
+              <label htmlFor="name">Email</label>
+              <input
+                className={'form-control'}
+                placeholder="Email"
+                type="email"
+                name="email"
+                noValidate
+                required
+                onChange={this.props.inputChange('email')}
+                onInput={this.handleChange}
+                value={this.props.values.email}
+              />
+              {formErrors.email.length > 0 && (
+                <span className="errorMessage">{formErrors.email}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Username</label>
+              <input
+                type="username"
+                className={'form-control'}
+                placeholder="Username"
+                type="text"
+                name="user_name"
+                noValidate
+                onChange={this.props.inputChange('user_name')}
+                onInput={this.handleChange}
+                value={this.props.values.user_name}
+                required
+              />
+              {formErrors.user_name.length > 0 && (
+                <span className="errorMessage">{formErrors.user_name}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input type="password"
+                className={'form-control'}
+                placeholder="Password"
+                type="password"
+                name="password"
+                noValidate
+                onChange={this.props.inputChange('password')}
+                onInput={this.handleChange}
+                value={this.props.values.password}
+                required
+              />
+              {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="conpassword">Confirm Password</label>
+              <input type="password"
+                className={'form-control'}
+                placeholder="Re-enter Password"
+                type="password"
+                name="conpassword"
+                noValidate
+                onChange={this.props.inputChange('conpassword')}
+                onInput={this.handleChange}
+                value={this.props.values.conpassword}
+                required
+              />
+              {formErrors.conpassword.length > 0 && (
+                <span className="errorMessage">{formErrors.conpassword}</span>
+              )}
+            </div>
 
-          <br />
-          <button type="button" onClick={this.Continue} class="btn btn-primary btn-lg btn-block">Continue</button>
-        </div>
-      </form>
+            <br />
+            <button type="button" onClick={this.Continue} class="btn btn-primary btn-lg btn-block">Continue</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

@@ -627,7 +627,7 @@ function SportParalymics() {
     : "22)Κανόε (νέο άθλημα στο Ριο)... ";
 
   return (
-    <React.Fragment>
+    <React.Fragment className="sepNav">
       <h1 className="titleh1">PARALYMIC SPORTS</h1>
 
       {/* image part */}

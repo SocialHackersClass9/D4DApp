@@ -147,9 +147,9 @@ class Search extends React.Component {
                                     {context.user != null &&
                                         (
                                             <div>
-                                                <p className="userStatusP">Hello, <strong>{context.user.user_name}</strong>. Here you can look for instructors
-                                                that match your location, your sports of preference or both!
-                                                By pressing the Contact Link you will be able to see the instructor's details
+                                                <p className="userStatusP">Hello, <strong>{context.user.user_name}</strong>.<br></br> Here you can look for instructors
+                                                that match your location, your sports of preference or both!<br></br>
+                                                By pressing the <strong>Contact Link </strong>you will be able to see the instructor's details
                                                 and contact him/her.</p>
                                             </div>
                                         )
@@ -162,7 +162,7 @@ class Search extends React.Component {
                                         <h2 className="text-center"><strong>Search via Location</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
-                                        <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation}>
+                                        <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation} style={{ fontSize: "1.5em", margin: "1.5%" }}>
                                             <option value="">All</option>
                                             {locations}
                                         </select>
@@ -173,7 +173,7 @@ class Search extends React.Component {
                                         <h2 className="text-center"><strong>Search via Sports</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
-                                        <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport}>
+                                        <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport} style={{ fontSize: "1.5em", margin: "1.5%" }}>
                                             <option value="">All</option>
                                             {sports}
                                         </select>
@@ -188,7 +188,7 @@ class Search extends React.Component {
                                         </div>
                                     </div>
                                     {matches.length === 0 &&
-                                        <div> <strong>Sorry! No results found</strong></div>
+                                        <div className="userStatusP"> <strong>Sorry! No results found</strong></div>
                                     }
                                     {matches.length > 0 &&
                                         <Result instructors={matches} />

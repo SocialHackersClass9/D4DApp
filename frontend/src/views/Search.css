@@ -3,7 +3,8 @@
   border-color:#007bff;
   border-style:solid;
   border-radius: 10px;
-  margin: 2em;
+  margin: 1em;
+  padding:1em;
 }
 
 .text-center h2{
@@ -12,10 +13,14 @@ padding:10px;
 }
 
 .resultFeat {
-    padding-top:100px;
+    padding-top:80px;
+    padding-bottom:50px;
 }
 
 .resultFeat td {
     font-size:1.5em;
-    text-align: center;
+    text-align: center;  
 }
+.searchFeat {
+    font-size:1.2em;
+   }

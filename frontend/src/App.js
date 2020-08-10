@@ -17,7 +17,7 @@ import {
   Route,
 } from "react-router-dom";
 import GDPRPolicy from "./views/GDPRPolicy"
-
+import Footer from "./Components/Footer";
 import AppContext from './context';
 
 
@@ -88,7 +88,7 @@ function App() {
 
         </Switch>
       </main>
-
+      <Footer />
 
     </Router>
   );

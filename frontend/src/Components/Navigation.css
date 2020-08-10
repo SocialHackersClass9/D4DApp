@@ -6,7 +6,8 @@
     padding-left:1em;  
 }
 .navbar{
-    background: #007bff; 
+    background: #007bff;
+    height:85px; 
 }
 
 .navbar .nav-item .btn {

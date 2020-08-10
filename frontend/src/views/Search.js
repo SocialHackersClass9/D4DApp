@@ -188,7 +188,7 @@ class Search extends React.Component {
                                         </div>
                                     </div>
                                     {matches.length === 0 &&
-                                        <div className="userStatusP"> <strong>Sorry! No results found</strong></div>
+                                        <div className="sorry"> <strong>Sorry! No results found</strong></div>
                                     }
                                     {matches.length > 0 &&
                                         <Result instructors={matches} />

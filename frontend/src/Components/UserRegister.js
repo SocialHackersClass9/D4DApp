@@ -29,7 +29,7 @@ const UserRegister = () => {
                             User
                     </Button>
                         <Button variant="primary" href="/instructors_registration" size="lg">
-                            Coach
+                            Instructor
                     </Button>
                     </div>
                 </Modal.Body>

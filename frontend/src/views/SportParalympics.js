@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "./sportParalympics.css";
-
+import Para from '..//assets/para.png';
 const Styles = styled.div`
   padding: 10px;
 `;
@@ -566,7 +566,6 @@ function SportParalymics() {
     </div>
   );
 
-  // const linkName = readMore ? "Read less  " : " 1)Αντισφαίριση με αμαξίδιο... ";
   const linkName1 = readMore1
     ? "Read less  "
     : " 1)Αντισφαίριση με αμαξίδιο... ";
@@ -627,24 +626,22 @@ function SportParalymics() {
     : "22)Κανόε (νέο άθλημα στο Ριο)... ";
 
   return (
-    <React.Fragment className="sepNav">
-      <h1 className="titleh1">PARALYMIC SPORTS</h1>
+    <div className="sepNav">
+      <h1 className="titleh1">ΠΑΡΑΛΥΜΙΚΑ ΣΠΟΡ</h1>
 
       {/* image part */}
       <div className="images">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5zcZFxrYrs_K0gp51InvVMblSLmmk6FnL1A&usqp=CAU"
-          alt="sports"
-        />  
+      <img src={Para} style={{ borderRadius: "20px" }} />
+
       </div>
 
       {/* history part */}
-      <div className="row">
+      <div className="row1">
         <div
-          className="history col-xs-10 col-sm-12 col-md-12"
+          className="history col-xs-10 col-sm-8 col-md-10"
           style={{ paddingBottom: "100px" }}
         >
-          <h1>HISTORY OF PARALYMIC SPORTS</h1>
+          <h1>ΙΣΤΟΡΙΑ ΠΑΡΑΛΥΜΙΚΩΝ ΑΘΛΗΤΙΣΜΩΝ</h1>
 
           <p className="text-justify">
             {" "}
@@ -701,6 +698,7 @@ function SportParalymics() {
           </p>
 
           <hr style={{ paddingTop: "1px", borderTop: "1px solid black" }}></hr>
+          
         </div>
       </div>
 
@@ -729,9 +727,8 @@ function SportParalymics() {
             <br />
             Αναλυτικά τα Παραολυμπιακά αθλήματα είναι:
           </p>
-          {/* <h2 className="summer">Paralympic Games sports details</h2> */}
           <br />
-          <div className="App">
+          <div className="App1">
             <a
               className="read-more-link"
               onClick={() => {
@@ -1008,7 +1005,7 @@ function SportParalymics() {
         </div>
         </div>
         </div>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -33,20 +33,20 @@ function SportParalymics() {
   const extraContent1 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Αντισφαίριση με αμαξίδιο είναι ένα δυναμικό άθλημα και έχει
-        ιδιαίτερα υψηλή δημοτικότητα κατά τη διάρκεια των Παραολυμπιακών Αγώνων.
-        Σε υψηλό αγωνιστικό επίπεδο απαιτείται υψηλή τεχνική κατάρτιση,
-        εξαιρετική φυσική κατάσταση, ταχύτητα, αντανακλαστικά, θέληση και άριστη
-        ψυχολογία. Η Αντισφαίριση με αμαξίδιο διεξάγεται μεταξύ δύο (απλό) ή
-        τεσσάρων αθλητών ή αθλητριών (διπλό), που παρουσιάζουν μόνιμη κινητική
-        αναπηρία, με απώλεια λειτουργικότητας σε ένα ή και τα δυο κάτω άκρα.
-        Επίσης, δικαίωμα συμμετοχής έχουν, αλλά κατατάσσονται σε ξεχωριστό όμιλο
-        (quad), αθλητές με τετραπληγία, οι οποίοι έχουν απώλεια κινητικότητας ή
-        ακρωτηριασμό σε τουλάχιστον 3 από τα 4 άκρα. Βασικός σκοπός του
-        παιχνιδιού είναι να χτυπηθεί η μπάλα από τη ρακέτα με τέτοιο τρόπο, ώστε
-        να περάσει πάνω από το δίχτυ, να πέσει στο γήπεδο του αντιπάλου και να
-        κερδιθεί ο πόντος. Ο νικητής ανακηρύσσεται στα δύο νικηφόρα «set» των
-        έξι «games» το καθένα.
+      <br /> Wheelchair tennis is a dynamic sport and it has
+        particularly high popularity during the Paralympic Games.
+        High technical level requires high technical training,
+        Excellent physical condition, speed, reflexes, willpower and excellent
+        psychology. Wheelchair Tennis is played between two (simple) or
+        four athletes (double), showing permanent kinetics
+        disability, with loss of function in one or both lower extremities.
+        They also have the right to participate, but are classified in a separate group
+        (quad), athletes with quadriplegia who have lost mobility or
+        amputation at least 3 of the 4 limbs. Its main purpose
+        game is to hit the ball from the racket in such a way that
+        to go over the net, to fall on the opponent's court and to
+        earn the point. The winner is announced in their two winning "sets"
+        six "games" each.
       </p>
 
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
@@ -56,18 +56,18 @@ function SportParalymics() {
   const extraContent2 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η ‘Αρση Βαρών σε πάγκο θεωρείται το άθλημα των δυνατών. Η ιστορία
-        έχει όμως αποδείξει ότι η δύναμη του αθλητή πρέπει να συνοδεύεται από
-        σωστή τακτική και την καθοδήγηση ενός άξιου προπονητή. Στο άθλημα της
-        ‘Αρσης Βαρών σε πάγκο, οι αθλητές ή οι αθλήτριες αγωνίζονται από ύπτια
-        θέση (ανάσκελα) πάνω σε ειδικά διαμορφωμένο πάγκο. Οι επίσημοι βοηθοί
-        ενός αθλητή δίνουν τη μπάρα στον αγωνιζόμενο, στο ύψος των τεντωμένων
-        χεριών του. Ο αθλητής θα πρέπει μέσα σε δύο λεπτά να ολοκληρώσει την
-        προσπάθειά του, κάνοντας τις εξής κινήσεις: να κατεβάσει τη μπάρα στο
-        στήθος, να την κρατήσει για ένα μικρό χρονικό διάστημα ακίνητη και στη
-        συνέχεια να την ωθήσει προς τα πάνω μέχρι την πλήρη έκταση των χεριών.
-        Οι αγώνες διοργανώνονται για άνδρες και γυναίκες που αγωνίζονται σε
-        συγκεκριμένες κατηγορίες, σύμφωνα με το σωματικό τους βάρος.
+      <br /> Bench Weightlifting is considered the sport of the strong. The History
+        has however shown that the strength of the athlete must be accompanied by
+        proper tactics and the guidance of a worthy coach. In her sport
+        ‘Weightlifting on a bench, athletes compete from supine
+        position (back) on a specially designed bench. The official assistants
+        of an athlete give the bar to the competitor, at the height of the stretches
+        in his hands. The athlete should complete the within two minutes
+        attempt by making the following moves: lower the bar to
+        chest, keep it for a short time still and in
+        then push it upwards to the full extent of the arms.
+        The races are organized for men and women who compete in
+        specific categories, according to their body weight.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -76,21 +76,21 @@ function SportParalymics() {
   const extraContent3 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το Γκόλμπολ είναι αποκλειστικά Παραολυμπιακό άθλημα. Πρόκειται για
-        ομαδικό άθλημα, στο οποίο συμμετέχουν μόνο τυφλοί αθλητές ή αθλητές με
-        μειωμένη όραση. Οι παίκτες για να ανταποκριθούν στο υψηλό επίπεδο
-        ανταγωνισμού πρέπει να διαθέτουν υψηλή τεχνική, δύναμη, ταχύτητα,
-        γρήγορη αντίδραση, ομαδικότητα, ευλυγισία και καλή αίσθηση του χώρου. Σε
-        επίπεδο αναψυχής μπορούν να ασχοληθούν όλοι ανεξάρτητα από ηλικία,
-        φυσική κατάσταση ή βαθμό απώλειας όρασης. Το Γκόλμπολ διεξάγεται σε
-        κλειστό γήπεδο Πετοσφαίρισης. Παίζεται από άνδρες και γυναίκες και κάθε
-        ομάδα αποτελείται από τρεις βασικούς παίκτες και τρεις αναπληρωματικούς.
-        Σκοπός του παιχνιδιού είναι η μία ομάδα να κυλήσει τη μπάλα με το χέρι
-        προς την αντίπαλη πλευρά και να σημειώσει γκολ, ενώ οι αντίπαλοι παίκτες
-        προσπαθούν να την αποκρούσουν με οποιοδήποτε μέρος του σώματός τους.
-        Νικήτρια αναδεικνύεται η ομάδα που θα πετύχει τα περισσότερα γκολ. Η
-        διάρκεια του αγώνα είναι δύο ημίχρονα των δέκα λεπτών.
+      <br />
+        Golf is an exclusively Paralympic sport. It's about
+        team sport, in which only blind athletes or athletes with
+        reduced vision. Players to meet the high level
+        competition must have high technique, strength, speed,
+        fast reaction, teamwork, flexibility and good sense of space. In
+        Leisure level can be practiced by everyone regardless of age,
+        physical condition or degree of vision loss. Golf is played in
+        indoor volleyball court. It is played by men and women and each
+        The team consists of three key players and three substitutes.
+        The object of the game is for one team to roll the ball by hand
+        to the opposing side and score goals while the opposing players
+        they try to repel it with any part of their body.
+        The winner is the team that will score the most goals. THE
+        Duration of the match is two halves of ten minutes.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -99,18 +99,18 @@ function SportParalymics() {
   const extraContent4 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η ταχύτητα και οι γρήγορες αντιδράσεις αποτελούν τα δύο κύρια
-        χαρακτηριστικά των αθλητών και αθλητριών της Επιτραπέζιας Αντισφαίρισης.
-        Κάθε αγώνας αποτελείται από πέντε σετ. Νικητής του κάθε σετ είναι ο
-        αθλητής, η αθλήτρια ή η ομάδα που θα σημειώσει πρώτη 11 βαθμούς. Η
-        Επιτραπέζια Αντισφαίριση στους Παραολυμπιακούς Αγώνες παρουσιάζει
-        ελάχιστες διαφορές με το αντίστοιχο άθλημα στους Ολυμπιακούς Αγώνες.
-        Έχουν γίνει ορισμένες μόνο τροποποιήσεις για τους αθλητές που
-        χρησιμοποιούν αμαξίδιο. Συμμετέχουν αθλητές με εγκεφαλική παράλυση,
-        κάκωση νωτιαίου μυελού και αθλητές με ακρωτηριασμό ή άλλους κινητικούς
-        περιορισμούς. Οι αθλητές αγωνίζονται με αμαξίδιο ή όρθιοι και
-        κατατάσσονται σε 10 κατηγορίες βάση των κινητικών περιορισμών που
-        παρουσιάζουν.
+      <br /> Speed ​​and quick reactions are the two main ones
+        characteristics of Table Tennis athletes.
+        Each match consists of five sets. The winner of each set is
+        athlete, athlete or team that will score first 11 points. THE
+        Table Tennis at the Paralympic Games presents
+        minimal differences with the respective sport at the Olympics.
+        Only a few modifications have been made to the athletes
+        use a wheelchair. Athletes with cerebral palsy participate,
+        spinal cord injury and athletes with amputation or other motor skills
+        restrictions. Athletes compete in wheelchairs or standing and
+        are classified into 10 categories based on the mobility restrictions that
+        present.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -119,13 +119,13 @@ function SportParalymics() {
   const extraContent5 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Ιππασία, ένα από τα πιο εντυπωσιακά αθλήματα των Παραολυμπιακών
-        Αγώνων, συμβάλει στην αποκατάσταση και βελτίωση των κινητικών δεξιοτήτων
-        των ατόμων που ασχολούνται με αυτήν. Η εφαρμογή ίδιων κανόνων
-        αξιολόγησης και βαθμολόγησης ανδρών και γυναικών, καθώς επίσης και η
-        επιβράβευση όχι μόνο του ιππέα ή της αμαζόνας αλλά και του αλόγου, την
-        καθιστούν μοναδική ως άθλημα. Ο ιππέας ή η αμαζόνα και το άλογο
-        θεωρούνται μια ομάδα.
+      <br /> Horseback riding, one of the most impressive sports of the Paralympics
+         Games, helps to restore and improve motor skills
+         of the people who deal with it. The application of the same rules
+         evaluation and grading of men and women, as well as the
+         reward not only the horseman or the amazon but also the horse, the
+         make it unique as a sport. The horseman or the amazon and the horse
+         are considered a group.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -134,19 +134,19 @@ function SportParalymics() {
   const extraContent6 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Ιστιοπλοΐα συγκαταλέγεται στη λίστα των αθλημάτων με τους πιο
-        ένθερμους φιλάθλους. Είναι ένα από τα λίγα αθλήματα, στα οποία η ηλικία
-        των αθλητών δεν αποτελεί καθοριστικό παράγοντα για τις επιδόσεις τους,
-        καθώς η εμπειρία, που αποκτάται με το πέρασμα των ετών, καλύπτει τη
-        μειωμένη σωματική αντοχή. Οι αγώνες Ιστιοπλοΐας διεξάγονται σε υδάτινους
-        στίβους. Η σήμανσή τους γίνεται με σημαδούρες, οι οποίες οριοθετούν τις
-        διαδρομές, που πρέπει να ολοκληρώσουν οι αγωνιζόμενοι. Κατά τη διάρκεια
-        αγώνων Ιστιοπλοΐας στους Παραολυμπιακούς Αγώνες οι αθλητές και οι
-        αθλήτριες αγωνίζονται σε σκάφη τύπου Sonar, 2.4mR και SKUD 18 και
-        καλούνται να αντιμετωπίσουν όχι μόνο τους αντιπάλους τους, αλλά και τα
-        απρόβλεπτα καιρικά φαινόμενα. Στους Παραολυμπιακούς Αγώνες συμμετέχουν
-        ιστιοπλόοι με μειωμένη όραση ή τυφλοί, καθώς επίσης και ιστιοπλόοι με
-        κινητική αναπηρία.
+      <br /> Sailing is on the list of sports with the most
+        ardent fans. It is one of the few sports in which age
+        of athletes is not a determining factor in their performance,
+        as the experience, gained over the years, covers the
+        reduced physical endurance. Sailing competitions are held in water
+        athletics. They are marked with buoys, which delimit them
+        routes, which must be completed by the competitors. During
+        Sailing Games at the Paralympic Games athletes and
+        female athletes compete in Sonar, 2.4mR and SKUD 18 boats
+        are called to face not only their opponents, but also the
+        unpredictable weather phenomena. They participate in the Paralympic Games
+        sailors with reduced vision or blind, as well as sailors with
+        physical disability.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -155,25 +155,25 @@ function SportParalymics() {
   const extraContent7 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Καλαθοσφαίριση με αμαξίδιο είναι ένα από τα πιο θεαματικά και
-        δημοφιλή αθλήματα των Παραολυμπιακών Αγώνων. Διακρίνεται για το μοναδικό
-        του ύφος, την γρήγορη ροή του αγώνα και τη διαρκή εναλλαγή φάσεων με
-        συνεχείς επιθέσεις και “man to man” άμυνες. Στην Καλαθοσφαίριση με
-        αμαξίδιο κάθε ομάδα αποτελείται από πέντε παίκτες, οι οποίοι παίζουν
-        μέσα στον αγωνιστικό χώρο και επτά αναπληρωματικούς. Αλλαγές γίνονται
-        κατά τη διάρκεια διακοπών στον αγώνα. Σκοπός κάθε ομάδας είναι αφενός να
-        σκοράρει στο καλάθι των αντιπάλων και αφετέρου να εμποδίσει την αντίπαλη
-        ομάδα από το να σκοράρει. Νικήτρια είναι η ομάδα που με τη λήξη του
-        αγώνα έχει πετύχει τους περισσότερους πόντους. Η Καλαθοσφαίριση με
-        αμαξίδιο στους Παραολυμπιακούς Αγώνες και η Καλαθοσφαίριση στους
-        Ολυμπιακούς Αγώνες παρουσιάζουν ελάχιστες διαφορές σε ότι αφορά τη μορφή
-        και τις διαστάσεις του γηπέδου, το σταθερό εξοπλισμό και τους
-        κανονισμούς. Η βασική διαφορά τους έγκειται στη χρήση του αμαξιδίου, το
-        οποίο ο αθλητής καλείται να χρησιμοποιεί με ευχέρεια ως εργαλείο
-        προκειμένου να επιτύχει τους αγωνιστικούς του σκοπούς. Στην
-        Καλαθοσφαίριση με αμαξίδιο συμμετέχουν άνδρες και γυναίκες με κάκωση του
-        νωτιαίου μυελού, ακρωτηριασμό, εγκεφαλική παράλυση ή άλλες κινητικές
-        αναπηρίες.
+      <br /> Wheelchair Basketball is one of the most spectacular and
+        popular sports of the Paralympic Games. Distinguished for the unique
+        of style, the fast flow of the match and the constant alternation of phases with
+        continuous attacks and "man to man" defenses. In Basketball with
+        Each team wheelchair consists of five players, who play
+        inside the field and seven substitutes. Changes are made
+        during holidays in the race. The purpose of each group is on the one hand to
+        scores in the opponents basket and on the other hand to block the opponent
+        team from scoring. The winner is the team that at the end
+        match has scored the most points. Basketball with
+        wheelchair at the Paralympic Games and Basketball at
+        Olympic Games show little difference in form
+        and the dimensions of the stadium, the fixed equipment and their
+        regulations. Their main difference lies in the use of the wheelchair, the
+        which the athlete is called upon to use with ease
+        in order to achieve his racing goals. In
+        Wheelchair basketball involves men and women with an injury
+        spinal cord, amputation, cerebral palsy or other motor
+        disabilities.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -182,32 +182,32 @@ function SportParalymics() {
   const extraContent8 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Κολύμβηση ξεκίνησε ως δραστηριότητα αποκατάστασης και
-        ψυχαγωγίας, γρήγορα όμως εξελίχθηκε σε ένα από τα δημοφιλέστερα αθλήματα
-        για άτομα με αναπηρία. Στους αγώνες Κολύμβησης συμμετέχουν αθλητές και
-        αθλήτριες με: κινητικές αναπηρίες και με ολική ή μερική απώλεια όρασης.
-        Οι τυφλοί αθλητές και οι αθλητές με περιορισμό όρασης, ανάλογα με το
-        βαθμό οπτικής απώλειας, κατατάσσονται στις ακόλουθες κατηγορίες:
-        S11-SB11-SM11, S12-SB12-SM12 και S13-SB13-SM13. Στους κολυμβητές με
-        κινητικές αναπηρίες η ταξινόμηση σε κατηγορίες είναι σχετικά πιο
-        περίπλοκη. Ανάλογα με τον τύπο της αναπηρίας, εξετάζεται ο βαθμός μυϊκής
-        δύναμης, ο συντονισμός κινήσεων ή το εύρος της κίνησης και, στη
-        συνέχεια, αξιολογείται μέσα στο νερό η λειτουργική δυνατότητα και ο
-        περιορισμός κινήσεων στα διάφορα στυλ κολύμβησης. Μετά από την παραπάνω
-        αξιολόγηση οι αθλητές κατατάσσονται σε μία από τις{" "}
+      Swimming started as a rehabilitation activity and
+        entertainment, but quickly became one of the most popular sports
+        for people with disabilities. Athletes also participate in the Swimming competitions
+        female athletes with: motor disabilities and with total or partial loss of vision.
+        Blind athletes and athletes with visual impairment, depending on
+        degree of visual loss are classified into the following categories:
+        S11-SB11-SM11, S12-SB12-SM12 and S13-SB13-SM13. To swimmers with
+        mobility disabilities the classification into categories is relatively more
+        complication. Depending on the type of disability, the degree of muscle is examined
+        force, the coordination of movements or the range of motion and, in
+        then, the functional capacity and the
+        restriction of movements in different swimming styles. After the above
+        assessment athletes are classified in one of the {""}
         <li>
-          {" "}
-          10 κατηγορίες, S1-S10, για το ελεύθερο, το ύπτιο και την πεταλούδα{" "}
+          {""}
+          10 categories, S1-S10, for freestyle, supine and butterfly {""}
         </li>
-        <li> 8 για το πρόσθιο, SB2-SB9 </li>{" "}
-        <li> 8 για τη μεικτή ατομική, SM3-SM10 </li>
-        Όσο μεγαλύτερες είναι οι κινητικές δυνατότητες ενός κολυμβητή τόσο
-        υψηλότερη είναι και η κατηγορία στην οποία θα ενταχθεί. Ένας κολυμβητής
-        μπορεί να έχει μία κατηγορία για ένα κολυμβητικό στυλ και διαφορετική
-        για ένα άλλο, π.χ. να είναι S5 στο ελεύθερο, SB4 ή SB3 στο πρόσθιο και
-        SM5 ή SM4 στη μεικτή ατομική. Με αυτό το σύστημα ταξινόμησης, σε κάθε
-        κατηγορία εντάσσονται κολυμβητές με διαφορετική αναπηρία αρκεί,
-        λειτουργικά, να έχουν όμοιες ή περίπου όμοιες δυνατότητες.
+        <li> 8 for front, SB2-SB9 </li> {""}
+        <li> 8 for mixed atomic, SM3-SM10 </li>
+        The greater the mobility of a swimmer
+        the category in which it will be included is also higher. A swimmer
+        can have one category for a swimming style and different
+        for another, e.g. be S5 in the free, SB4 or SB3 in the front and
+        SM5 or SM4 in mixed atomic. With this classification system, in each
+        category includes swimmers with different disabilities as long as,
+        functionally, have similar or approximately identical capabilities.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -216,28 +216,28 @@ function SportParalymics() {
   const extraContent9 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το Μπότσια είναι ένα ανταγωνιστικό άθλημα, το οποίο διεξάγεται μεταξύ
-        δύο αθλητών, ζευγαριών ή ομάδων των τριών ατόμων έκαστη. Στις ημέρες
-        μας, το Μπότσια αποτελεί άθλημα για άτομα με εγκεφαλική παράλυση ή άλλη
-        κινητική αναπηρία που χρησιμοποιούν αναπηρικό αμαξίδιο, τόσο σε επίπεδο
-        δραστηριότητας αναψυχής όσο και σε αγωνιστικό επίπεδο. Το άθλημα απαιτεί
-        αυτοσυγκέντρωση, συντονισμό, δυνατότητα ελέγχου των μυών, ακρίβεια,
-        ομαδικότητα, συνεργασία και στρατηγική. Οι αγώνες διεξάγονται σε κλειστό
-        χώρο, στον οποίο χαράσσονται ειδικές γραμμές που οριοθετούν τον
-        αγωνιστικό χώρο. Στόχος των παικτών είναι να προωθήσουντις δερμάτινες
-        κόκκινες ή μπλε μπάλες τους, όσο το δυνατόν πιο κοντά σε μια άσπρη
-        μπάλα-στόχο, που καλείται “jack”. Η σειρά των παικτών καθορίζεται με
-        κλήρωση. Ο αθλητής ή η ομάδα που κερδίζει την κλήρωση έχει το δικαίωμα
-        να διαλέξει αν θα αγωνιστεί με τις κόκκινες ή τις μπλε μπάλες. O πρώτος
-        γύρος ξεκινάει με τον παίκτη που θα παίξει με τις κόκκινες μπάλες, ο
-        οποίος ρίχνει πρώτα την άσπρη και στη συνέχεια μια κόκκινη μπάλα. Η
-        προώθηση της μπάλας μπορεί να γίνει με το χέρι, με το πόδι ή με τη
-        βοήθεια μιας συσκευής, όταν οι παίκτες παρουσιάζουν πολύ μεγάλο κινητικό
-        περιορισμό στα άνω και κάτω άκρα. Στη συνέχεια οι αντίπαλοι ρίχνουν τις
-        μπάλες τους, προσπαθώντας να φτάσουν την μπάλα-στόχο. Στο τέλος κάθε
-        γύρου μετρώνται από το διαιτητή οι πιο κοντινές προς το στόχο αποστάσεις
-        και συγκεντρώνεται η βαθμολογία για να αναδειχθεί ο νικητής.
+      <br />
+        Botsia is a competitive sport, which takes place between
+        two athletes, pairs or teams of three people each. In the days
+        In our country, Botsia is a sport for people with cerebral palsy or other
+        wheelchair accessible using both wheelchairs
+        leisure activity as well as on a competitive level. The sport requires
+        self-concentration, coordination, ability to control muscles, accuracy,
+        teamwork, collaboration and strategy. The matches are held indoors
+        space, in which special lines are drawn delimiting it
+        playing field. The goal of the players is to promote the leather ones
+        their red or blue balls as close as possible to a white one
+        target ball, called "jack". The order of the players is determined by
+        draw. The athlete or team that wins the draw is eligible
+        to choose whether to fight with the red or blue balls. The first
+        Round starts with the player who will play with the red balls, the
+        who throws first the white and then a red ball. THE
+        promotion of the ball can be done by hand, foot or with
+        help of a device when players show very large kinetic
+        restriction in the upper and lower extremities. Then the opponents throw them
+        their balls, trying to reach the target ball. At the end of each
+        rounds are measured by the referee the closest distances to the goal
+        and the score is collected to determine the winner.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -246,35 +246,35 @@ function SportParalymics() {
   const extraContent10 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Ξιφασκία με αμαξίδιο είναι ένα άθλημα υψηλών απαιτήσεων
-        προσαρμογής, οργάνωσης και υπομονής. Η εφευρετικότητα σε συνδυασμό με
-        την πολύωρη άσκηση και προπόνηση αποτελούν βασικά εφόδια για κάθε αθλητή
-        της Ξιφασκίας. Στη Ξιφασκία συμμετέχουν αθλητές με κινητικές αναπηρίες,
-        οι οποίοι αγωνίζονται με αμαξίδιο. Κατά τη διεξαγωγή ενός αγώνα
-        Ξιφασκίας, τα αμαξίδια είναι σταθεροποιημένα στο έδαφος, επιτρέποντας
-        παρόλα αυτά στον αθλητή ή την αθλήτρια να εκτελέσει γρήγορες
-        εναλλασσόμενες κινήσεις. Το άθλημα διέπεται από τους κανονισμούς της
-        Διεθνούς Ομοσπονδίας Ξιφασκίας και της Επιτροπής Ξιφασκίας της Διεθνούς
-        Παραολυμπιακής Επιτροπής. Στο πρόγραμμα των Παραολυμπιακών Αγώνων
-        περιλαμβάνονται πέντε αγωνίσματα Ξιφασκίας, τα οποία διεξάγονται ατομικά
-        και ομαδικά:
+      <br /> Wheelchair Fencing is a sport of high demands
+        adaptation, organization and patience. Inventiveness combined with
+        Long hours of exercise and training are basic supplies for every athlete
+        of Fencing. Athletes with mobility disabilities participate in Fencing,
+        who fight in a wheelchair. During a race
+        Fencing, wheelchairs are fixed to the ground, allowing
+        nevertheless to the athlete to perform fast
+        alternating movements. The sport is governed by its rules
+        International Fencing Federation and the International Fencing Committee
+        Paralympic Committee. In the program of the Paralympic Games
+        includes five Fencing competitions, which are held individually
+        and in groups:
         <li>
-          {" "}
-          Ξίφος ασκήσεων ανδρών (φλερέ ανδρών). Κατηγορία Α και κατηγορία Β{" "}
+          {""}
+          Men exercises sword (men flirt). Category A and category B 
         </li>
         <li>
-          {" "}
-          Ξίφος ασκήσεων γυναικών (φλερέ γυναικών). Κατηγορία Α και κατηγορία Β{" "}
+          {""}
+          Woman exercises sword (woman flirting). Category A and category B 
         </li>
         <li>
-          {" "}
-          Ξίφος μονομαχίας ανδρών (επέ ανδρών). Κατηγορία Α και κατηγορία Β{" "}
+          {""}
+          Men's duel sword (for men). Category A and category B 
         </li>
         <li>
-          {" "}
-          Ξίφος μονομαχίας γυναικών (επέ γυναικών). Κατηγορία Α και κατηγορία Β{" "}
+          {""}
+          Women's duel sword (for women). Category A and category B {""}
         </li>
-        <li> Σπάθη ανδρών (σαμπρ ανδρών). Κατηγορία Α και κατηγορία Β </li>
+        <li> Men's Swords (Men's Samps). Category A and Category B </li>
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -283,21 +283,21 @@ function SportParalymics() {
   const extraContent11 = (
     <div>
       <p className="extra-content text-justify">
-        <br /> Η Πετοσφαίριση καθιστών αθλητών έκανε την εμφάνισή της το 1956
-        και αποτελεί ένα από τα σημαντικότερα ομαδικά αθλήματα για αθλητές με
-        αναπηρία. Οι διαφορές μεταξύ Παραολυμπιακής και Ολυμπιακής Πετοσφαίρισης
-        είναι ελάχιστες. Συγκεκριμένα, στην Πετοσφαίριση καθιστών, οι διαστάσεις
-        του γηπέδου είναι μικρότερες, το φιλέ (δίχτυ) τοποθετείται σε πιο χαμηλό
-        ύψος, ενώ οι αθλητές αγωνίζονται καθιστοί. <br />
-        Το άθλημα απαιτεί ένταση, αγωνιστικότητα, συνεργασία και στρατηγική από
-        τους συμμετέχοντες. Δικαίωμα συμμετοχής έχουν αθλητές με κινητικές
-        αναπηρίες (ακρωτηριασμό ή άλλη κινητική αναπηρία). Στην Πετοσφαίριση
-        καθιστών οι αθλητές και αθλήτριες, μολονότι δεν κατατάσσονται σε
-        κατηγορίες όπως στα άλλα αθλήματα, πρέπει να πληρούν τους όρους της
-        ελάχιστης αναπηρίας. Οι αγώνες διεξάγονται μεταξύ δύο ομάδων σε κλειστό
-        γήπεδο, σε αγωνιστικό χώρο διαστάσεων 10 x 6 μέτρων. Κάθε ομάδα
-        αποτελείται από έξι βασικούς παίχτες, ενώ οι αναπληρωματικοί δεν
-        ξεπερνούν τους έξι.
+      <br /> Seated Athletes Volleyball made its appearance in 1956
+        and is one of the most important team sports for athletes with
+        disability. The differences between Paralympic and Olympic Volleyball
+        are minimal. Specifically, in Seated Volleyball, the dimensions
+        of the field are smaller, the net (net) is placed at a lower
+        height while athletes compete sitting. <br />
+        The sport requires intensity, competitiveness, cooperation and strategy from
+        the participants. Athletes with motor skills have the right to participate
+        disabilities (mutilation or other motor disability). In Volleyball
+        athletes, although not classified as
+        categories as in other sports, must meet its conditions
+        minimum disability. Matches are held between two teams indoors
+        stadium, in a field of dimensions of 10 x 6 meters. Every team
+        consists of six key players, while the substitutes do not
+        exceed six.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -306,25 +306,25 @@ function SportParalymics() {
   const extraContent12 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το ποδήλατο είναι ένα από τα δημοφιλέστερα μέσα μετακίνησης στις μέρες
-        μας. Επιπρόσθετα, αποτελεί μία από τις πιο αγαπημένες δραστηριότητες
-        αναψυχής για άτομα όλων των ηλικιών. Ως άθλημα για άτομα με αναπηρία
-        άρχισε να αναπτύσσεται από τυφλούς ποδηλάτες, οι οποίοι αρχικά
-        συμμετείχαν σε αγώνες με διθέσιο ποδήλατο. Η Ποδηλασία στους
-        Παραολυμπιακούς Αγώνες περιλαμβάνει δύο αγωνίσματα: τη Ποδηλασία Δρόμου
-        και τη Ποδηλασία Πίστας. Οι αγώνες Ποδηλασίας Δρόμου διεξάγονται σε
-        δημόσιους δρόμους, ενώ οι αγώνες Ποδηλασίας Πίστας διεξάγονται σε
-        ποδηλατοδρόμιο. Μολονότι οι κανονισμοί που διέπουν το άθλημα είναι ίδιοι
-        με αυτούς του Ολυμπιακού αθλήματος, σε ορισμένες περιπτώσεις
-        επιτρέπονται μετατροπές στα ποδήλατα για αθλητές με συγκεκριμένους
-        περιορισμούς. Εκτός από ποδηλάτες με μειωμένη όραση ή τυφλούς, παίρνουν
-        μέρος και ποδηλάτες με εγκεφαλική παράλυση, με κάκωση του νωτιαίου
-        μυελού, με ακρωτηριασμό ή άλλη κινητική αναπηρία. Η κατάταξη των αθλητών
-        σε αγωνιστικές κατηγορίες γίνεται σύμφωνα με το βαθμό λειτουργικότητας
-        τους βάσει των δεξιοτήτων που απαιτούνται για την Ποδηλασία. Τα ποδήλατα
-        των αθλητών προσαρμόζονται, όπου κρίνεται αναγκαίο, στις ανάγκες των
-        αθλητών.
+      <br />
+        The bicycle is one of the most popular means of transportation these days
+        us. In addition, it is one of the most popular activities
+        recreation for people of all ages. As a sport for people with disabilities
+        began to develop by blind cyclists, who initially
+        participated in races with a two-seater bicycle. Cycling in
+        Paralympic Games include two competitions: Road Cycling
+        and Track Cycling. Road Cycling races are held in
+        public roads, while the Cycling Races are held in
+        cycling track. Although the rules governing the sport are the same
+        with those of the Olympic sport, in some cases
+        bike conversions are allowed for specific athletes
+        restrictions. Except for visually impaired or blind cyclists, they take
+        part and cyclists with cerebral palsy, with spinal cord injury
+        marrow, with amputation or other motor disability. The ranking of athletes
+        in racing categories is done according to the degree of functionality
+        based on the skills required for Cycling. The bicycles
+        of athletes are adapted, where necessary, to their needs
+        athletes.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -333,18 +333,18 @@ function SportParalymics() {
   const extraContent13 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το Ποδόσφαιρο 5×5, που στην Ελλάδα είναι γνωστό και με την ονομασία
-        Ποδόσφαιρο Τυφλών, είναι ένα δημοφιλές άθλημα για τυφλούς αθλητές και
-        αθλητές με μειωμένη όραση. Κάθε ποδοσφαιρικός αγώνας παίζεται από δύο
-        ομάδες των 10 αθλητών εκ των οποίων τέσσερις τυφλοί αθλητές και ένας
-        τερματοφύλακας με μειωμένη ή κανονική όραση βρίσκονται εντός αγωνιστικού
-        χώρου και πέντε είναι αναπληρωματικοί. Ένας αγώνας Ποδοσφαίρου 5×5 έχει
-        διάρκεια 50 λεπτών και πραγματοποιείται σε δύο ημίχρονα των 25 λεπτών.
-        Ενδιάμεσα παρεμβάλλεται ένα 10λεπτο διάλειμμα. Νικήτρια ανακηρύσσεται η
-        ομάδα που πετυχαίνει τα περισσότερα γκολ. Το Ποδόσφαιρο 5×5 διεξάγεται
-        σύμφωνα με τους κανονισμούς της Διεθνούς Ομοσπονδίας Ποδοσφαίρου (FIFA)
-        και της Επιτροπής Ποδοσφαίρου του Διεθνούς Αθλητικού Οργανισμού Τυφλών
+      <br />
+        Football 5 × 5, which in Greece is also known by the name
+        Blind football is a popular sport for blind athletes and
+        athletes with reduced vision. Each football match is played by two
+        teams of 10 athletes of which four blind athletes and one
+        goalkeeper with reduced or normal vision are in the game
+        space and five are alternates. A 5 × 5 football match has
+        duration of 50 minutes and takes place in two halves of 25 minutes.
+        A 10-minute break is inserted in between. The winner is announced the
+        team that scores the most goals. Football 5 × 5 is held
+        according to the rules of the International Football Association (FIFA)
+        and the Football Committee of the International Sports Organization for the Blind
         (IBSA).
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
@@ -354,21 +354,21 @@ function SportParalymics() {
   const extraContent14 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το Ποδόσφαιρο είναι ένα από τα πιο δημοφιλή αθλήματα στον κόσμο και το
-        Ποδόσφαιρο 7×7 αποτελεί ένα από τα πιο θεαματικά αθλήματα για αθλητές με
-        κινητικές αναπηρίες. Ξεκινώντας από το 1978, το Ποδόσφαιρο 7×7 έχει
-        εξαπλωθεί σε πάρα πολλές χώρες, προσελκύοντας ολοένα και περισσότερους
-        φιλάθλους. Στο Ποδόσφαιρο 7×7 συμμετέχουν αθλητές με εγκεφαλική
-        παράλυση. Κάθε ποδοσφαιρικός αγώνας παίζεται από δύο ομάδες των 12
-        αθλητών εκ των οποίων εφτά, συμπεριλαμβανομένου και του τερματοφύλακα,
-        βρίσκονται μέσα στον αγωνιστικό χώρο. Ένας αγώνας Ποδόσφαιρο 7×7 έχει
-        διάρκεια 60 λεπτά και πραγματοποιείται σε δύο ημίχρονα των 30 λεπτών, με
-        ένα ενδιάμεσο διάλειμμα 15 λεπτών. Η ομάδα που πετυχαίνει τα περισσότερα
-        γκολ κατά τη διάρκεια του αγώνα είναι η νικήτρια. Το Ποδόσφαιρο 7×7
-        διεξάγεται σύμφωνα με τους κανονισμούς της Διεθνούς Ομοσπονδίας
-        Ποδοσφαίρου (FIFA) και της Επιτροπής Ποδοσφαίρου του Διεθνούς Αθλητικού
-        Οργανισμού Εγκεφαλικής Παράλυσης (CP-ISRA).
+      <br />
+        Football is one of the most popular sports in the world and
+        7 × 7 football is one of the most spectacular sports for athletes with
+        kinetical disabilities. Starting in 1978, Football has 7 × 7
+        spread to many countries, attracting more and more
+        fans. Athletes with a stroke participate in 7 × 7 Football
+        paralysis. Each football match is played by two teams of 12
+        athletes of which seven, including the goalkeeper,
+        are inside the field. A 7 × 7 Football match has
+        duration 60 minutes and takes place in two halves of 30 minutes, with
+        a break of 15 minutes. The team that achieves the most
+        goals during the match is the winner. Football 7 × 7
+        carried out in accordance with the regulations of the International Federation
+        Football Association (FIFA) and the Football Committee of International Sports
+        Cerebral Palsy Organization (CP-ISRA).
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -377,27 +377,27 @@ function SportParalymics() {
   const extraContent15 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το ράγκμπι με αμαξίδιο ξεκίνησε στον Καναδά το 1977. Είναι ένα σχετικά
-        νέο άθλημα για αθλητές με αναπηρία αλλά αναπτύσσεται με πολύ γοργούς
-        ρυθμούς σε όλο τον κόσμο.  Συνδυάζει τον ρυθμό, την ταχύτητα, τη
-        δεξιοτεχνία και την τακτική του Ράγμπι και του Μπάσκετ με αμαξίδιο. Ο
-        αγώνας διεξάγεται σε γήπεδο μπάσκετ  και η μπάλα που χρησιμοποιείται
-        είναι μπάλα του βόλεϊ. Αθλητές και αθλήτριες με αναπηρία (κυρίως με
-        τετραπληγία) αγωνίζονται σε μεικτές ομάδες . Οι αθλητές υποβάλλονται σε
-        εξέταση της ισορροπίας  κινητικότητας , της ικανότητας χειρισμού της
-        μπάλας καθώς και το χειρισμό του αμαξιδίου και κατατάσσονται σε
-        αντίστοιχη βαθμολογία. Χρησιμοποιούνται ειδικά
-        διασκευασμένα αγωνιστικά αμαξίδια τα οποία προσφέρουν προστασία για τους
-        αθλητές και ένα ιδιαίτερα ευκίνητα. Απαιτούν συνεχή υποστήριξη και
-        επισκευή κατά τη διάρκεια του αγώνα καθώς καταπονούνται
-        από συνεχείς συγκρούσεις. Ο αγώνας απότελείται από τέσσερις περιόδους
-        των  οκτώ λεπτών με διακοπή ενδιάμεσα. Κάθε ομάδα αποτελείται
-        από τέσσερις (4) παίκτες και οκτώ αναπληρωματικούς. Ο στόχος κάθε ομάδας
-        είναι να σκοράρει περνώντας κάποιος αθλητής με το αμαξίδια με κατοχή της
-        μπάλας  (και με τις δύο ρόδες) ή περνώντας τριπλάροντας τη μπάλα σε
-        αθλητή που βρίσκεται εντός της γραμμής τέρματος της αντίπαλης ομάδας. Η
-        ομάδα που πετυχαίνει τα περισσότερα τέρματα κερδίζει.
+      <br />
+        Wheelchair rugby started in Canada in 1977. It is a relative
+        new sport for athletes with disabilities but developing very fast
+        rhythms around the world. Combines rhythm, speed,
+        the skill and tactics of rugby and wheelchair basketball. THE
+        match is played on a basketball court and the ball is used
+        is a volleyball. Athletes with disabilities (mainly with
+        quadriplegia) compete in mixed teams. Athletes submit to
+        examination of the balance of mobility, its ability to handle
+        ball as well as wheelchair handling and are classified in
+        corresponding score. They are specially used
+        modified racing wheelchairs that offer protection for them
+        athletes and a particularly agile. They require constant support and
+        repair during the race as they are strained
+        from constant conflicts. The race consists of four seasons
+        of eight minutes with a break in between. Each group is composed
+        of four (4) players and eight substitutes. The goal of each team
+        is to score by passing an athlete in a wheelchair in her possession
+        ball (with both wheels) or passing by tripling the ball in
+        athlete within the finish line of the opposing team. THE
+        The team that scores the most goals wins.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -406,14 +406,14 @@ function SportParalymics() {
   const extraContent16 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Σκοποβολή είναι ένα τεχνικό άθλημα, με μεγάλη δημοτικότητα
-        παγκοσμίως. Απαιτεί καλή τεχνική κατάρτιση καθώς και τη δυνατότητα για
-        υψηλού βαθμού αυτοσυγκέντρωσης. ‘Ανδρες και γυναίκες ανεξαρτήτου ηλικίας
-        μπορούν να αθληθούν, όχι μόνο σε επίπεδο αναψυχής, αλλά και σε επίπεδο
-        πρωταθλητισμού. Τα αγωνίσματα Σκοποβολής διαφέρουν ως προς την απόσταση,
-        το είδος του στόχου, του όπλου, τη στάση του σκοπευτή, τον αριθμό των
-        βολών και το χρόνο μέσα στον οποίο ο σκοπευτής πρέπει να ρίξει τις βολές
-        του.
+      <br /> Shooting is a technical sport, with great popularity
+         worldwide. Requires good technical training as well as the ability to
+         high degree of self-concentration. ‘Men and women of any age
+         they can exercise, not only at the leisure level, but also at the level
+         championship. Shooting competitions differ in distance,
+         the type of target, the weapon, the attitude of the shooter, the number of
+         shots and the time within which the shooter must fire the shots
+         of.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -422,47 +422,47 @@ function SportParalymics() {
   const extraContent17 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Ο Στίβος είναι ένα από τα πιο δημοφιλή Παραολυμπιακά αθλήματα.
-        Ήταν ένα από τα αθλήματα που συμπεριλήφθηκαν στο αγωνιστικό πρόγραμμα
-        των πρώτων Παραολυμπιακών Αγώνων το 1960, στη Ρώμη. Συγκεντρώνει το
-        μεγαλύτερο αριθμό αθλητών και αθλητριών και περιλαμβάνει το μεγαλύτερο
-        αριθμό αγώνων. Στους Παραολυμπιακούς Αγώνες συμμετέχουν αθλητές και
-        αθλήτριες με εγκεφαλική παράλυση, κάκωση στο νωτιαίο μυελό, ακρωτηριασμό
-        ή άλλη κινητική αναπηρία, τυφλοί ή με μειωμένη όραση αθλητές Στο
-        αγωνιστικό πρόγραμμα περιλαμβάνονται αγώνες δρόμων, ρίψεων, αλμάτων, ο
-        μαραθώνιος και το πένταθλο. Οι αθλητές αγωνίζονται με αμαξίδιο ή με
-        χρήση προθέσεων (τεχνητών μελών), ενώ οι τυφλοί αθλητές αγωνίζονται με
-        βοηθό. Οι αθλητές ταξινομούνται βάση του τύπου της αναπηρίας τους σε
-        διαφορετικές κατηγορίες:
+      <br /> Athletics is one of the most popular Paralympic sports.
+        It was one of the sports included in the competition program
+        of the first Paralympic Games in 1960, in Rome. Gathers the
+        a larger number of athletes and includes the largest
+        number of matches. Athletes also participate in the Paralympic Games
+        female athletes with cerebral palsy, spinal cord injury, amputation
+        or other motor disability, blind or visually impaired athletes In
+        racing program includes road races, throws, jumps, o
+        marathon and pentathlon. Athletes compete in a wheelchair or with
+        use of intentions (artificial limbs) while blind athletes compete with
+        assistant. Athletes are classified based on their type of disability into
+        different categories:
         <li>
-          {" "}
-          Αθλητές με εγκεφαλική παράλυση κατατάσσονται στις κατηγορίες 32 έως
-          38. Στις κατηγορίες 32 έως και 34, οι αθλητές αγωνίζονται με
-          αγωνιστικό αμαξίδιο, ενώ στις κατηγορίες από 35 έως 38 αγωνίζονται
-          όρθιοι..
+          {""}
+          Athletes with cerebral palsy are classified in categories 32 to
+          38. In categories 32 to 34, athletes compete with
+          racing wheelchair, while in the categories from 35 to 38 compete
+          standing ..
         </li>
         <li>
-          {" "}
-          Αθλητές με κάκωση του νωτιαίου μυελού ή άλλη κινητική αναπηρία, εκτός
-          από εγκεφαλική παράλυση, εντάσσονται, ανάλογα με το κινητικό τους
-          προφίλ, στις κατηγορίες από 51 έως 54 για τους αγώνες δρόμων και από
-          51 έως 58 για τους αγώνες ρίψεων. Στις κατηγορίες αυτές οι αθλητές
-          αγωνίζονται με αμαξίδιο.
+          {""}
+          Athletes with spinal cord injury or other motor disability, except
+          from cerebral palsy, are included, depending on their mobility
+          profiles, in categories 51 to 54 for road racing and from
+          51 to 58 for throwing matches. In these categories the athletes
+          wheelchair racing.
         </li>
         <li>
-          {" "}
-          Αθλητές με ακρωτηριασμό σε ένα ή περισσότερα μέλη, καθώς και αθλητές
-          με άλλη κινητική αναπηρία (les autres) που αγωνίζονται όρθιοι, ανήκουν
-          στις κατηγορίες από 42 έως 46..
+          {""}
+          Athletes with mutilation in one or more members, as well as athletes
+          with another motor disability (les autres) struggling standing, belong
+          in categories from 42 to 46 ..
         </li>
         <li>
-          {" "}
-          Αθλητές τυφλοί ή με μερική όραση κατατάσσονται, σε τρεις κατηγορίες
-          11, 12 και 13..
+          {""}
+          Athletes blind or partially sighted are classified into three categories
+          11, 12 and 13 ..
         </li>
         <li>
-          Αθλητές με νανισμό λόγω αχονδροπλασίας αγωνίζονται μόνο στις ρίψεις,
-          στην κατηγορία 40.
+          Athletes with dwarfism due to achondroplasia compete only in throwing,
+          in category 40.
         </li>
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
@@ -472,21 +472,21 @@ function SportParalymics() {
   const extraContent18 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το Τζούντο είναι πολεμική τέχνη, αλλά η πρακτική και οι μέθοδοί του
-        βασίζονται στην ευγένεια. Η νίκη του αθλητή επιτυγχάνεται, όταν υποχωρεί
-        στη δύναμη του αντιπάλου του, προσαρμόζεται σε αυτή και τη χρησιμοποιεί
-        προς όφελος του. Οι δύο αθλητές (τζουντόκα) φορούν ο ένας μπλε και ο
-        άλλος λευκή στολή που ονομάζεται και τζουντόγκι και αγωνίζονται για
-        πέντε λεπτά. Ο αγώνας διευθύνεται από έναν κεντρικό διαιτητή και δύο
-        κριτές με ισότιμη γνώμη. Οι αποφάσεις λαμβάνονται με τον κανόνα της
-        πλειοψηφίας και το αποτέλεσμα δίνεται από το διαιτητή με χαρακτηριστική
-        κίνηση του χεριού και αναφώνηση του βαθμού ή της ποινής. Ο διαιτητής
-        κηρύσσει την έναρξη του αγώνα, αφού πρώτα επιτρέψει στους αθλητές να
-        έρθουν σε επαφή. Ένας αγώνας Τζούντο τερματίζεται άμεσα υπέρ του αθλητή,
-        που θα πάρει το βαθμό «Ιppon», αφού πραγματοποιήσει μία επιτυχημένη
-        τεχνική. Σε περίπτωση που δεν επιτευχθεί Ippon, νικητής αναδεικνύεται ο
-        αθλητής, που έχει τον μεγαλύτερης αξίας βαθμό μετά τη λήξη του χρόνου.
+      <br />
+        Judo is a martial art, but its practice and methods
+        based on courtesy. The athlete's victory is achieved when he retreats
+        to the power of his opponent, adapts to it and uses it
+        in his favor. The two athletes (judoka) wear one blue and the other
+        another white uniform called and judogi and fighting for
+        five minutes. The match is led by a central referee and two
+        judges with equal opinion. Decisions are made by its rule
+        majority and the result is given by the referee with characteristic
+        hand gesture and shouting of degree or punishment. The referee
+        announces the start of the race, after first allowing the athletes to
+        come to contact. A Judo match ends directly in favor of the athlete,
+        who will get the "Ippon" grade after making a successful one
+        technique. In case Ippon is not achieved, the winner is the
+        athlete, who has the highest value grade after the end of the year.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -495,17 +495,17 @@ function SportParalymics() {
   const extraContent19 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Τοξοβολία, όπως και η πλειοψηφία των αθλημάτων για άτομα με
-        αναπηρία, χρησιμοποιήθηκε αρχικά ως δραστηριότητα αποκατάστασης και
-        ψυχαγωγίας. Τα τελευταία 50 χρόνια, καθιερώθηκε ως άθλημα, δίνοντας τη
-        δυνατότητα στους αθλητές να ασκήσουν τη δεξιότητα, την ακρίβειά, τη
-        δύναμη και την ικανότητα συγκέντρωσής τους. Στην Τοξοβολία συμμετέχουν
-        αθλητές και αθλήτριες με κινητική αναπηρία (κάκωση νωτιαίου μυελού,
-        εγκεφαλική παράλυση, ακρωτηριασμό και Les Autres). Οι αθλητές
-        κατατάσσονται σε τρεις κατηγορίες. Σκοπός τους είναι να ρίξουν με
-        ακρίβεια τα βέλη σε στόχο διαμέτρου 122 εκατοστών, ο οποίος βρίσκεται σε
-        απόσταση 70 μέτρων. Στο αγωνιστικό πρόγραμμα περιλαμβάνονται ατομικοί
-        και ομαδικοί αγώνες.
+      Archery, like most sports for people with
+        disability, was originally used as a rehabilitation activity and
+        entertainment. For the past 50 years, it has established itself as a sport, giving it
+        opportunity for athletes to practice skill, accuracy,
+        their strength and ability to concentrate. They participate in Archery
+        athletes with motor disabilities (spinal cord injury,
+        cerebral palsy, amputation and Les Autres). The athletes
+        fall into three categories. Their purpose is to throw me
+        precision arrows at a target diameter of 122 cm, which is located at
+        distance 70 meters. Individuals are included in the competition program
+        and team games.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -514,15 +514,15 @@ function SportParalymics() {
   const extraContent20 = (
     <div>
       <p className="extra-content text-justify">
-        <br />Η Κωπηλασία είναι το άθλημα που προστέθηκε στο Παραολυμπιακό
-        πρόγραμμα το 2005 και διοργανώθηκε για πρώτη φορά σε Παραολυμπιακό
-        επίπεδο στους Αγώνες του Πεκίνου το 2008. Η Διεθνής Ομοσπονδία
-        Κωπηλασίας (FISA) είναι η αρχή που αναπτύσσει το άθλημα της Κωπηλασίας
-        για αθλητές με και χωρίς αναπηρία. Η Κωπηλασία προσφέρεται για αθλητές
-        με αναπηρία οι οποίοι κατατάσσονται σύμφωνα με τα κριτήρια των
-        κανονισμών κατάταξης σε κατηγορία (classification regulations). Για τη
-        διεξαγωγή του αθλήματος προσαρμόζεται ο εξοπλισμός στους αθλητές παρά το
-        άθλημα στους αθλητές.
+      Rowing is the sport added to the Paralympics
+        program in 2005 and was organized for the first time at the Paralympic Games
+        level at the Beijing Games in 2008. The International Federation
+        Rowing (FISA) is the principle that develops the sport of Rowing
+        for athletes with and without disabilities. Rowing is offered for athletes
+        with disabilities who are classified according to their criteria
+        classification regulations. For the
+        conducting the sport the equipment is adapted to the athletes despite the
+        sport to athletes.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -531,17 +531,17 @@ function SportParalymics() {
   const extraContent21 = (
     <div>
       <p className="extra-content text-justify">
-        <br />
-        Το τρίαθλο θα κάνει το Παραολυμπιακό του ντεμπούτο στους Παραολυμπιακούς
-        Αγώνες του Ρίο ντε Ζανέιρο το 2016.  Οι αθλητές και αθλήτριες
-        αγωνίζονται σε τρία αγωνίσματα : 750m κολύμβηση,  στη συνέχεια  20km
-        ποδηλασία και  5km δρόμος.  Οι αφωνηστικές κατηγορίες στηρίζονται στο
-        είδος της αναπηρίας. Αθλητές ή αθλήτριες μπορούν να χρησιμοποιήσουν
-        ποδήλατο, χειρήλατο ή διπλό ποδήλατο (tandem) στο ποδηλατικό μέρος του
-        αγώνα και επίσης  επιτρέπεται σε αθλητές με παραπληγία να
-        χρησιμοποιούν αγωνιστικό αμαξίδιο στο δρομικό κομμάτι. Το
-        άθλημα αναπτύσσεται σε  37 χώρες , και 27 χώρες διοργάνωσαν εθνικό
-        πρωτάθλημα εντός του 2011.
+      <br />
+        The triathlon will make its Paralympic debut at the Paralympics
+        Rio de Janeiro Games in 2016. Athletes
+        compete in three races: 750m swimming, then 20km
+        cycling and 5km road. The vocal categories are based on
+        type of disability. Athletes can use
+        bicycle, handlebar or double bicycle (tandem) on its bicycle part
+        race and also allowed athletes with paraplegia to
+        use a racing wheelchair on the road track. The
+        sport is developed in 37 countries, and 27 countries organized national
+        championship within 2011.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -550,17 +550,17 @@ function SportParalymics() {
   const extraContent22 = (
     <div>
       <p className="extra-content text-justify">
-        Το κανόε θα περιληφθεί στο Παραολυμπιακό πρόγραμμα των  για πρώτη φορά
-        στους Παραολυμπιακούς Αγώνες του Ρίο ντε Ζανέιρο το 2016.  <br />
-        Το άθλημα διεξάγετεαι όπως και για αθλητές χωρίς αναπηρία δίνοντας τη
-        δυνατότητα σε αθλητές με διαφόρους βαθμούς αναπηρίας να απολαμβάνουν το
-        άθλημα.  <br />
-        Το σύστημα κατάταξης σε κατηγορίες (classification system) βασίζεται στη
-        λειτουργική ικανότητα των αθλητών σχετικά με τη δυνατότητα να
-        χειρίζονται το κουπί καθώς και την ικανότητα να σταθεροποιήσουν το σώμα
-        τους μέσα στο κανόε. Αυτή τη στιγμή γίνονται οχτώ διαφορετικά αγωνίσματα
-        αλλά καθώς αναπτύσσεται το άθλημα  μπορεί να ληφθούν υπ’ όψιν και
-        περισσότερα για το Παραολυμπιακό πρόγραμμα.
+      The canoe will be included in the Paralympic program for the first time
+        at the Rio de Janeiro Paralympic Games in 2016. <br />
+        The sport is conducted as for athletes without disabilities giving it
+        opportunity for athletes with varying degrees of disability to enjoy
+        sport. <br />
+        The classification system is based on
+        functional ability of athletes on the ability to
+        handle the paddle as well as the ability to stabilize the body
+        them in the canoe. There are currently eight different competitions
+        but as the sport develops can be taken into account and
+        more about the Paralympic program.
       </p>
       <hr style={{ paddingTop: "50px", borderTop: "1px solid black" }}></hr>
     </div>
@@ -568,66 +568,66 @@ function SportParalymics() {
 
   const linkName1 = readMore1
     ? "Read less  "
-    : " 1)Αντισφαίριση με αμαξίδιο... ";
+    : " 1) Wheelchair tennis ... ";
 
-  const linkName2 = readMore2 ? "Read less  " : " 2)Άρση βαρών σε πάγκο... ";
-  const linkName3 = readMore3 ? "Read less  " : " 3)Γκόλμπολ (Goalball)... ";
+  const linkName2 = readMore2 ? "Read less  " : " 2) Weightlifting on a bench ... ";
+  const linkName3 = readMore3 ? "Read less  " : " 3) Goalball ... ";
 
   const linkName4 = readMore4
     ? "Read less  "
-    : " 4)Επιτραπέζια Αντισφαίριση... ";
+    : " 4) Table Tennis ... ";
 
-  const linkName5 = readMore5 ? "Read less  " : " 5)Ιππασία... ";
+  const linkName5 = readMore5 ? "Read less  " : "5) Horse riding ...";
 
-  const linkName6 = readMore6 ? "Read less  " : "6)Ιστιοπλοΐα... ";
+  const linkName6 = readMore6 ? "Read less  " : "6) Sailing ... ";
 
   const linkName7 = readMore7
     ? "Read less  "
-    : " 7)Καλαθοσφαίριση με αμαξίδιο...";
+    : " 7) Wheelchair basketball ...";
 
-  const linkName8 = readMore8 ? "Read less  " : " 8)Κολύμβηση... ";
+  const linkName8 = readMore8 ? "Read less  " : "8) Swimming ... ";
 
-  const linkName9 = readMore9 ? " less  " : " 9)Μπότσια (Boccia)... ";
+  const linkName9 = readMore9 ? " less  " : " 9) Boccia ...";
 
   const linkName10 = readMore10
     ? "Read Readless  "
-    : " 10)Ξιφασκία με αμαξίδιο... ";
+    : " 10) Wheelchair fencing ... ";
 
   const linkName11 = readMore11
     ? "Read less  "
-    : " 11)Πετοσφαίριση (Καθιστών)...";
+    : " 11) Volleyball (Seats) ...";
 
-  const linkName12 = readMore12 ? "Read less  " : " 12)Ποδηλασία... ";
+  const linkName12 = readMore12 ? "Read less  " : " 12) Cycling ... ";
 
-  const linkName13 = readMore13 ? "Read less  " : " 13)Ποδόσφαιρο 5x5... ";
+  const linkName13 = readMore13 ? "Read less  " : "13) Football 5x5 ... ";
 
-  const linkName14 = readMore14 ? "Read less  " : " 14)Ποδόσφαιρο 7x7... ";
+  const linkName14 = readMore14 ? "Read less  " : " 14) Football 7x7 ...";
 
-  const linkName15 = readMore15 ? "Read less  " : " 15)Ράγκμπυ με αμαξίδιο... ";
+  const linkName15 = readMore15 ? "Read less  " : "15) Wheelchair rugby ... ";
 
-  const linkName16 = readMore16 ? "Read less  " : " 16)Σκοποβολή... ";
+  const linkName16 = readMore16 ? "Read less  " : "16) Shooting ...";
 
-  const linkName17 = readMore17 ? "Read less  " : "17)Στίβος... ";
+  const linkName17 = readMore17 ? "Read less  " : "17) Track and field ... ";
 
-  const linkName18 = readMore18 ? "Read less  " : "18)Τζούντο... ";
+  const linkName18 = readMore18 ? "Read less  " : "18) Judo ... ";
 
-  const linkName19 = readMore19 ? "Read less  " : " 19)Τοξοβολί... ";
+  const linkName19 = readMore19 ? "Read less  " : "19) Archery ... ";
 
   const linkName20 = readMore20
     ? "Read less  "
-    : " 20)Κωπηλασία (νέο άθλημα στο Πεκίνο)... ";
+    : "20) Rowing (new sport in Beijing) ...";
 
   const linkName21 = readMore21
     ? "Read less  "
-    : "21)Τρίαθλο (νέο άθλημα στο Ριο)... ";
+    : "21) Triathlon (new sport in Rio) ... ";
 
   const linkName22 = readMore22
     ? "Read less  "
-    : "22)Κανόε (νέο άθλημα στο Ριο)... ";
+    : "22) Canoe (new sport in Rio) ... ";
 
   return (
     <div className="sepNav">
-      <h1 className="titleh1">ΠΑΡΑΛΥΜΙΚΑ ΣΠΟΡ</h1>
+      <h1 className="titleh1">PARALYMPICS SPORTS</h1>
 
       {/* image part */}
       <div className="images">
@@ -641,60 +641,60 @@ function SportParalymics() {
           className="history col-xs-10 col-sm-8 col-md-10"
           style={{ paddingBottom: "100px" }}
         >
-          <h1>ΙΣΤΟΡΙΑ ΠΑΡΑΛΥΜΙΚΩΝ ΑΘΛΗΤΙΣΜΩΝ</h1>
+          <h1>HISTORY OF PARALYMPICS SPORTS</h1>
 
           <p className="text-justify">
             {" "}
-            Οι Παραολυμπιακοί Αγώνες (ParalympicGames) είναι οι
-            αντίστοιχοι Ολυμπιακοί Αγώνες για τους αθλητές με κινητικές, οπτικές
-            ή διανοητικές αναπηρίες. <br />
-            Οι πρώτοι αγώνες για αθλητές με αναπηρία έγιναν το 1948 στο
-            ΣτόουκMάντεβιλ στην Αγγλία. Την ημέρα της τελετής έναρξης για τους
-            Ολυμπιακούς Αγώνες του 1948 στο Λονδίνο, ξεκίνησαν και
-            θεσμοθετήθηκαν οι αγώνες του ΣτόουκMάντεβιλ και πραγματοποιήθηκε η
-            πρώτη αθλητική διοργάνωση για αθλητές με αμαξίδιο.
+            The Paralympic Games are the
+            corresponding Olympic Games for athletes with motor, visual
+            or mental disabilities. <br />
+            The first races for athletes with disabilities took place in 1948 at
+            StokeMadeville in England. On the day of the opening ceremony for them
+            The 1948 London Olympics also began
+            The StokeMadeville Games were instituted and the
+            first sports event for wheelchair athletes.
             <br />
-            Τέσσερα χρόνια αργότερα, αθλητές από την Ολλανδία συμμετείχαν σε
-            αυτούς τους αγώνες και έτσι γεννήθηκε το διεθνές κίνημα που είναι
-            γνωστό πλέον ως Παραολυμπιακό κίνημα.
+            Four years later, athletes from the Netherlands participated in
+            these struggles and thus was born the international movement that is
+            now known as the Paralympic Movement.
             <br />
-            Οι πρώτοι Αγώνες Ολυμπιακού χαρακτήρα για αθλητές με αναπηρία
-            οργανώθηκαν το 1960 στην Ρώμη, ύστερα από τους Ολυμπιακούς Αγώνες
-            στην ίδια πόλη. Θεωρούνται ως οι πρώτοι Παραολυμπιακοί Αγώνες.
-            Περίπου 400 αθλητές από 23 χώρες συμμετείχαν σε 8 αθλήματα, 6 από τα
-            οποία εξακολουθούν να περιλαμβάνονται στο αγωνιστικό πρόγραμμα των
-            Παραολυμπιακών Αγώνων (Τοξοβολία, Κολύμβηση, Ξιφασκία,
-            Καλαθοσφαίριση, Επιτραπέζια Αντισφαίριση, Στίβος).
+            The first Olympic Games for athletes with disabilities
+            were organized in 1960 in Rome, after the Olympic Games
+            in the same city. They are considered to be the first Paralympic Games.
+            About 400 athletes from 23 countries participated in 8 sports, 6 of them
+            which are still included in the competition program of
+            Paralympic Games (Archery, Swimming, Fencing,
+            Basketball, Table Tennis, Track and Field).
             <br />
-            Από τότε, οι Παραολυμπιακοί Αγώνες διεξάγονται κάθε 4 χρόνια, πάντα
-            την ίδια χρονιά με τους Ολυμπιακούς Αγώνες. Το 1976 στο Τορόντο,
-            προστέθηκαν και άλλες κατηγορίες αναπηρίας και γεννήθηκε η ιδέα της
-            συγχώνευσης διαφορετικών κατηγοριών αθλητών με αναπηρία για τη
-            συμμετοχή τους σε διεθνείς αθλητικές διοργανώσεις. Την ίδια χρονιά
-            έγιναν και οι πρώτοι Χειμερινοί Παραολυμπιακοί Αγώνες στην Σουηδία.
+            Since then, the Paralympic Games have been held every 4 years, always
+            the same year as the Olympic Games. In 1976 in Toronto,
+            other categories of disability were added and the idea was born
+            merging different categories of athletes with disabilities for
+            their participation in international sporting events. The same year
+            The first Winter Paralympic Games in Sweden took place.
             <br />
-            Οι Παραολυμπιακοί Αγώνες της Σεούλ (1988) ξεχώρισαν και από το
-            γεγονός ότι οι Ολυμπιακοί και Παραολυμπιακοί Αγώνες φιλοξενήθηκαν
-            στην ίδια χώρα, στην ίδια πόλη και χρησιμοποιήθηκαν οι ίδιες
-            εγκαταστάσεις με τους Ολυμπιακούς Αγώνες. Έκτοτε, οι Παραολυμπιακοί
-            Αγώνες γίνονται πάντα στην ίδια πόλη με τους Ολυμπιακούς Αγώνες.
+            The Seoul Paralympic Games (1988) also stood out from the
+            fact that the Olympic and Paralympic Games were hosted
+            in the same country, in the same city and used the same
+            facilities with the Olympic Games. Since then, the Paralympics
+            Games are always held in the same city as the Olympic Games.
             <br />
-            Από το 1960, έχουν διοργανωθεί δώδεκα (12) Θερινοί Παραολυμπιακοί
-            Αγώνες και εννέα (9) Χειμερινοί. Οι Παραολυμπιακοί Αγώνες έχουν
-            εξελιχθεί πλέον στο δεύτερο μεγαλύτερο αθλητικό γεγονός μετά τους
-            Ολυμπιακούς.
+            Since 1960, twelve (12) Summer Paralympics have been organized
+            Games and nine (9) Winter. The Paralympic Games have
+            is now the second largest sporting event after them
+            Olympic.
             <br />
-            Έλληνες αθλητές συμμετέχουν στους Παραολυμπιακούς Αγώνες από το
-            1976. Από το 1988, η Ελλάδα συμμετέχει στους Αγώνες με επίσημες
-            Εθνικές Αποστολές. Όλα αυτά τα χρόνια, οι Έλληνες αθλητές πέτυχαν
-            καλές επιδόσεις και κέρδισαν πολλά μετάλλια.
-            <br />Η πρώτη συμμετοχή Έλληνα Αθλητή σε Χειμερινούς Παραολυμπιακούς
-            Αγώνες έγινε το 2002 στο ΣολτΛέικΣίτι. Οι Παραολυμπιακούς Αγώνες του
-            Τορίνο το 2006 ήταν οι δεύτεροι Χειμερινοί Παραολυμπιακοί Αγώνες
-            όπου συμμετείχε Ελληνική Αποστολή. Οι Χειμερινοί Παραολυμπιακοί
-            Αγώνες του Βανκούβερ αποτελούν τους τρίτους Χειμερινούς Αγώνες που
-            θα συμμετάσχει η Ελλάδα με τη συμμετοχή μάλιστα και της πρώτης
-            αθλήτριας.
+            Greek athletes participate in the Paralympic Games since
+            1976. Since 1988, Greece participates in the Games with official
+            National Missions. All these years, the Greek athletes have succeeded
+            good performance and won many medals.
+            <br /> The first participation of a Greek Athlete in Winter Paralympics
+            Games were held in 2002 in Salt Lake City. His Paralympic Games
+            Turin in 2006 was the second Winter Paralympic Games
+            where a Greek Mission participated. The Winter Paralympics
+            The Vancouver Games are the third Winter Games to
+            Greece will participate with the participation of the first
+            athlete.
           </p>
 
           <hr style={{ paddingTop: "1px", borderTop: "1px solid black" }}></hr>
@@ -706,26 +706,26 @@ function SportParalymics() {
 
       <div className="row1">
         <div className="history col-xs-10 col-sm-10 col-md-10">
-          <h1>ΘΕΡΙΝΑ ΠΑΡΑΟΛΥΜΠΙΑΚΑ ΑΘΛΗΜΑΤΑ</h1>
+          <h1>SUMMER PARALYMPICS SPORTS</h1>
           <p className="text-justify">
-            Το αγωνιστικό πρόγραμμα των Θερινών Παραολυμπιακών Αγώνων
-            περιλαμβάνει πλέον 22 θερινά αθλήματα. Δεκαοκτώ από αυτά είναι κοινά
-            με τους Ολυμπιακούς Αγώνες και τα υπόλοιπα τέσσερα είναι
-            αποκλειστικά Παραολυμπιακά. Αυτά είναι τα Μπότσια, Γκόλμπολ, Άρση
-            βαρών σε πάγκο και Ράγκμπι με αμαξίδιο. Στους Αγώνες της Αθήνας
-            προστέθηκε το άθλημα του Ποδοσφαίρου 5x5, ενώ στο Πεκίνο για πρώτη
-            φορά αγωνίστηκαν αθλητές στην Κωπηλασία. Στους Αγώνες του Ρίο
-            προστέθηκαν το Κανόε και το Τρίαθλο. <br />
-            Τα ρεκόρ που σημειώνονται στους Παραολυμπιακούς Αγώνες μπορούν να
-            συγκριθούν με τα ρεκόρ των Ολυμπιακών αθλητών (όπως στα 100μ. ανδρών
-            στο Στίβο) και σε ορισμένες περιπτώσεις (όπως στην Άρση βαρών σε
-            πάγκο) τα Παραολυμπιακά ρεκόρ ξεπερνούν εκείνα των αθλητών χωρίς
-            αναπηρία.
+          The competition program of the Summer Paralympic Games
+            now includes 22 summer sports. Eighteen of them are common
+            with the Olympics and the other four are
+            exclusively Paralympic. These are Botsia, Golbol, Arsi
+            bench weights and wheelchair rugby. At the Athens Games
+            added the sport of Football 5x5, while in Beijing for the first time
+            once athletes competed in Rowing. At the Rio Games
+            Canoe and Triathlon were added. <br />
+            The records set at the Paralympic Games can
+            compared to the records of Olympic athletes (as in the men's 100m
+            in Athletics) and in some cases (such as in Weightlifting at
+            bench) the Paralympic records surpass those of athletes without
+            disability.
             <br />
-            Σε κάποια αθλήματα συμμετέχουν αθλητές από όλες ή τις περισσότερες
-            κατηγορίες αναπηρίας, ενώ σε άλλα από μια κατηγορία μόνο.
+            Athletes from all or most of them participate in some sports
+            categories of disability, while in others from one category only.
             <br />
-            Αναλυτικά τα Παραολυμπιακά αθλήματα είναι:
+            In detail, the Paralympic sports are:
           </p>
           <br />
           <div className="App1">
@@ -978,26 +978,25 @@ function SportParalymics() {
               style={{ paddingTop: "20px", borderTop: "1px solid black" }}
             ></hr>
 
-          <ul>
+<ul>
           
-            <li>
-            3)Κέρλινγκ με αμαξίδιο
-              </li>
-            <li>
-            4)Σκι αντοχής
-              </li>
-            <li>
-            5)Χόκεϊ επί πάγου με έλκηθρο
+          <li>
+          3) Wheelchair curling
+            </li>
+          <li>
+          4) Endurance skiing
+            </li>
+          <li>
+          5) Ice hockey with sleigh
 
-              </li>
- 
-            <li>
-            6)Έπταθλο
-              </li>
-          </ul>
+            </li>
+
+          <li>
+          6) Heptathlon
+            </li>
+        </ul>
           <p className="text-justify">
-          Θα εμφανίζονται με σειρά τα αθλήματα και αν κάποιος ακουμπάει το ποντίκι επάνω ή κάνει κλικ , να του βγάζει σαν ρολό αναλυτικά για το κάθε άθλημα. Σαν πρώτη ματιά τα αθλήματα θα φαίνονται μόνο αναφορικά.
-          </p>
+          The sports will be displayed in order and if someone touches the mouse up or clicks, it will be taken out as a roll in detail for each sport. At first glance, sports will only seem relevant.          </p>
             <hr
               style={{ paddingTop: "50px", borderTop: "1px solid black" }}
             ></hr>

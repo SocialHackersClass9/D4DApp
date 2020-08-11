@@ -28,7 +28,6 @@ const NavigationBar = () => (
                 <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/gdpr">GDPR Policy</Nav.Link></Nav.Item>
-
                 <Nav.Item>  <UserLogin /></Nav.Item>
                 <Nav.Item>  <UserRegister /></Nav.Item>
                 {/*  <Nav.Item><h4>GR/EN</h4></Nav.Item> */}

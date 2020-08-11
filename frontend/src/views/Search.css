@@ -1,5 +1,5 @@
  .userStatusP {
-  font-size:1.5em;
+  font-size:1.2em;
   border-color:#007bff;
   border-style:solid;
   border-radius: 10px;
@@ -17,7 +17,7 @@ font-size:1.5em;
 
 }
 .text-center h2{
-font-size:1.5em;
+font-size:1.2em;
 padding:10px;
 }
 
@@ -27,13 +27,13 @@ padding:10px;
 }
 
 .resultFeat td {
-    font-size:1.5em;
+    font-size:1.2em;
     text-align: center;  
 }
 .searchFeat {
     font-size:1.2em;
    }
 .resultFeat h3{
-    font-size:2em;
+    font-size:1.5em;
     padding-bottom:20px;
 }

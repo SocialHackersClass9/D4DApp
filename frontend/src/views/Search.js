@@ -135,7 +135,7 @@ class Search extends React.Component {
                             <div className="row row-header align-self-center">
                                 <div className="col-md-12 col-sm-12 col-xs-12 text-center" >
 
-                                    <h1 className="text-center"> Instructor Search Page</h1>
+                                    <h1 style={{ margin: "1.5%" }}> Instructor Search Page</h1>
                                     {context.user == null &&
                                         (
                                             <div>
@@ -162,7 +162,7 @@ class Search extends React.Component {
                                         <h2 className="text-center"><strong>Search via Location</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
-                                        <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation} style={{ fontSize: "1.5em", margin: "1.5%" }}>
+                                        <select name="favLocation" onChange={this.favLocationChanged} value={this.state.favLocation} style={{ fontSize: "1.2em", margin: "1.5%" }}>
                                             <option value="">All</option>
                                             {locations}
                                         </select>
@@ -173,7 +173,7 @@ class Search extends React.Component {
                                         <h2 className="text-center"><strong>Search via Sports</strong></h2>
                                     </div>
                                     <div className="col-md-5 text-center">
-                                        <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport} style={{ fontSize: "1.5em", margin: "1.5%" }}>
+                                        <select name="favSport" onChange={this.favSportChanged} value={this.state.favSport} style={{ fontSize: "1.2em", margin: "1.5%" }}>
                                             <option value="">All</option>
                                             {sports}
                                         </select>

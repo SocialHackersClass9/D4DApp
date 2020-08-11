@@ -106,7 +106,7 @@ class AccountSetup extends Component {
           }
         }
         else {
-          formErrors.user_name = 'Enter a valid username!'
+          formErrors.user_name = 'Enter a valid username, no capital letters allowed!'
         }
         break;
 

@@ -1,0 +1,9 @@
+.gdprRules > ol {
+	padding-left: 50px;
+}
+
+.gdprRules > ol > li > ul,
+.gdprRules > ol > li > ul > li > ul 
+{
+	padding-left: 30px;
+}

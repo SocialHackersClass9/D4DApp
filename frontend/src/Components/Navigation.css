@@ -3,10 +3,12 @@
     font-size:1.5em;
     font-weight:bold;
     text-align:center;
-    padding-left:1em;  
+    padding-left:1em; 
+    background: #007bff; 
 }
 .navbar{
-    background: #007bff; 
+    background: #007bff;
+    height:85px; 
 }
 
 .navbar .nav-item .btn {
@@ -19,6 +21,7 @@
     display: -moz-box;
     display: -ms-flexbox;
     font-size:1.5em;
+    background: #007bff;
 }
 .username{
     color: #fcf8f8;
@@ -26,4 +29,5 @@
     font-weight:bold;
     text-align:center;
     padding-left:1em; 
+    background: #007bff;
 }

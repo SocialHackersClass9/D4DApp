@@ -13,28 +13,25 @@ margin: 20px;
 
 
 const ThreeColumnSection = () => (
-    <div className="container-fluid">
+    <div className="container">
         <div className="row text-center">
             <div className="col-xs-12 col-sm-6 col-md-3">
                 <Images src={Coach} style={{ borderRadius: "20px" }}></Images>
-                <h3>Coaches</h3>
-                <p>Find and choose your coach among the best from all over the country!</p>
-                <a href="/search" >Search for instructors near you</a>
+                <a href="/search" ><h3>Coaches</h3></a>
+                <p className="text-center">Find and choose your coach among the best from all over the country!</p>
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-xs-12 col-sm-6 col-md-5">
                 <Images src={Logo} style={{ borderRadius: "20px" }}></Images>
-                <h3>What is D4D?</h3>
-                <p>Learn more about our organisation!</p>
-                <a href="/about">Read more about D4D here</a>
+                <a href="/about"><h3>What is D4D?</h3></a>
+                <p className="text-center">Learn more about<br></br> our organisation!</p>
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-xs-12 col-sm-6 col-md-3">
                 <Images src={Sports} style={{ borderRadius: "20px" }}></Images>
-                <h3>Sports</h3>
-                <p>Try different sports and choose what you like the most!</p>
-                <a href="SportParalympics">Learn about Paralympics</a>
+                <a href="SportParalympics"><h3>Sports</h3></a>
+                <p className="text-center">Try different sports and choose what you like the most!</p>
             </div>
         </div>
-    </div>
+    </div >
 
 )
 

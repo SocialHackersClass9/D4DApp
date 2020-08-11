@@ -4,17 +4,18 @@ import Carousel from '../Components/Carousel';
 import ThreeColumnSection from '../Components/ThreeColumnSection';
 import MidSection from '../Components/MidSection';
 import Inspirational from '../Components/Inspirational';
-import GDPRPolicy from '../Components/GDPR';
-
+import CookieConsentAlert from './CookieConsent';
 
 const home = () => (
     <div className="container-fluid">
-        <GDPRPolicy />
+        <CookieConsentAlert />
         <Navigation />
         <Carousel />
         <ThreeColumnSection />
         <MidSection />
         <Inspirational />
     </div>
-);
+)
+
+
 export default home;

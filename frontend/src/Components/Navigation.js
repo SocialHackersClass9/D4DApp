@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 import './Navigation.css';
 import Logo from '../assets/d4d.jpg';
 import UserLogin from './UserLogin';
@@ -28,8 +28,8 @@ const NavigationBar = () => (
                 <Nav.Item><Nav.Link href="/search">Search Instructor</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/paralympics">Paralympics Sports</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/gdpr">GDPR Policy</Nav.Link></Nav.Item>
-                <Nav.Item>  <UserLogin /></Nav.Item>
-                <Nav.Item>  <UserRegister /></Nav.Item>
+                <Nav.Item> <UserLogin /></Nav.Item>
+                <Nav.Item> <UserRegister /></Nav.Item>
                 {/*  <Nav.Item><h4>GR/EN</h4></Nav.Item> */}
 
             </Nav>

@@ -8,7 +8,7 @@
 }
 .navbar{
     background: #007bff;
-    height:85px; 
+    height:100px; 
 }
 
 .navbar .nav-item .btn {
@@ -21,8 +21,23 @@
     display: -moz-box;
     display: -ms-flexbox;
     font-size:1.5em;
-    background: #007bff;
+    
 }
+ @media (max-width: 768px) {
+  
+    .navbar .nav-item .btn {
+      background: #007bff;
+        width:100%;
+      border-radius: 0px;
+    }
+  }
+  @media (max-width: 576px) {
+      .navbar .nav-item .btn{
+      background: #007bff;
+      width:100%;
+      border-radius: 0px;    
+    }
+  }
 .username{
     color: #fcf8f8;
     font-size:1.5em;

@@ -2,20 +2,21 @@ import React from 'react';
 import "./GDPR.css";
 
 export default function GDPRPolicy() {
-return (
-	<div className="sepNav">
-		<div className="container">
-			<article className="container-fluid">
-				<h1>INFORMATION & DECLARATION OF CONSENT <br></br>CONCERNING PERSONAL DATA</h1>
+	return (
+		<div className="sepNav">
+			<div className="container">
+				<article className="container-fluid">
+					<h1>INFORMATION & DECLARATION OF CONSENT <br></br>CONCERNING PERSONAL DATA</h1>
 					<section className="text-left gdprRules">
-						The Athletic Association of Persons with Disabilities HERODIKOS which is based in the city of Komotini, on Marasli and Pyrgou street (corner), with TIN. 998738678 Δ.Ο.Υ. Komotini and contact phone 2531036909 legally represented by the Chairman of the Board. Michael Ragoussi (hereinafter referred to as the "Association" or "us"), acting as the Editor solely for the purposes of this application and the website linked to it, collects, stores, uses and generally processes personal data your
-						{/* Maybe some text is missing here */}
+
 						<ol>
+							<p className="GdprP">The Athletic Association of Persons with Disabilities HERODIKOS which is based in the city of Komotini, on Marasli and Pyrgou street (corner), with TIN. 998738678 Δ.Ο.Υ. Komotini and contact phone 2531036909 legally represented by the Chairman of the Board. Michael Ragoussi (hereinafter referred to as the "Association" or "us"), acting as the Editor solely for the purposes of this application and the website linked to it, collects, stores, uses and generally processes your personal data.
+						</p>
 							<li>
 								We take care to collect only Data that is absolutely necessary for the service of the purpose for which they were given and are used exclusively for the purposes for which they have been collected and in particular:
 								<ul>
 									<li>
-										Identification data: Name, date of birth, police ID or passport number, TIN, IP Address… etc
+										Identification data: Name, date of birth, police ID or passport number, TIN, IP Address etc.
 									</li>
 									<li>
 										Contact Data: address, phone, email etc.
@@ -25,11 +26,7 @@ return (
 									</li>
 									<li>
 										Data necessary for the processing of Applications for participation in Sports Activities:
-										<ul>
-											<li>
-												Information necessary for the management of applications for participation in Sports Activities which may also contain Sensitive Personal Data (Medical Certificates).
-											</li>
-										</ul>
+										Information necessary for the management of applications for participation in Sports Activities which may also contain Sensitive Personal Data (Medical Certificates).
 									</li>
 								</ul>
 							</li>
@@ -70,16 +67,17 @@ return (
 									<li>
 										Right to the portability of your data: Your right to request that your data be sent to a third party (eg another company).
 									</li>
-								</ul>
-								<p>
-									When you submit a request exercising any of the above rights, the Association must respond to you within one (1) month either by satisfying the right or by reasonably rejecting the request or explaining the reasons for the delay. In any case of delay, however, the Association must respond positively or negatively within 3 months of the request.
+								</ul></li>
+							<br></br>
+							<p className="GdprP">
+								When you submit a request exercising any of the above rights, the Association must respond to you within one (1) month either by satisfying the right or by reasonably rejecting the request or explaining the reasons for the delay. In any case of delay, however, the Association must respond positively or negatively within 3 months of the request.
 								</p>
-							</li>
-					</ol>
-				</section>
-			</article>
+
+						</ol>
+					</section>
+				</article>
+			</div>
 		</div>
-	</div>
 	)
 }
 

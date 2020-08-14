@@ -42,7 +42,7 @@ const Foot = () => (
 
         </div>
         <div className="footer-bottom">
-          <p>
+          <p style={{ fontSize: "medium" }}>
             &copy;{new Date().getFullYear()} D4D App - All Rights Reserved.
          </p>
         </div>

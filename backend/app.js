@@ -385,30 +385,51 @@ let instructorAuth = (res, row) => {
 //google authentica,usertion
 
 app.get(
-  "/auth/google/student",
+  "/auth/google/callback",
   passport.authenticate("google", {
     scope: ["profile", "email"],
     callbackURL: "http://localhost:3001/auth/google/student/callback",
   })
 );
 app.get(
-  "/auth/google/student/callback",
+  "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/",
     callbackURL: "http://localhost:3001/auth/google/student/callback",
   }),
 
   function (req, res) {
-    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
+    params = [userProfile.emails[0].value];
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email=?`;
+    con.query(sql, params, (err, result) => {
       if (err) console.log(err);
-      if (result.length !== 0) {
-        studentAuth(res, result);
+      if (result.length > 0) {
+        row = result[0];
+        res.json({
+          is_authenticated: true,
+          user: {
+            user_name: row.user_name,
+            user_type: "student",
+            email: row.email,
+          },
+        });
       } else {
-        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          res.send("you are registered as student for this app");
+        sql =
+          "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
+        con.query(sql, params, (err, result) => {
+          if (result.length > 0) {
+            row = result[0];
+            res.json({
+              is_authenticated: true,
+              user: {
+                user_name: row.user_name,
+                user_type: "instructor",
+                email: row.email,
+              },
+            });
+          } else {
+            res.json({ is_authenticated: false });
+          }
         });
       }
     });
@@ -416,36 +437,7 @@ app.get(
 );
 
 app.get(
-  "/auth/google/instructor",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-    callbackURL: "http://localhost:3001/auth/google/instructor/callback",
-  })
-);
-app.get(
-  "/auth/google/instructor/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/",
-    callbackURL: "http://localhost:3001/auth/google/instructor/callback",
-  }),
-  function (req, res) {
-    let sql = `SELECT user_name,email,first_name,last_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
-      if (err) console.log(err);
-      if (result.length !== 0) {
-        instructorAuth(res, result);
-      } else {
-        let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          res.send("you are registered as instructor for this app");
-        });
-      }
-    });
-  }
-);
-app.get(
-  "/auth/facebook/student",
+  "/auth/facebook",
   passport.authenticate("facebook", {
     scope: ["email"],
     callbackURL: "http://localhost:3001/auth/facebook/student/callback",
@@ -453,59 +445,49 @@ app.get(
 );
 
 app.get(
-  "/auth/facebook/student/callback",
+  "/auth/facebook/callback",
   passport.authenticate("facebook", {
     failureRedirect: "/",
     callbackURL: "http://localhost:3001/auth/facebook/student/callback",
   }),
   function (req, res) {
-    console.log(userProfile);
-    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
+    params = [userProfile.emails[0].value];
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email=?`;
+    con.query(sql, params, (err, result) => {
       if (err) console.log(err);
-      if (result.length !== 0) {
-        studentAuth(res, result);
+      if (result.length > 0) {
+        row = result[0];
+        res.json({
+          is_authenticated: true,
+          user: {
+            user_name: row.user_name,
+            user_type: "student",
+            email: row.email,
+          },
+        });
       } else {
-        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          res.send("you are registered as student for this app");
+        sql =
+          "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
+        con.query(sql, params, (err, result) => {
+          if (result.length > 0) {
+            row = result[0];
+            res.json({
+              is_authenticated: true,
+              user: {
+                user_name: row.user_name,
+                user_type: "instructor",
+                email: row.email,
+              },
+            });
+          } else {
+            res.json({ is_authenticated: false });
+          }
         });
       }
     });
   }
 );
 
-app.get(
-  "/auth/facebook/instructor",
-  passport.authenticate("facebook", {
-    scope: ["email"],
-    callbackURL: "http://localhost:3001/auth/facebook/instructor/callback",
-  })
-);
-
-app.get(
-  "/auth/facebook/instructor/callback",
-  passport.authenticate("facebook", {
-    failureRedirect: "/",
-    callbackURL: "http://localhost:3001/auth/facebook/instructor/callback",
-  }),
-  function (req, res) {
-    let sql = `SELECT user_name,email,first_name,last_name FROM instructors WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
-      if (err) console.log(err);
-      if (result.length !== 0) {
-        instructorAuth(res, result);
-      } else {
-        let sql2 = `INSERT INTO instructors (first_name,last_name,email,user_name,gender,year_of_birth) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}","male",1990)`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          res.send("you are registered as instructor for this app");
-        });
-      }
-    });
-  }
-);
 ////////////////////////
 
 app.listen(port, () =>

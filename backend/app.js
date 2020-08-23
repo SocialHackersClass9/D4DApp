@@ -359,43 +359,21 @@ app.get("/locations", function (req, resp, next) {
   });
 });
 
-let studentAuth = (res, row) => {
-  res.json({
-    is_authenticated: true,
-    user: {
-      user_name: row.user_name,
-      user_type: "student",
-      email: row.email,
-    },
-  });
-};
-
-let instructorAuth = (res, row) => {
-  res.json({
-    is_authenticated: true,
-    user: {
-      user_name: row.user_name,
-      user_type: "instructor",
-      email: row.email,
-    },
-  });
-};
-
 ////////////////////////
 //google authentica,usertion
 
 app.get(
-  "/auth/google/callback",
+  "/auth/google",
   passport.authenticate("google", {
     scope: ["profile", "email"],
-    callbackURL: "http://localhost:3001/auth/google/student/callback",
+    callbackURL: "http://localhost:3001/auth/google/callback",
   })
 );
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/",
-    callbackURL: "http://localhost:3001/auth/google/student/callback",
+    callbackURL: "http://localhost:3001/auth/google/callback",
   }),
 
   function (req, res) {
@@ -440,7 +418,7 @@ app.get(
   "/auth/facebook",
   passport.authenticate("facebook", {
     scope: ["email"],
-    callbackURL: "http://localhost:3001/auth/facebook/student/callback",
+    callbackURL: "http://localhost:3001/auth/facebook/callback",
   })
 );
 
@@ -448,7 +426,7 @@ app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
     failureRedirect: "/",
-    callbackURL: "http://localhost:3001/auth/facebook/student/callback",
+    callbackURL: "http://localhost:3001/auth/facebook/callback",
   }),
   function (req, res) {
     params = [userProfile.emails[0].value];

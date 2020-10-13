@@ -3,64 +3,10 @@ import { useState, useContext } from "react";
 import apis from "../apis.js";
 import AppContext from "../context.js";
 import { Nav } from "react-bootstrap";
-
 import { Modal, Button, Form } from "react-bootstrap";
+import './Navigation.css';
 
-import Styled from "styled-components";
-
-const Styles = Styled.div`
-    .btn{
-        margin: 10px 10px 5px 0;
-    }
-
-    .register .btn{
-        po
-    }
-    
-    
-    
-`;
-const baseUrl = process.env.REACT_APP_API_URL;
-const googleLogin = baseUrl + "/auth/google";
-const facebookLogin = baseUrl + "/auth/facebook";
-
-const UserStatus = () => (
-  <>
-    <Login />
-    <Register />
-  </>
-);
-
-const Register = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <Styles>
-      <Button variant="success" onClick={handleShow}>
-        Register
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Register as</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="register">
-          <Button href="#" variant="outline-success" size="lg" block>
-            User
-          </Button>
-          <Button href="#" variant="outline-primary" size="lg" block>
-            Coach
-          </Button>
-        </Modal.Body>
-      </Modal>
-    </Styles>
-  );
-};
-
-const Login = () => {
+const UserLogin = () => {
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     email: "george@test.com",
@@ -89,21 +35,21 @@ const Login = () => {
       }
     });
   };
-  const baseUrl = process.env.REACT_APP_API_URL;
 
+  const baseUrl = process.env.REACT_APP_API_URL;
   const googleLogin = baseUrl + "/auth/google";
   const facebookLogin = baseUrl + "/auth/facebook";
 
   return (
-    <Styles>
+    <div>
       {context.user == null && (
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="outline-warning" onClick={handleShow}>
           Login
         </Button>
       )}
       {context.user != null && (
-        <Nav.Item>
-          <Nav.Link href="/">{context.user.user_name}</Nav.Link>
+        <Nav.Item className="username">
+          {context.user.user_name}
         </Nav.Item>
       )}
 
@@ -138,19 +84,19 @@ const Login = () => {
               Login
             </Button>
           </Form>
-          <div style={{ marginTop: "1%" }}>
+          <div>
             <a
               href={googleLogin}
               class="btn"
-              style={{ color: "white", backgroundColor: "#dd4b39" }}
+              style={{ color: "white", backgroundColor: "#dd4b39", margin: "15px 10px" }}
             >
-              <i class="fa fa-google fa-fw"></i>Log In with Google
+            <i class="fa fa-google fa-fw"></i>Log In with Google
             </a>
 
             <a
               href={facebookLogin}
               class="btn"
-              style={{ backgroundColor: "#3B5998", color: "white" }}
+              style={{ backgroundColor: "#3B5998", color: "white", margin: "10px" }}
             >
               <i class="fa fa-facebook fa-fw"></i>Log In with Facebook
             </a>
@@ -158,7 +104,7 @@ const Login = () => {
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
-    </Styles>
+    </div>
   );
 };
-export default UserStatus;
+export default UserLogin;

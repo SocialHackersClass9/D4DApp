@@ -1,0 +1,12 @@
+.details {
+        margin: 10px 30px;
+        padding: 10px 30px;
+        font-size: 1.5em;
+        color: black;
+    };
+.details p{
+     text-align: justify;
+}
+.details td {
+      text-align: center;
+}

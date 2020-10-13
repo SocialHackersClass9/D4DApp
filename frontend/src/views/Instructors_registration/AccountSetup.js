@@ -50,17 +50,16 @@ class AccountSetup extends Component {
   request() {
     apis.get('/instructors/used')
       .then(data => {
-          alert("Loaded");
-          console.log("OK");
-            var emailuser = data.emailuser;
-            emailuser.map((i) => {
-            this.setState({emails: [...this.state.emails, i.email] })
-            this.setState({user_names: [...this.state.user_names, i.user_name] })
-            return null;
-            })
+        console.log("OK");
+        var emailuser = data.emailuser;
+        emailuser.map((i) => {
+          this.setState({ emails: [...this.state.emails, i.email] })
+          this.setState({ user_names: [...this.state.user_names, i.user_name] })
+          return null;
+        })
       })
       .catch(err => {
-        alert('database is offline and your registration is not going to save into out database')
+        alert('Sorry, something went wrong!')
       })
 
   }
@@ -77,11 +76,11 @@ class AccountSetup extends Component {
     }
     else {
       let formErrors = { ...this.state.formErrors };
-      alert('you can not let acount setup informations empty !!!')
-      formErrors.user_name = "Username can not be empty !";
-      formErrors.email = "Email can not be empty !";
-      formErrors.password = "Password can not  be empty !";
-      formErrors.conpassword = "Confirm password can not be empty !";
+      alert('Please fill all the fields!')
+      formErrors.user_name = "Username cannot be empty!";
+      formErrors.email = "Email cannot be empty!";
+      formErrors.password = "Password cannot be empty!";
+      formErrors.conpassword = "Confirm password cannot be empty!";
     }
   };
 
@@ -95,19 +94,19 @@ class AccountSetup extends Component {
         if (usernameRegex.test(value)) {
           formErrors.user_name = "";
           if (value.length < 4) {
-            formErrors.user_name = "minimum 3 characaters required";
+            formErrors.user_name = "Minimum 3 characaters required!";
           }
           else if (value.length > 17) {
-            formErrors.user_name = "maximum 16 characters required";
+            formErrors.user_name = "Maximum 16 characters required!";
           }
           else if (this.state.user_names.indexOf(value) > -1) {
-            formErrors.user_name = "Entered Username is in use";
+            formErrors.user_name = "Entered username is in use! Please choose a different username.";
           } else {
             formErrors.user_name = ''
           }
         }
         else {
-          formErrors.user_name = 'Enter a valid Username'
+          formErrors.user_name = 'Enter a valid username, no capital letters allowed!'
         }
         break;
 
@@ -115,22 +114,22 @@ class AccountSetup extends Component {
         if (emailRegex.test(value)) {
           formErrors.email = "";
           if (this.state.emails.indexOf(value) > -1) {
-            formErrors.email = "Entered E-mail is already using"
+            formErrors.email = "Entered e-mail is already in use!"
           }
         }
         else {
-          formErrors.email = "Enter a vaild E-mail"
+          formErrors.email = "Enter a vaild e-mail!"
         }
         break;
 
       case "conpassword":
         formErrors.conpassword =
-          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same whith you choosen password" : ""
+          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same whith you choosen password!" : ""
         break;
 
       case "password":
         formErrors.password =
-          value.length < 5 ? "minimum 6 characaters required" : ""
+          value.length < 5 ? "Minimum 6 characaters required!" : ""
         break;
       default:
         break;
@@ -141,83 +140,85 @@ class AccountSetup extends Component {
   render() {
     const { formErrors } = this.state;
     return (
-      <form id='form'>
-        <div className="form-container">
-          <h1 className="mb-5">Account Setup</h1>
-          <div className="form-group">
-            <label htmlFor="name">Email</label>
-            <input
-              className={'form-control'}
-              placeholder="Email"
-              type="email"
-              name="email"
-              noValidate
-              required
-              onChange={this.props.inputChange('email')}
-              onInput={this.handleChange}
-              value={this.props.values.email}
-            />
-            {formErrors.email.length > 0 && (
-              <span className="errorMessage">{formErrors.email}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Username</label>
-            <input
-              type="username"
-              className={'form-control'}
-              placeholder="Username"
-              type="text"
-              name="user_name"
-              noValidate
-              onChange={this.props.inputChange('user_name')}
-              onInput={this.handleChange}
-              value={this.props.values.user_name}
-              required
-            />
-            {formErrors.user_name.length > 0 && (
-              <span className="errorMessage">{formErrors.user_name}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password"
-              className={'form-control'}
-              placeholder="Password"
-              type="password"
-              name="password"
-              noValidate
-              onChange={this.props.inputChange('password')}
-              onInput={this.handleChange}
-              value={this.props.values.password}
-              required
-            />
-            {formErrors.password.length > 0 && (
-              <span className="errorMessage">{formErrors.password}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <label htmlFor="conpassword">Confirm Password</label>
-            <input type="password"
-              className={'form-control'}
-              placeholder="Reenter Password"
-              type="password"
-              name="conpassword"
-              noValidate
-              onChange={this.props.inputChange('conpassword')}
-              onInput={this.handleChange}
-              value={this.props.values.conpassword}
-              required
-            />
-            {formErrors.conpassword.length > 0 && (
-              <span className="errorMessage">{formErrors.conpassword}</span>
-            )}
-          </div>
+      <div className="sepNav">
+        <form id='form'>
+          <div className="form-container">
+            <h1 className="mb-5">Instructor Account Setup</h1>
+            <div className="form-group">
+              <label htmlFor="name">Email</label>
+              <input
+                className={'form-control'}
+                placeholder="Email"
+                type="email"
+                name="email"
+                noValidate
+                required
+                onChange={this.props.inputChange('email')}
+                onInput={this.handleChange}
+                value={this.props.values.email}
+              />
+              {formErrors.email.length > 0 && (
+                <span className="errorMessage">{formErrors.email}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Username</label>
+              <input
+                type="username"
+                className={'form-control'}
+                placeholder="Username"
+                type="text"
+                name="user_name"
+                noValidate
+                onChange={this.props.inputChange('user_name')}
+                onInput={this.handleChange}
+                value={this.props.values.user_name}
+                required
+              />
+              {formErrors.user_name.length > 0 && (
+                <span className="errorMessage">{formErrors.user_name}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input type="password"
+                className={'form-control'}
+                placeholder="Password"
+                type="password"
+                name="password"
+                noValidate
+                onChange={this.props.inputChange('password')}
+                onInput={this.handleChange}
+                value={this.props.values.password}
+                required
+              />
+              {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="conpassword">Confirm Password</label>
+              <input type="password"
+                className={'form-control'}
+                placeholder="Re-enter Password"
+                type="password"
+                name="conpassword"
+                noValidate
+                onChange={this.props.inputChange('conpassword')}
+                onInput={this.handleChange}
+                value={this.props.values.conpassword}
+                required
+              />
+              {formErrors.conpassword.length > 0 && (
+                <span className="errorMessage">{formErrors.conpassword}</span>
+              )}
+            </div>
 
-          <br />
-          <button type="button" onClick={this.Continue} class="btn btn-primary btn-lg btn-block">Continue</button>
-        </div>
-      </form>
+            <br />
+            <button type="button" onClick={this.Continue} class="btn btn-primary btn-lg btn-block">Continue</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

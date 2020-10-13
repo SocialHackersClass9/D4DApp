@@ -43,21 +43,21 @@ const Jumbotron = () => (
 
 
     <Styles>
-        
-        <div  className="jumbo container-fluid">
+
+        <div className="jumbo container-fluid">
             <div className="overlay"></div>
             <div className="text container-fluid">
                 <h1><strong>Welcome to D4D</strong></h1>
                 <p><strong>Find your coach and start training today</strong></p>
             </div>
-            
-            
-           
+
+
+
         </div>
-      
-        
+
+
     </Styles>
-    
+
 )
 
 export default Jumbotron;

@@ -1,0 +1,48 @@
+.navbar .nav-item .nav-link {
+    color: #fcf8f8;
+    font-size:1.5em;
+    font-weight:bold;
+    text-align:center;
+    padding-left:1em; 
+    background: #007bff; 
+}
+.navbar{
+    background: #007bff;
+    height:100px; 
+}
+
+.navbar .nav-item .btn {
+    border-radius: 10px;
+   text-align:center;
+   font-weight:bold;
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    font-size:1.5em;
+    
+}
+ @media (max-width: 768px) {
+  
+    .navbar .nav-item .btn {
+      background: #007bff;
+        width:100%;
+      border-radius: 0px;
+    }
+  }
+  @media (max-width: 576px) {
+      .navbar .nav-item .btn{
+      background: #007bff;
+      width:100%;
+      border-radius: 0px;    
+    }
+  }
+.username{
+    color: #fcf8f8;
+    font-size:1.5em;
+    font-weight:bold;
+    text-align:center;
+    padding-left:1em; 
+    background: #007bff;
+}

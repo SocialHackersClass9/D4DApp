@@ -124,12 +124,12 @@ class AccountSetup extends Component {
 
       case "conpassword":
         formErrors.conpassword =
-          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same whith you choosen password!" : ""
+          value !== this.state.password && value.length > 0 ? "Your confirmed password should be the same with you choosen password!" : ""
         break;
 
       case "password":
         formErrors.password =
-          value.length < 5 ? "Minimum 6 characaters required!" : ""
+          value.length < 5 ? "Minimum 5 characaters required!" : ""
         break;
       default:
         break;

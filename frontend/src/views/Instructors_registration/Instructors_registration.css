@@ -34,6 +34,16 @@
     
   }
   
+  ul li{
+   font-weight:bold;
+    display: block;
+    width: 90%;
+    height: calc(1.5em + 0.75rem + px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #0c0c0c;
+}
   .form-control {
     font-weight:bold;
     display: block;
@@ -41,7 +51,6 @@
     height: calc(1.5em + 0.75rem + px);
     padding: 0.375rem 0.75rem;
     font-size: 1.5rem;
-   font-weight:400;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
@@ -53,10 +62,10 @@
   
   .form-control-select {
     display: block;
-    width: 93%;
+    width: 90%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;

@@ -37,8 +37,7 @@ const UserLogin = () => {
   };
 
   const baseUrl = process.env.REACT_APP_API_URL;
-  const googleLoginStudent = baseUrl + "/auth/google/student";
-  const googleLoginInstructor = baseUrl + "/auth/google/instructor";
+  const googleLogin = baseUrl + "/auth/google";
   const facebookLogin = baseUrl + "/auth/facebook";
 
   return (
@@ -87,20 +86,13 @@ const UserLogin = () => {
           </Form>
           <div>
             <a
-              href={googleLoginStudent}
+              href={googleLogin}
               class="btn"
               style={{ color: "white", backgroundColor: "#dd4b39", margin: "15px 10px" }}
             >
-              <i class="fa fa-google fa-fw"></i>Log In with Google as Student
+            <i class="fa fa-google fa-fw"></i>Log In with Google
             </a>
 
-            <a
-              href={googleLoginInstructor}
-              class="btn"
-              style={{ color: "white", backgroundColor: "#dd4b39", margin: "10px" }}
-            >
-              <i class="fa fa-google fa-fw"></i>Log In with Google as Instructor
-            </a>
             <a
               href={facebookLogin}
               class="btn"

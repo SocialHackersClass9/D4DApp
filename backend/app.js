@@ -54,31 +54,6 @@ passport.use(
     }
   )
 );
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
-  function (req, res) {
-    let sql = `SELECT user_name FROM students WHERE email="${userProfile.emails[0].value}"`;
-    con.query(sql, (err, result) => {
-      if (err) console.log(err);
-      if (result.length !== 0) {
-        res.send("you are validated as student ...");
-      } else {
-        let sql2 = `INSERT INTO students (first_name,last_name,email,user_name) VALUES ("${userProfile.name.givenName}","${userProfile.name.familyName}","${userProfile.emails[0].value}","${userProfile.displayName}")`;
-        con.query(sql2, (err, result) => {
-          if (err) console.log(err);
-          if (result.length != 0) {
-            res.send("you are registered to the website");
-          }
-        });
-      }
-    });
-  }
-);
 //////////////
 //authentication with facebook
 passport.use(
@@ -86,22 +61,15 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:3001/auth/facebook/callback",
+
+      profileFields: ["id", "displayName", "photos", "email", "gender"],
+
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;
       return done(null, userProfile);
     }
   )
-);
-app.get("/auth/facebook", passport.authenticate("facebook"));
-app.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.send("you are validated");
-  }
 );
 ////////////////////////////////
 //routes
@@ -198,10 +166,12 @@ app.post("/login", (req, res) => {
 var transporter = nodemailer.createTransport(mailtransport);
 app.post("/contact", (req, res) => {
   const msg = {
+
     to: "nyx5437@gmail.com",
     from: req.body.email,
     subject: req.body.subject,
     text: req.body.message,
+
   };
   transporter.sendMail(mail, (err, data) => {
     if (err) {
@@ -360,9 +330,113 @@ app.get("/locations", function (req, resp, next) {
   });
 });
 ////////////////////////
-app.get("/", (req, res) => {
-  res.json({ greeting: "Hello World!" });
-});
+
+//google authentication
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    callbackURL: "http://localhost:3001/auth/google/callback",
+  })
+);
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/google/callback",
+  }),
+
+  function (req, res) {
+    params = [userProfile.emails[0].value];
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email=?`;
+    con.query(sql, params, (err, result) => {
+      if (err) console.log(err);
+      if (result.length > 0) {
+        row = result[0];
+        res.json({
+          is_authenticated: true,
+          user: {
+            user_name: row.user_name,
+            user_type: "student",
+            email: row.email,
+          },
+        });
+      } else {
+        sql =
+          "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
+        con.query(sql, params, (err, result) => {
+          if (result.length > 0) {
+            row = result[0];
+            res.json({
+              is_authenticated: true,
+              user: {
+                user_name: row.user_name,
+                user_type: "instructor",
+                email: row.email,
+              },
+            });
+          } else {
+            res.json({ is_authenticated: false });
+          }
+        });
+      }
+    });
+  }
+);
+
+app.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", {
+    scope: ["email"],
+    callbackURL: "http://localhost:3001/auth/facebook/callback",
+  })
+);
+
+app.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", {
+    failureRedirect: "/",
+    callbackURL: "http://localhost:3001/auth/facebook/callback",
+  }),
+  function (req, res) {
+    params = [userProfile.emails[0].value];
+    let sql = `SELECT user_name,email,first_name,last_name FROM students WHERE email=?`;
+    con.query(sql, params, (err, result) => {
+      if (err) console.log(err);
+      if (result.length > 0) {
+        row = result[0];
+        res.json({
+          is_authenticated: true,
+          user: {
+            user_name: row.user_name,
+            user_type: "student",
+            email: row.email,
+          },
+        });
+      } else {
+        sql =
+          "SELECT user_name, email FROM instructors WHERE email=? AND password=?";
+        con.query(sql, params, (err, result) => {
+          if (result.length > 0) {
+            row = result[0];
+            res.json({
+              is_authenticated: true,
+              user: {
+                user_name: row.user_name,
+                user_type: "instructor",
+                email: row.email,
+              },
+            });
+          } else {
+            res.json({ is_authenticated: false });
+          }
+        });
+      }
+    });
+  }
+);
+
 ////////////////////////
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)

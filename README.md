@@ -11,7 +11,7 @@ This repository contains the Code of the project, D4DApp, as a result of the col
 
 ### Install packages
 
-Run `npm install` to install neccessary packages:
+Go to the backend directory via `cd backend` and run `npm install` to install neccessary packages:
 
 * body-parser
 * cors
@@ -40,7 +40,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Install packages
 
-Run `npm install` to install neccessary packages.
+Go to the frontend directory via `cd frontend` and run `npm install` to install neccessary packages.
 
 * bootstrap
 

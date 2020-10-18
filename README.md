@@ -22,7 +22,7 @@ Go to the backend directory via `cd backend` and run `npm install` to install ne
 
 ### Configuration
 
-1. Copy *.env.examle* to *.env.local*
+1. Copy *.env.example* to *.env.local*
 2. Change parameters in *.env.local* if needed for your local installation
 
 
@@ -46,7 +46,7 @@ Go to the frontend directory via `cd frontend` and run `npm install` to install 
 
 ### Configuration
 
-1. Copy *.env.examle* to *.env.local*
+1. Copy *.env.example* to *.env.local*
 2. Change parameters in *.env.local* if needed for your local installation
 
 ### Run

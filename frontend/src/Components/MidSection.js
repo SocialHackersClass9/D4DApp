@@ -7,7 +7,7 @@ const Styles = styled.div`
     background:url(${Paralympics}) no-repeat fixed bottom;
     background-size:cover;
     color:#efefef;
-    height:250px;
+    height:450px;
     position:relative;
     z-index: -2;
     
@@ -35,11 +35,11 @@ const MidSection = () => (
 
 
     <Styles>
-        
+
         <div className="jumbo container-fluid">
             <div className="overlay"></div>
         </div>
-        
+
     </Styles>
 )
 

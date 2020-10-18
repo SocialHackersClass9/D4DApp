@@ -1,0 +1,107 @@
+.container-fluid {
+  padding-top: 30px;
+  margin-top: 35px;
+}
+
+.titleh1{
+  padding-bottom: 2rem;
+}
+.row p{
+  text-align: left;
+  padding-bottom: 2rem;
+}
+.row1 p{
+  text-align: left;
+  padding-bottom: 2rem;
+}
+
+
+.images {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: flex;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.images h1{
+  padding-top: 1rem;
+}
+.sepNav {
+  margin: 100px 10px 30px 10px;
+}
+
+.history {
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 0rem;
+  position: relative ;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.history h1{
+  padding-top: 2rem;
+}
+p{
+  font-size: 20px;
+}
+table,
+td,
+th {
+  text-align: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  /* display: table-cell; */
+}
+.row1 h2 {
+  font-size: 2.5rem;
+  text-align: left;
+}
+
+.details-ul1 {
+  color: #000000;
+}
+.linkk:hover {
+  color: rgb(0, 104, 240);
+}
+.details-ul {
+  text-decoration: none;
+  list-style: none;
+}
+.details-ul h6,
+li {
+  color: #000000;
+}
+th {
+  width: 5%;
+}
+
+.row1 ul {
+  text-align: left;
+  font-size: 1.75rem;
+}
+.row1 li{
+  list-style: none;
+  padding-right: 1rem;
+
+}
+.read-more-link {
+  color: blueviolet;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.read-more-link  h3{
+text-align: left;
+}
+.extra-content {
+  color: rgb(54, 54, 54);
+  text-align: left;
+  
+}

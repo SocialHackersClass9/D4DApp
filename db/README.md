@@ -4,9 +4,9 @@ Migration tool: [db-migrate](https://db-migrate.readthedocs.io/)
 
 
 Attention:
-You have to install db-migrate globally also to use `db-migrate` command
+You have to install db-migrate globally also to use `db-migrate-mysql` command
 ```
-npm install -g db-migrate
+npm install -g db-migrate-mysql
 ```
 
 
@@ -56,3 +56,11 @@ db-migrate create NAME-OF-MIGRATION --sql-file
 
 
 See db-migrations documentation for other commands: [Documentation](https://db-migrate.readthedocs.io/en/latest/Getting%20Started/commands/)
+
+
+### Setup sample data
+
+
+```
+mysql d4d -u XXXXX -p < db/sample_data.sql
+```

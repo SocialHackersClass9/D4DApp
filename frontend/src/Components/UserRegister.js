@@ -25,7 +25,7 @@ const UserRegister = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex justify-content-around">
-                        <Button variant="primary" href="/student_registration" size="lg">
+                        <Button variant="primary" href="/StudentRegistration" size="lg">
                             User
                     </Button>
                         <Button variant="primary" href="/instructors_registration" size="lg">

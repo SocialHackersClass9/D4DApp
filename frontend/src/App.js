@@ -75,7 +75,7 @@ function App() {
             <Route exact path="/instructors_registration">
               <InstructorsRegistration />
             </Route>
-            <Route exact path="/student_registration">
+            <Route exact path="/StudentRegistration">
               <StudentRegistration />
             </Route>
             <Route exact path="/about">

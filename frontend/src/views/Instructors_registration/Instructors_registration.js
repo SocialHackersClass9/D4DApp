@@ -42,7 +42,7 @@ export class Instructors_registration extends Component {
         apis.post(
             '/instructors/upload/data',
             {
-                email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, locations, sports, details, photo: `/backed/Coach_Profile_images/${photo}` 
+                email, user_name, password, first_name, last_name, year_of_birth, region_id, phone, education, gender, street, street_number, zip, occupation, locations, sports, details, photo: `/backed/Coach_Profile_images/${photo}`
             }
         );
     };
@@ -57,34 +57,34 @@ export class Instructors_registration extends Component {
         }
         else if (input === 'sports') {
 
-            if(e != null){
+            if (e != null) {
 
-            if (e.length != 0) {
-             e.map(i => { this.setState({ sports: [...this.state.sports, i.value], sports_name : [...this.state.sports_name ,i.name]}) })
+                if (e.length != 0) {
+                    e.map(i => { this.setState({ sports: [...this.state.sports, i.value], sports_name: [...this.state.sports_name, i.name] }) })
+                }
+                else {
+                    this.setState({ sports: [], sports_name: [] })
+                }
             }
-            else{
-            this.setState({ sports: [] , sports_name : []})
-         }
-         }
-          else {
-                this.setState({ sports: [] , sports_name : [] })
+            else {
+                this.setState({ sports: [], sports_name: [] })
             }
         }
 
 
         else if (input === 'locations') {
 
-            if(e != null){
+            if (e != null) {
 
-            if (e.length != 0) {
-                e.map(i => { this.setState({ locations: [...this.state.locations, i.value] , locations_name : [...this.state.locations_name ,i.name] }) })
+                if (e.length != 0) {
+                    e.map(i => { this.setState({ locations: [...this.state.locations, i.value], locations_name: [...this.state.locations_name, i.name] }) })
+                }
+                else {
+                    this.setState({ locations: [], locations_name: [] })
+                }
             }
-            else{
-            this.setState({ locations: [], locations_name : [] })
-         }
-         }
-          else {
-                this.setState({ locations: [], locations_name : []})
+            else {
+                this.setState({ locations: [], locations_name: [] })
             }
         }
 
@@ -98,8 +98,8 @@ export class Instructors_registration extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, user_name, password, conpassword, first_name, last_name, year_of_birth, place_of_birth, phone, sports, education, gender, street, street_number, zip, region_id, occupation, details, locations, photo , sports_name ,locations_name} = this.state;
-        const values = { email, user_name, password, conpassword, first_name, last_name, year_of_birth, place_of_birth, phone, sports, education, gender, street, street_number, zip, region_id, occupation, details, locations, photo, sports_name ,locations_name };
+        const { email, user_name, password, conpassword, first_name, last_name, year_of_birth, place_of_birth, phone, sports, education, gender, street, street_number, zip, region_id, occupation, details, locations, photo, sports_name, locations_name } = this.state;
+        const values = { email, user_name, password, conpassword, first_name, last_name, year_of_birth, place_of_birth, phone, sports, education, gender, street, street_number, zip, region_id, occupation, details, locations, photo, sports_name, locations_name };
 
         switch (step) {
             case 1:

@@ -51,7 +51,6 @@ function SocialProfiles(props) {
                 <form id='form'>
                     <div className="form-container">
                         <h1 className="mb-5">More Information</h1>
-                        {/* <h6 id="h6_more">this part is fully optional </h6> */}
 
                         <div className="form-group">
                             <label htmlFor="phone">Phone Number</label>

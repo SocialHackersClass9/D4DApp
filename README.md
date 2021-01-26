@@ -1,5 +1,5 @@
 ![SHA Logo](./assets/SHA.jpg)
-![SHA Logo](./assets/irodikos.jpg)
+![SHA Logo](./assets/irodikos-logo.jpg)
 ![SHA Logo](./assets/vodafone.jpg)
 
 # The D4DApp Project
